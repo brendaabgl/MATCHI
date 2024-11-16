@@ -200,17 +200,43 @@ button:hover {
     justify-content: center;
 }
 
+/* Untuk Promotion .small */
 .promotion.small {
-    background-image: url('images/handBag.jpg');
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* Pastikan tidak ada elemen yang meluap */
+    height: 100%; /* Pastikan gambar mengisi penuh container */
 }
 
+.promotion.small img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Agar gambar tampil utuh tanpa terpotong */
+    object-position: center; /* Memastikan gambar selalu terpusat */
+}
+
+/* Untuk Promotion .wide */
 .promotion.wide {
-    background-image: url('images\Accessories.jpg');
-    grid-column: 2 / 4;
-    background-size: cover;
-    background-position: center;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    height: 100%; /* Pastikan gambar mengisi penuh container */
 }
 
+.promotion.wide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Agar gambar tampil utuh tanpa terpotong */
+    object-position: center;
+}
+
+/* Untuk Overlay */
 .promotion .overlay {
     background: rgba(0, 0, 0, 0.6);
     color: white;
@@ -222,7 +248,11 @@ button:hover {
     justify-content: center;
     padding: 10px;
     text-align: center;
+    position: absolute; /* Agar overlay tetap di atas gambar */
+    top: 0;
+    left: 0;
 }
+
 
 .discount-tag {
     background-color: #ff4d4d;
