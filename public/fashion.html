@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pieces List</title>
+  <link rel="stylesheet" href="style.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
+</head>
+<body ng-controller="PiecesController"> 
+
+  <h1 id="Header">Pieces Collection</h1>
+  <h2>Add a New Piece</h2>
+  <form ng-submit="addPiece()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" ng-model="newName" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" ng-model="newDescription" required></textarea>
+
+    <label for="image">Image URL:</label>
+    <input type="text" id="image" ng-model="newImage" required>
+
+    <label for="colors">Colors (comma separated):</label>
+    <input type="text" id="colors" ng-model="newColors" required>
+
+    <label for="tags">Tags (comma separated):</label>
+    <input type="text" id="tags" ng-model="newTags" required>
+
+    <button type="submit">Add Piece</button>
+  </form>
+  <ul id="piecesList">
+    <li ng-repeat="piece in pieces"> 
+      <h2>{{ piece.Name }}</h2>
+      <p>{{ piece.Description }}</p>
+      <img ng-src="../images/{{ piece.Image }}" alt="{{ piece.Name }}" style="width: 100px; height: auto;">
+      <p>Colors: {{ piece.Color.join(', ') }}</p>
+      <p>Tags: {{ piece.Tags.join(', ') }}</p>
+    </li>
+  </ul>
+
+  <h2>Pieces with "Spring" Tag</h2>
+<ul id="springPiecesList">
+  <li ng-repeat="spring in springs">
+    <h2>{{ spring.Name }}</h2>
+    <p>{{ spring.Description }}</p>
+    <img ng-src="../images/{{ spring.Image }}" alt="{{ spring.Name }}" style="width: 100px; height: auto;">
+    <p>Colors: {{ spring.Color.join(', ') }}</p>
+    <p>Tags: {{ spring.Tags.join(', ') }}</p>
+  </li>
+</ul>
+
+  <script src="app.js"></script> 
+</body>
+</html>
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
+</head>
+<body>
+    
+</body>
+</html>
