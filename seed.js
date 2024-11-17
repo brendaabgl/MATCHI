@@ -29,9 +29,9 @@ async function initializeDatabase() {
     const collection = db.collection('pieces');
 
     const initialData = [
-        {Name: "Emily Top", Description: "Sleeveless tube top with the color selection of pink, green, and blue. With subtle floral pattern", Image: "emilytop.jpg", Color: ["pink", "green", "blue"], Tags: ["spring", "casual", "y2k", "coquette"], Material: "cotton"},
-        {Name: "Racer Baby Tee", Description: "A racer themed body-fitted mini t-shirt", Image: "racerbtee.jpg", Color: ["black", "grey"], Tags: ["streetwear", "casual", "acubi", "t-shirt"], Material: "Nylon"},
-        {Name: "Oversized Snoopy Hoodie", Description: "Oversized thick snoopy hoodie that is very comfortable", Image: "snoopyhoodie.jpg", Color: ["brown", "green"], Tags: ["comfortable", "casual", "homewear"], Material: "Synthetic"},
+        {Name: "Emily Top", NameId: "EmilyTop", Description: "Sleeveless tube top with the color selection of pink, green, and blue. With subtle floral pattern", Image: "emilytop.jpeg", Color: ["pink", "green", "blue"], Tags: ["spring", "casual", "y2k", "coquette"], Material: "Cotton"},
+        {Name: "Racer Baby Tee", NameId: "RacerBabyTee", Description: "A racer themed body-fitted mini t-shirt", Image: "racerbtee.jpeg", Color: ["black", "grey"], Tags: ["streetwear", "casual", "acubi", "t-shirt"], Material: "Nylon"},
+        {Name: "Oversized Snoopy Hoodie", NameId: "OversizedSnoopyHoodie", Description: "Oversized thick snoopy hoodie that is very comfortable", Image: "snoopyhoodie.jpeg", Color: ["brown", "green"], Tags: ["comfortable", "casual", "homewear"], Material: "Synthetic"},
     ];
 
     try {

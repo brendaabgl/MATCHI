@@ -1,20 +1,30 @@
 angular.module('myApp', [])
-  .controller('PiecesController', function($scope, $http) {
-    // Fetch data from the server
+.controller('PiecesController', function($scope, $http) {
     $http.get('http://localhost:3000/pieces')
       .then(function(response) {
-        // Store the fetched pieces in the $scope object
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+        console.log("Name from URL:", name);
+
         $scope.pieces = response.data;
 
-        // Filter pieces with the "spring" tag
-        $scope.springs = $scope.pieces.filter(piece => piece.Tags.includes("spring"));
-        console.log("Filtered pieces with 'spring':", $scope.springs);
+        if (name) {
+          $scope.outfit = $scope.pieces.find(piece => piece.NameId === name);
+          console.log("Matching piece:", $scope.outfit);
+        }
       })
       .catch(function(error) {
         console.error('Error fetching data:', error);
       });
+    
+    $scope.search = function() {
+      if ($scope.searchQuery) {
+          alert('Searching for: ' + $scope.searchQuery);
+      } else {
+          alert('Please enter a search query.');
+      }
+    };
 
-    // Function to add a new piece
     $scope.addPiece = function() {
       const newPiece = {
         Name: $scope.newName,
@@ -27,10 +37,7 @@ angular.module('myApp', [])
       $http.post('http://localhost:3000/pieces', newPiece)
         .then(function(response) {
           console.log('Piece added:', response.data);
-          // Add the new piece to the pieces array
           $scope.pieces.push(newPiece);
-
-          // Update filtered results for "spring" tag if applicable
           if (newPiece.Tags.includes("spring")) {
             $scope.springs.push(newPiece);
           }
