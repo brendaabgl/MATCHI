@@ -56,7 +56,162 @@
         </nav>
     </header>
     
+    <section ng-controller="CardController">
 
+        <div class="container mt-4">
+            <h2 class="text-center mb-4" style="text-align: center; margin-bottom: 16px; font-family: 'Georgia', serif;">Fashion Through the Seasons</h2>
+            <div id="cards-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                
+                <div class="card" ng-repeat="card in visibleCards" 
+                style="border-radius: 60px; overflow: hidden; height: 350px; width: 250px; margin: 15px; border: 1px solid #000000; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-10px) scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.4)'; this.querySelector('.image').style.transform='scale(1.2)'; this.querySelector('.background-layer').style.opacity='1';" 
+                onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'; this.querySelector('.image').style.transform='scale(1)'; this.querySelector('.background-layer').style.opacity='0';"
+            >
+                    <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px; border-radius: 3px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">🌸/01</p>
+                   <img src="images/b1.jpeg" alt="fashion-img-1" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <h5 style="color: white; font-weight: bold; margin: 5px 0; font-size: 1rem;text-shadow: 2px 2px 5px rgba(0, 0, 0, 10); font-family: 'Georgia', serif;">Springs</h5>
+                        <p style="color: white; margin: 3px 0; font-size: 0.8rem;text-shadow: 2px 2px 5px rgba(0, 0, 0, 10); font-family: 'Georgia', serif;">Bloom with Springs</p>
+                        <a href="#" 
+                        style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; border: 1px solid #000000; transition: all 0.3s ease;" 
+                        onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                        onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                        <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                        </a>  
+                    </div>
+                </div>
+    
+                <div class="card" ng-repeat="card in visibleCards" 
+                style="border-radius: 60px; overflow: hidden; height: 350px; width: 250px; margin: 15px; border: 1px solid #000000; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-10px) scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.4)'; this.querySelector('.image').style.transform='scale(1.2)'; this.querySelector('.background-layer').style.opacity='1';" 
+                onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'; this.querySelector('.image').style.transform='scale(1)'; this.querySelector('.background-layer').style.opacity='0';"
+            >
+                        <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px; border-radius: 3px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">☀/02</p>
+                    <img src="images/b2.jpeg" alt="fashion-img-1" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <h5 style="color: white; font-weight: bold; margin: 5px 0; font-size: 1rem;text-shadow: 2px 2px 5px rgba(0, 0, 0, 10); font-family: 'Georgia', serif;">Summer</h5>
+                        <p style="color: white; margin: 3px 0; font-size: 0.8rem; text-shadow: 2px 2px 5px rgba(0, 0, 0, 10); font-family: 'Georgia', serif;">Hot Trends for Summer</p>
+                        <a href="#" 
+                        style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; border: 1px solid #000000; transition: all 0.3s ease;" 
+                        onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                        onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                        <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                        </a>     
+                     </div>
+                </div>
+    
+                <div class="card" ng-repeat="card in visibleCards" 
+                style="border-radius: 60px; overflow: hidden; height: 350px; width: 250px; margin: 15px; border: 1px solid #000000; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-10px) scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.4)'; this.querySelector('.image').style.transform='scale(1.2)'; this.querySelector('.background-layer').style.opacity='1';" 
+                onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'; this.querySelector('.image').style.transform='scale(1)'; this.querySelector('.background-layer').style.opacity='0';"
+            >
+                    <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px; border-radius: 3px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">🧶/03</p>
+                    <img src="images/b3.jpeg" alt="fashion-img-1" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <h5 style="color: white; font-weight: bold; margin: 5px 0; font-size: 1rem;text-shadow: 2px 2px 5px rgba(0, 0, 0, 10); font-family: 'Georgia', serif;">Rainy</h5>
+                        <p style="color: white; margin: 3px 0; font-size: 0.8rem; text-shadow: 2px 2px 5px rgba(0, 0, 0, 10);  font-family: 'Georgia', serif;">Splash in Style</p>
+                        <a href="#" 
+                        style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; border: 1px solid #000000; transition: all 0.3s ease;" 
+                        onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                        onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                        <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                        </a>   
+                    </div>
+                </div>
+    
+                <div class="card" ng-repeat="card in visibleCards" 
+                style="border-radius: 60px; overflow: hidden; height: 350px; width: 250px; margin: 15px; border: 1px solid #000000; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-10px) scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.4)'; this.querySelector('.image').style.transform='scale(1.2)'; this.querySelector('.background-layer').style.opacity='1';" 
+                onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'; this.querySelector('.image').style.transform='scale(1)'; this.querySelector('.background-layer').style.opacity='0';"
+            >
+                    <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px; border-radius: 3px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">🌿/04</p>
+                    <img src="images/b4.jpeg" alt="fashion-img-1" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <h5 style="color: white; font-weight: bold; margin: 5px 0; font-size: 1rem;text-shadow: 2px 2px 5px rgba(0, 0, 0, 10);  font-family: 'Georgia', serif;">Autumn</h5>
+                        <p style="color: white; margin: 3px 0; font-size: 0.8rem; text-shadow: 2px 2px 5px rgba(0, 0, 0, 10);  font-family: 'Georgia', serif;">Falling for Autumn</p>
+                        <a href="#" 
+                        style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; border: 1px solid #000000; transition: all 0.3s ease;" 
+                        onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                        onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                        <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                        </a>  
+                    </div>
+                </div>
+    
+                <div class="card" ng-repeat="card in visibleCards" 
+                style="border-radius: 60px; overflow: hidden; height: 350px; width: 250px; margin: 15px; border: 1px solid #000000; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-10px) scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.4)'; this.querySelector('.image').style.transform='scale(1.2)'; this.querySelector('.background-layer').style.opacity='1';" 
+                onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'; this.querySelector('.image').style.transform='scale(1)'; this.querySelector('.background-layer').style.opacity='0';"
+            >
+                    <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px; border-radius: 3px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">❄/05</p>
+                    <img src="images/b5.jpeg" alt="fashion-img-1" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <h5 style="color: white; font-weight: bold; margin: 5px 0; font-size: 1rem;text-shadow: 2px 2px 5px rgba(0, 0, 0, 10);  font-family: 'Georgia', serif;">Winter</h5>
+                        <p style="color: white; margin: 3px 0; font-size: 0.8rem; text-shadow: 2px 2px 5px rgba(0, 0, 0, 10);  font-family: 'Georgia', serif;">Winter Wardrobe</p>
+                        <a href="#" 
+                        style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; border: 1px solid #000000; transition: all 0.3s ease;" 
+                        onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                        onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                        <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                        </a>  
+                    </div>
+                </div>
+    
+                <div class="card" ng-repeat="card in visibleCards" 
+                style="border-radius: 60px; overflow: hidden; height: 350px; width: 250px; margin: 15px; border: 1px solid #000000; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-10px) scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0, 0, 0, 0.4)'; this.querySelector('.image').style.transform='scale(1.2)'; this.querySelector('.background-layer').style.opacity='1';" 
+                onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'; this.querySelector('.image').style.transform='scale(1)'; this.querySelector('.background-layer').style.opacity='0';"
+            >
+                    <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px; border-radius: 3px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">🏖/06</p>
+                    <img src="images/b6.jpeg" alt="fashion-img-1" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                         <h5 style="color: white; font-weight: bold; margin: 5px 0; font-size: 1rem;text-shadow: 2px 2px 5px rgba(0, 0, 0, 10);  font-family: 'Georgia', serif;">Holiday</h5>
+                        <p style="color: white; margin: 3px 0; font-size: 0.8rem; text-shadow: 2px 2px 5px rgba(0, 0, 0, 10); font-family: 'Georgia', serif;">Celebrate in Style</p>
+                        <a href="#" 
+                        style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; border: 1px solid #000000; transition: all 0.3s ease;" 
+                        onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                        onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                        <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                        </a>  
+                    </div>
+                </div>     
+            </div>
+            <nav class="d-flex justify-content-between mt-3" style="top: -225px; position: relative; height: 0;">
+                <!-- Tombol Sebelumnya -->
+                <a class="btn btn-outline-dark rounded-circle d-flex align-items-center justify-content-center"
+                   href="#" onclick="changePage(1)" 
+                   style="width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; transition: all 0.3s ease; position: absolute; left: 130px; top: 0;"
+                   onmouseover="this.style.backgroundColor='#000';" 
+                   onmouseout="this.style.backgroundColor='white';">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                
+                <!-- Tombol Selanjutnya -->
+                <a class="btn btn-outline-dark rounded-circle d-flex align-items-center justify-content-center"
+                   href="#" onclick="changePage(2)" 
+                   style="width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; transition: all 0.3s ease; position: absolute; right: 130px; top: 0;"
+                   onmouseover="this.style.backgroundColor='#000';" 
+                   onmouseout="this.style.backgroundColor='white';">
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </nav>
+            
+            </div>
+            </div>
+    
+    <script>
+        function selectFilter(btn) {
+            // Reset semua tombol
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.style.backgroundColor = '#eaeaea';
+                button.style.color = 'black';
+            });
+            // Set tombol aktif
+            btn.style.backgroundColor = '#000';
+            btn.style.color = 'white';
+        }
+    </script>
+    </section>
 <!-- <section class="promo" id="home">
     <h1>Season Sale</h1>
     <h2>MEN'S FASHION</h2>
@@ -71,17 +226,15 @@
         <div class="product-card">
             <img src="images\BackpackTan.jpg" alt="Tan Solid Laptop Backpack">
             <p>Tan Solid Laptop Backpack</p>
-            <p>Rp.149.000 - Rp.185.000</p>
         </div>
         <div class="product-card">
             <img src="images\BikerJacket.jpg" alt="Brown Solid Biker Jacket">
             <p>Brown Solid Biker Jacket</p>
-            <p>Rp.110.000 - Rp120.000</p>
         </div>
     </div>
 </section>
 
-<section class="features">
+<!-- <section class="features">
     <div class="feature">
         <img src="images\shipping.jpg" alt="Free Shipping Icon">
         <p>Free Shipping<br><span>On All Orders Over Rp.99.000</span></p>
@@ -98,7 +251,7 @@
         <img src="images\chat.jpg" alt="Online Support Icon">
         <p>Online Support<br><span>24/7 Dedicated Support</span></p>
     </div>
-</section>
+</section> -->
 
 <section class="promotions">
     <div class="promotion large">
@@ -106,24 +259,24 @@
         <div class="text">
             <p class="new-arrivals">New Arrivals</p>
             <h2>Women's Style</h2>
-            <p class="discount">Up to 70% Off</p>
-            <button onclick="window.location.href='#shop'">Shop Now</button>
+            <p class="discount">Up to 70% Off on store</p>
+            <button onclick="window.location.href='#shop'">See Now</button>
         </div>
     </div>
     <div class="promotion small">
         <div class="overlay">
             <img src="images\handBag.jpg" alt="Hand Bag- New Arrivals">
-            <p class="discount-tag">25% OFF</p>
+            <p class="discount-tag">25% OFF on store</p>
             <h3>Handbag</h3>
-            <button onclick="window.location.href='#shop'">Shop Now</button>
+            <button onclick="window.location.href='#shop'">See Now</button>
         </div>
     </div>
     <div class="promotion small">
         <div class="overlay">
             <img src="images\watch.jpg" alt="Watch - New Arrivals">
-            <p class="discount-tag">45% OFF</p>
+            <p class="discount-tag">45% OFF on store</p>
             <h3>Watch</h3>
-            <button onclick="window.location.href='#shop'">Shop Now</button>
+            <button onclick="window.location.href='#shop'">See Now</button>
         </div>
     </div>
     <div class="promotion wide">
@@ -131,8 +284,8 @@
             <img src="images\Accessories.jpg" alt="Accessories - New Arrivals">
             <h3>Accessories</h3>
             <p>Backpack</p>
-            <p class="discount">Min. 40-80% Off</p>
-            <button onclick="window.location.href='#shop'">Shop Now</button>
+            <p class="discount">Min. 40-80% Off on store</p>
+            <button onclick="window.location.href='#shop'">See Now</button>
         </div>
     </div>
 </section>
@@ -141,6 +294,33 @@
     <p>&copy; MATCHI. All rights reserved.</p>
 </footer>
 
+<script>
+    const cardsPerPage = 3;
+    const cards = document.querySelectorAll('.card');
+    
+    function changePage(pageNumber, event) {
+    // Mencegah halaman bergulir ke atas
+    if (event) {
+        event.preventDefault();
+    }
+    
+    // Sembunyikan semua kartu
+    cards.forEach(card => card.style.display = 'none');
+    
+    // Hitung indeks awal dan akhir untuk halaman tertentu
+    const start = (pageNumber - 1) * cardsPerPage;
+    const end = start + cardsPerPage;
+    
+    // Tampilkan kartu sesuai indeks halaman
+    for (let i = start; i < end && i < cards.length; i++) {
+        cards[i].style.display = 'block';
+    }
+    }
+    
+    // Tampilkan halaman pertama saat pertama kali dimuat
+    changePage(1);
+    </script>
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
