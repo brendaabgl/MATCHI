@@ -4,96 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MATCHI - Your destination for fashionable men's and women's clothing. Enjoy exclusive discounts and offers.">
-    <meta name="keywords" content="fashion, shopping, discounts, sale, clothing">
+    <meta name="keywords" content="fashion, fabric, trends, seasons, clothing">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MATCHI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
-    <body ng-controller="FilterController">
+    <body ng-controller="FilterController" id="home">
+        
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
-                <div class="container"><a class="navbar-brand" href="#" style="
-                    font-weight: 1000; font-size: 2rem;  font-family: 'Georgia', serif; text-transform: uppercase; letter-spacing: 15px;  color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
-                    MATCHI  </a>
-                
+        <selection id="navbar">
+            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
+                <div class="container">
+                    <a class="navbar-brand" href="#" style="font-weight: 1000; font-size: 2rem; font-family: 'Georgia', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
+                        MATCHI
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#home" style="color:  rgba(95, 111, 82, 10); transition: color 0.3s ease;  font-family: 'Georgia', serif;" onmouseover="this.style.color='#000000'" onmouseout="this.style.color='#ffffff'">Home</a>
+                                <a class="nav-link" href="home" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i style="font-size: 1.5rem;"></i>Home
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#reviews" style="color:  rgba(95, 111, 82, 10); transition: color 0.3s ease;  font-family: 'Georgia', serif;" onmouseover="this.style.color='#000000'" onmouseout="this.style.color=' rgba(95, 111, 82, 10)'">Reviews</a>
+                                <a class="nav-link" href="./fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i style="font-size: 1.5rem;"></i>Reviews
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#about" style="color:  rgba(95, 111, 82, 10); transition: color 0.3s ease;  font-family: 'Georgia', serif;" onmouseover="this.style.color='#000000'" onmouseout="this.style.color=' rgba(95, 111, 82, 10)'">About</a>
+                                <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i style="font-size: 1.5rem;"></i>About
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#contact" style="color:  rgba(95, 111, 82, 10); transition: color 0.3s ease;  font-family: 'Georgia', serif;" onmouseover="this.style.color='#000000'" onmouseout="this.style.color=' rgba(95, 111, 82, 10)'">Contact</a>
+                                <a class="nav-link" href="./us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i style="font-size: 1.5rem;"></i>Contact
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../views/us/accountPage.html" 
+                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
+                                   onmouseover="this.style.color='#000000'" 
+                                   onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                    <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i style="font-size: 1.5rem;"></i>Subscribe
+                                </a>
+                            </li>
+                            <!-- Search Icon -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="toggleSearch()" 
+                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                                   onmouseover="this.style.color='#000000'" 
+                                   onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                    <!-- Ikon pencarian dari Bootstrap Icons -->
+                                    <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
+                                </a>
                             </li>
                         </ul>
+                        <!-- Search Box -->
+                        <div id="search-box" class="d-none">
+                            <form class="d-flex mt-2 mt-lg-0">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-        </nav>
+                    <!-- JavaScript -->
+            <script>
+                function toggleSearch() {
+                    const searchBox = document.getElementById('search-box');
+                    searchBox.classList.toggle('d-none');
+                }
+            </script>
+        
+            </nav>
+        </selection>
 
         <!-- header -->
-        <header>  
+        <header id="header">  
             <!-- Carousel (Fixed Structure) -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" style="height: 300px; overflow: hidden;">
-            <div class="carousel-inner">
-                <!-- Spring Collection -->
-                <div class="carousel-item active">
-                    <a href="./seasons/springs_views.html" style="text-decoration: none;">
-                        <img src="../public/images/h1.png" class="d-block w-100" alt="Spring Collection" style="object-fit: cover; height: 300px;">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Trends Season Fabrics</h5>
-                            <p>Explore light and breezy fabrics perfect for springtime.</p>
-                        </div>
-                    </a>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" style="height: 300px; overflow: hidden;">
+                <div class="carousel-inner">
+                    <!-- Spring Collection -->
+                    <div class="carousel-item active">
+                        <a href="./seasons/springs_views.html" style="text-decoration: none;">
+                            <img src="../public/images/h1.png" class="d-block w-100" alt="Spring Collection" style="object-fit: cover; height: 300px;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Trends Season Fabrics</h5>
+                                <p>Explore light and breezy fabrics perfect for springtime.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Summer Collection -->
+                    <div class="carousel-item">
+                        <a href="./seasons/summer_views.html" style="text-decoration: none;">
+                            <img src="../public/images/h2.png" class="d-block w-100" alt="Summer Collection" style="object-fit: cover; height: 300px;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Summer Season</h5>
+                                <p>Discover lightweight and breathable fabrics for sunny days.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Winter Collection -->
+                    <div class="carousel-item">
+                        <a href="./seasons/winter_view.html" style="text-decoration: none;">
+                            <img src="../public/images/h4.png" class="d-block w-100" alt="Winter Collection" style="object-fit: cover; height: 300px;">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Winter Season</h5>
+                                <p>Stay warm and stylish with our winter fabric recommendations.</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <!-- Summer Collection -->
-                <div class="carousel-item">
-                    <a href="./seasons/summer_views.html" style="text-decoration: none;">
-                        <img src="../public/images/h2.png" class="d-block w-100" alt="Summer Collection" style="object-fit: cover; height: 300px;">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Summer Season</h5>
-                            <p>Discover lightweight and breathable fabrics for sunny days.</p>
-                        </div>
-                    </a>
-                </div>
-                <!-- Winter Collection -->
-                <div class="carousel-item">
-                    <a href="./seasons/winter_view.html" style="text-decoration: none;">
-                        <img src="../public/images/h4.png" class="d-block w-100" alt="Winter Collection" style="object-fit: cover; height: 300px;">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Winter Season</h5>
-                            <p>Stay warm and stylish with our winter fabric recommendations.</p>
-                        </div>
-                    </a>
-                </div>
+
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-
-            <!-- Carousel Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
              <!-- Navigation Bar -->
             <nav class="top-nav py-2" style="background-color: #ffffff; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
                 <ul class="nav justify-content-center mb-0" style="font-size: 0.95rem;">
                     <li class="nav-item"><a href="#6seasons" class="nav-link text-dark">Seasons</a></li>
-                    <li class="nav-item"><a href="#reviews" class="nav-link text-dark">Fabric Reviews</a></li>
+                    <li class="nav-item"><a href="./fabrev/fabric_reviews.html" class="nav-link text-dark">Fabric Reviews</a></li>
                     <li class="nav-item"><a href="#blog" class="nav-link text-dark">Blog</a></li>
 
                 </ul>
@@ -102,8 +160,8 @@
         
         <!-- tag seasons done -->
         <section id="6seasons">
-            <section style="background-color:  rgba(95, 111, 82, 0.09); padding: 20px;">
-                <div class="filter-options" style="display: flex; justify-content: space-around; margin: 30px 250px;">
+            <section style="background-color:  rgba(95, 111, 82, 0.09); padding: 5px;">
+                <div class="filter-options" style="display: flex; justify-content: space-around; margin: 30px 400px;">
                     <button 
                         class="filter-btn" 
                         style="font-family: 'Georgia', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
@@ -121,6 +179,7 @@
                         onclick="selectFilter(this)"
                     >
                         ☀ Summer
+                  
                     </button>
                     <button 
                         class="filter-btn" 
@@ -129,16 +188,7 @@
                         onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
                         onclick="selectFilter(this)"
                     >
-                        🧶 Wool
-                    </button>
-                    <button 
-                        class="filter-btn" 
-                        style="font-family: 'Georgia', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                        onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                        onclick="selectFilter(this)"
-                    >
-                        🌿 Cotton
+                        🌿 autumn
                     </button>
                     <button 
                     class="filter-btn" 
@@ -147,19 +197,8 @@
                     onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
                     onclick="selectFilter(this)"
                 >
-                        ❄ Winter
-                    </button>
-                    <button 
-                    class="filter-btn" 
-                    style="font-family: 'Georgia', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                    onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                    onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                    onclick="selectFilter(this)"
-                >
-                        🏖 Holiday
-                    </button>
-                        
-
+                    ❄ Winter
+  
                 </div>
                 <script> function selectFilter(btn) {
                     // Reset semua tombol
@@ -176,9 +215,9 @@
             
         </section>
 
-        <!-- home.html -->
+        <!-- card html -->
         <section>
-                <iframe src="./seasons/card_seasons.html" style="width: 100%; height: 500px; border: none;"></iframe>
+                <iframe src="/views/seasons/card_seasons.html" style="width: 100%; height: 500px; border: none;"></iframe>
                 </iframe>
         </section>
             
