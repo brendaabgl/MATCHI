@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your MATCHI account. Update your details and preferences.">
+    <meta name="keywords" content="account, settings, profile, user">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Account - MATCHI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;  /* To allow sections to stack on small screens */
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .left-section {
+            flex: 1;
+            background: url('public/images/accountPage.jpg') no-repeat center center;
+            background-size: cover;
+            min-height: 400px;
+            height: 100%;
+            max-width: 100%;
+            transition: all 0.3s ease; /* Smooth transition for resizing */
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+            transition: font-size 0.3s ease;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            padding: 12px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .btn-register {
+            background-color: #6c5ce7;
+            color: #fff;
+        }
+
+        .btn-register:hover {
+            background-color: #5a4ac7;
+        }
+
+        .btn-signin {
+            background-color: #fff;
+            border: 1px solid #6c5ce7;
+            color: #6c5ce7;
+        }
+
+        .btn-signin:hover {
+            background-color: #f4f4f4;
+        }
+
+        .terms {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            font-size: 1rem;
+            text-decoration: none;
+            color: #6c5ce7;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            background-color: rgba(95, 111, 82, 0.09);
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 1000;
+            font-size: 2.5rem;
+            font-family: 'Georgia', serif;
+            text-transform: uppercase;
+            letter-spacing: 15px;
+            color: rgba(95, 111, 82, 10);
+            text-shadow: 1px 1px 5px #ffffff;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(95, 111, 82, 10);
+            font-family: 'Georgia', serif;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #000000;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px;
+            }
+
+            .left-section {
+                width: 100%;
+                height: 300px;
+                margin-bottom: 20px;
+            }
+
+            .right-section {
+                width: 100%;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 8px;
+            }
+
+            .navbar-brand {
+                font-size: 2rem;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+                padding: 7px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">MATCHI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../homepage_views.html">
+                            <i style="font-size: 1.5rem;"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reviews">
+                            <i style="font-size: 1.5rem;"></i>Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            <i style="font-size: 1.5rem;"></i>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            <i style="font-size: 1.5rem;"></i>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../us/accountPage.html" 
+                           style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
+                           onmouseover="this.style.color='#000000'" 
+                           onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
+                        </a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Account Page Section -->
+    <div class="container">
+        <!-- Left Section with Image -->
+        <div class="left-section">
+            <img src="../../public/images/acc.png" alt="Account Page Image" class="img-fluid">
+        </div>
+
+        <!-- Right Section with Profile and Settings -->
+        <div class="right-section">
+            <!-- Profile Section -->
+            <section id="profile">
+                <h2>My Profile</h2>
+                <form id="profile-form">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Example" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="phone" placeholder="(+62) 123-4567" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+            </section>
+
+            <!-- Account Settings Section -->
+            <section id="settings">
+                <h2>Account Settings</h2>
+                <form id="settings-form">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Change Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter new password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirm-password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm new password" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Change Password</button>
+                    <button type="button" class="btn" id="logout-btn" style="background-color: red; color: white; border: none;">Logout</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; MATCHI. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Form validation
+        document.getElementById('profile-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Profile updated successfully!');
+        });
+
+        document.getElementById('settings-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Password changed successfully!');
+        });
+
+        // Logout confirmation
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                // Logic for logout can be added here
+                alert('Logged out!');
+            }
+        });
+    </script>
+</body>
+</html>
