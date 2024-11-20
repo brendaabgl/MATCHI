@@ -31,10 +31,10 @@ angular.module('myApp', [])
         if (color && color !== '' && color !== 'none') {
           $scope.pieces = $scope.pieces.filter(item => item.Color.some(c => c.includes(color)));
         }
-        if (season && season !== '' && color !== 'none') {
+        if (season && season !== '' && season !== 'none') {
           $scope.pieces = $scope.pieces.filter(item => item.Tags.some(tag => tag.includes(season)));
         }
-        if (piece && piece !== '' && color !== 'none') {
+        if (piece && piece !== '' && season !== 'none') {
           $scope.pieces = $scope.pieces.filter(item => item.Tags.some(tag => tag.includes(piece)));
         }        
         console.log($scope.pieces)
