@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Fabric" content="MATCHI - Reviewing Fabric">
+    <meta name="keywords" content="fashion, fabric, trends, seasons, clothing">
+    <title>Fabric</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body id="fabric">
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
+            <div class="container">
+                <a class="navbar-brand" href="#" style="font-weight: 1000; font-size: 2rem; font-family: 'Georgia', serif; text-transform: uppercase; letter-spacing: 12px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
+                    MATCHI
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                Fabrics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/views/us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                Contact
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/views/us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                Subscribe
+                            </a>
+                        </li>
+                        <!-- Search Icon -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="toggleSearch()" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i class="fas fa-search" style="font-size: 1.2rem; margin-right: 0.5rem;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Search Box -->
+                    <div id="search-box" class="d-none">
+                        <form class="d-flex mt-2 mt-lg-0">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+          <!-- JavaScript -->
+            <script>
+                function toggleSearch() {
+                    const searchBox = document.getElementById('search-box');
+                    searchBox.classList.toggle('d-none');
+                }
+            </script>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center py-2 bg-light">
+        <div class="container">
+            <h1 class="display-4" style="font-family: 'Times New Roman', serif; font-weight: 800;">Welcome to Fabric</h1>
+            <p class="lead" style="font-family: 'Times New Roman', serif;">Discover the best fabrics for every season and project.</p>
+        </div>
+    </header>
+    
+    <!-- banner -->
+    <div class="carousel-item active">
+            <a href="./seasons/springs_views.html" style="text-decoration: none; background-color: rgba(95, 111, 82, 0.09)">
+                <img src="/public/images/fabric.jpeg" class="d-block w-100" alt="Spring Collection" style="object-fit: cover; height: 410px;">
+                
+            </a>
+    </div>
+
+    <!-- container fabric  reviews -->
+    <div class="container mt-0">
+        <h3 class="text-center mb-1">Related Fabrics</h3>
+        <div class="row g-5">
+            <!-- Fabric 1 -->
+            <div class="col-md-3">
+                <div class="card p-3" style="min-height: 330px;">
+                    <img src="/public/images/cotton2.png" class="card-img-top" alt="Cotton Blend" style="height: 170px; width: 100%; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Cotton Blend</h5>
+                        <div style="display: flex; justify-content: center; align-items: center; height: 55px;">
+                            <a href="#sejarahCotton" class="btn btn-outline-dark" style="margin: 0px 18px -35px 20px;">Fabric</a>
+                            <a href="#" class="btn btn-outline-dark" style="margin: 0px 18px -35px 20px;">Care</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fabric 2 -->
+            <div class="col-md-3">
+                <div class="card p-3" style="min-height: 330px;">
+                    <img src="/public/images/wool1.jpeg" class="card-img-top" alt="Wool Tweed" style="height: 170px; width: 100%; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Wool Tweed</h5>
+                        <div style="display: flex; justify-content: center; align-items: center; height: 55px;">
+                            <a href="#sejarahWool" class="btn btn-outline-dark" style="margin: 0px 18px -35px 20px;">Fabric</a>
+                            <a href="#" class="btn btn-outline-dark" style="margin: 0px 18px -35px 20px;">Care</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fabric 3 -->
+            <div class="col-md-3">
+                <div class="card p-3" style="min-height: 330px;">
+                    <img src="/public/images/satin1.jpeg" class="card-img-top" alt="Silk Satin" style="height: 170px; width: 100%; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Silk Satin</h5>
+                        <div style="display: flex; justify-content: center; align-items: center; height: 55px;">
+                            <a href="#sejarahSilkSatin" class="btn btn-outline-dark" style="margin: 0px 18px -35px 20px;">Fabric</a>
+                            <a href="#" class="btn btn-outline-dark" style="margin: 0px 18px -35px 20px;">Care</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fabric 4 -->
+            <div class="col-md-3">
+                <div class="card p-3" style="min-height: 330px;">
+                    <img src="/public/images/denim1.jpeg" class="card-img-top" alt="Denim" style="height: 170px; width: 100%; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Denim</h5>
+                        <div style="display: flex; justify-content: center; align-items: center; height: 55px;">
+                            <a href="#sejarahDenim" class="btn btn-outline-dark" style="margin: 0px 18px -35px 20px;">Fabric</a>
+                            <a href="#" class="btn btn-outline-dark" style="margin: 0px 18px -35px 20px;">Care</a>
+                        </div>
+                    </div>
+             </div>
+            </div>
+    </div>
+    </div>
+
+    <!-- Main Content -->
+     <main class="Cotton Blend container my-5"> 
+      <!-- Section: History of Fabrics -->
+        <section style="margin-bottom: 0px; margin-top: 100px; background-color: #f5f5f5; padding: 30px;">
+            <div class="container" style="text-align: center; padding: 30px;">
+                <h2 style="font-family: 'Times New Roman', serif; font-size: 2rem; font-weight: bold; margin-bottom: 50px;">History of Fabrics</h2>
+                <p style="font-family: 'Times New Roman', serif; font-size: 1rem; line-height: 1.6;">History of Fabrics The history of fabrics is a journey of innovation and cultural significance, beginning with natural fibers like cotton in the Indus Valley and wool in Mesopotamia around 5000–3000 BC. By 2600 BC, silk weaving in ancient China introduced luxurious textiles, while the Industrial Revolution in the 18th century transformed fabric production with mechanized looms. The 20th century brought synthetic fibers like nylon and polyester, offering durability and versatility. Today, the evolution continues with eco-friendly materials and smart textiles, reflecting humanity's enduring creativity in shaping fashion and functionality.</p>
+
+                <!-- Timeline Navigation -->
+                <div class="timeline-control" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px; margin-top: 100px">
+                    <div style="position: absolute; top: 155.5%; left: 50%; transform: translateX(-50%); height: 10px; width: 55%; background-color: #ffffff; z-index: 0;"></div>
+                    <button id="prev-btn" style="background-color: #5e5a5a; color: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-right: 20px; cursor: pointer;">&lt;</button>
+                    <div class="timeline" style="display: flex; align-items: center; justify-content: space-between; position: relative; width: 80%; max-width: 800px;">
+                        <div class="timeline-item" style="position: relative;">
+                            <div class="circle" style="font-family: 'Times New Roman', serif; width: 80px; height: 80px; border-radius: 50%; border: 4px solid #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                <img src="/public/images/peru.png" alt="Image 1" style="width: 90%; height: 90%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="text" style="font-family: 'Times New Roman', serif; margin-top: 10px; text-align: center; font-size: 0.9rem;">5000 BC</div>
+                        </div>
+                        <div class="timeline-item" style="position: relative;">
+                            <div class="circle" style="font-family: 'Times New Roman', serif; width: 80px; height: 80px; border-radius: 50%; border: 4px solid #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                <img src="/public/images/china.png" alt="Image 2" style="width: 90%; height: 90%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="text" style="font-family: 'Times New Roman', serif; margin-top: 10px; text-align: center; font-size: 0.9rem;">2600 BC</div>
+                        </div>
+                        <div class="timeline-item active" style="position: relative;">
+                            <div class="circle" style="font-family: 'Times New Roman', serif; width: 80px; height: 80px; border-radius: 50%;  border: 4px solid #fff;  display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                <img src="/public/images/mesopotamia.png" alt="Image 3" style="width: 90%; height: 90%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="text" style="font-family: 'Times New Roman', serif; margin-top: 10px; text-align: center; font-size: 0.9rem;">3000 BC</div>
+                        </div>
+                        <div class="timeline-item" style="position: relative;">
+                            <div class="circle" style="font-family: 'Times New Roman', serif; width: 80px; height: 80px; border-radius: 50%; border: 4px solid #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                <img src="/public/images/howe.png" alt="Image 4" style="width: 90%; height: 90%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="text" style="font-family: 'Times New Roman', serif; margin-top: 10px; text-align: center; font-size: 0.9rem;">1800 AD</div>
+                        </div>
+                        <div class="timeline-item" style="position: relative;">
+                            <div class="circle" style="font-family: 'Times New Roman', serif; width: 80px; height: 80px; border-radius: 50%; border: 4px solid #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                <img src="/public/images/glittering.png" alt="Image 5" style="width: 90%; height: 90%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="text" style="font-family: 'Times New Roman', serif; margin-top: 10px; text-align: center; font-size: 0.9rem;">1930 AD</div>
+                        </div>
+                    </div>
+                    <button id="next-btn" style="background-color: #5e5a5a; color: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-left: 20px; cursor: pointer;">&gt;</button>
+                </div>
+
+                <!-- Timeline Content -->
+                <div class="timeline-content" style="margin-top: 40px;">
+                    <h5 style="font-family: 'Times New Roman', serif; font-size: 1.5rem; margin-bottom: 10px;">5000 BC</h5>
+                    <p style="font-family: 'Times New Roman', serif; color: #000000; font-size: 1rem;">The first use of cotton in the Indus Valley and Peru.</p>
+                </div>
+
+                <script>
+                    // JavaScript for Timeline Interaction
+                    const timelineItems = document.querySelectorAll('.timeline-item .circle');
+                    const prevBtn = document.getElementById('prev-btn');
+                    const nextBtn = document.getElementById('next-btn');
+                    const contentTitle = document.querySelector('.timeline-content h5');
+                    const contentDesc = document.querySelector('.timeline-content p');
+
+                    const data = [
+                        { year: '5000 BC', desc: 'The first use of cotton in the Indus Valley and Peru.' },
+                        { year: '2600 BC', desc: 'Silk weaving starts in ancient China.' },
+                        { year: '3000 BC', desc: 'Wool production begins in Mesopotamia.' },
+                        { year: '1800 AD', desc: 'The Industrial Revolution transforms textile technology.' },
+                        { year: '1930 AD', desc: 'Synthetic fibers like nylon and polyester are introduced.' },
+                    ];
+
+                    let activeIndex = 0;
+
+                    function updateTimeline() {
+                        timelineItems.forEach((circle, index) => {
+                            if (index === activeIndex) {
+                                circle.style.backgroundColor = '#0d6efd';
+                                circle.style.color = '#fff';
+                            } else {
+                                circle.style.backgroundColor = '#fff';
+                                circle.style.color = '#b9b9b9';
+                            }
+                        });
+
+                        contentTitle.textContent = data[activeIndex].year;
+                        contentDesc.textContent = data[activeIndex].desc;
+
+                        prevBtn.disabled = activeIndex === 0;
+                        nextBtn.disabled = activeIndex === data.length - 1;
+                    }
+
+                    prevBtn.addEventListener('click', () => {
+                        if (activeIndex > 0) {
+                            activeIndex--;
+                            updateTimeline();
+                        }
+                    });
+
+                    nextBtn.addEventListener('click', () => {
+                        if (activeIndex < data.length - 1) {
+                            activeIndex++;
+                            updateTimeline();
+                        }
+                    });
+
+                    updateTimeline();
+                </script>
+            </div>
+        </section>
+        <!-- Section: Cotton Blend Description -->
+        <section  style="margin-bottom: 0px; margin-top: 10px; background-color: #f5f5f5; padding: 10px;">
+            <div class="row align-items-center">
+                <div class="col-md-2">
+                    <div  class="card" style="padding: 10px; left: 15%; max-width: 150px;">
+                        <img src="/public/images/cotton2.png" 
+                            class="card-img-top" 
+                            alt="Cotton Blend Collection" 
+                            style="height: 80px; width: 100%; object-fit: cover;">
+                        <div class="card-body" style=" text-align: center; padding: 5px;">
+                            <h6 class="card-title" style=" font-family: 'Times New Roman', serif; margin-bottom: 5px;">Cotton Blend</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h2 style=" font-family: 'Times New Roman', serif; font-size: 2rem; font-weight: bold; margin-bottom: 5px;"> Cotton</h2>
+                    <a href="https://en.wikipedia.org/wiki/History_of_cotton" style=" font-family: 'Times New Roman', serif; color: #0e3b1e; font-size: 1rem; margin-bottom: 20px;">reference: https://en.wikipedia.org/wiki/History_of_cotton</a>
+                    <p style="font-family: 'Times New Roman', serif;">Cotton Blend is a type of fabric that combines natural cotton with synthetic materials like polyester, rayon, or spandex. This combination enhances the fabric’s properties, making it more versatile than pure cotton or synthetic materials alone. To understand the origin of Cotton Blend, it's essential to delve into the history of cotton and advancements in textile technology.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Section: wool Blend Description -->
+        <section id="sejarahWool" style="margin-bottom: 0px; margin-top: 10px; background-color: #f5f5f5; padding: 10px;">
+            <div class="row align-items-center">
+                <div class="col-md-2">
+                    <div class="card" style="padding: 10px;left: 15%; max-width: 150px;">
+                        <img src="/public/images/wool1.jpeg" 
+                             class="card-img-top" 
+                             alt="Wool Tweed" 
+                             style="height: 80px; width: 100%; object-fit: cover;">
+                        <div class="card-body" style=" text-align: center; padding: 5px;">
+                            <h6 class="card-title" style="font-family: 'Times New Roman', serif; margin-bottom: 5px;">Wool Tweed</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h2 style=" font-family: 'Times New Roman', serif; font-size: 2rem; font-weight: bold; margin-bottom: 5px;">Wool Tweed</h2>
+                    <a href="https://yokowool.com/en/the-history-of-wool/#:~:text=Wool%E2%80%99s%20use%20can%20be%20traced%20back%20to%20around,them%20an%20essential%20material%20in%20early%20human%20history." style=" font-family: 'Times New Roman', serif; color: #0e3b1e; font-size: 1rem; margin-bottom: 20px;">reference: https://yokowool.com</a>
+                    <p style="font-family: 'Times New Roman', serif;">Wool tweed is a durable and versatile fabric traditionally made from natural wool fibers using a twill or herringbone weave, giving it a textured appearance and exceptional warmth. Originating in Scotland, tweed is known for its earthy tones and patterns achieved by blending dyed yarns during weaving. It is prized for its insulating, moisture-wicking, and breathable properties, making it ideal for cold-weather clothing like jackets, coats, and caps. While traditionally woven purely from wool, modern tweed may incorporate fibers like silk or synthetics to enhance its strength and elasticity, blending timeless craftsmanship with contemporary functionality.</p>
+                </div>
+            </div>
+        </section>
+         <!-- Section: silk satin  Blend Description -->
+         <section  id="sejarahSilkSatin"style="margin-bottom: 0px; margin-top: 10px; background-color: #f5f5f5; padding: 10px;">
+            <div class="row align-items-center">
+                <div class="col-md-2">
+                    <div class="card" style="padding: 10px;left: 15%; max-width: 150px;">
+                        <img src="/public/images/satin1.jpeg" 
+                             class="card-img-top" 
+                             alt="Cotton Blend Collection" 
+                             style="height: 80px; width: 100%; object-fit: cover;">
+                        <div class="card-body" style="font-family: 'Times New Roman', serif; text-align: center; padding: 5px;">
+                            <h6 class="card-title" style=" font-family: 'Times New Roman', serif; margin-bottom: 5px;">Silk Satin</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h2 style=" font-family: 'Times New Roman', serif; font-size: 2rem; font-weight: bold; margin-bottom: 5px;">Silk Satin</h2>
+                    <a href="https://knowingfabric.com/what-is-silk-satin-fabric/" style=" font-family: 'Times New Roman', serif; color: #0e3b1e; font-size: 1rem; margin-bottom: 20px;">reference: https://knowingfabric.com/what-is-silk-satin-fabric/</a>
+                    <p style="font-family: 'Times New Roman', serif;">Silk satin is a luxurious fabric known for its smooth, glossy surface and soft drape, crafted using a satin weave where warp yarns float over weft yarns, creating its signature luster. Originating in ancient China around 3,000 BCE, silk satin was initially a symbol of wealth and status, prized for its elegance and comfort. Its natural breathability, temperature-regulating properties, and versatility make it ideal for evening gowns, bridal wear, lingerie, and bedding. Today, silk satin continues to blend traditional craftsmanship with modern innovation, maintaining its status as a timeless choice in both fashion and interior design.</p>
+                </div>
+            </div>
+        </section>
+         <!-- Section: denim Blend Description -->
+         <section id="sejarahDenim" style="margin-bottom: 0px; margin-top: 10px; background-color: #f5f5f5; padding: 10px;">
+            <div class="row align-items-center">
+                <div class="col-md-2">
+                    <div class="card" style="padding: 10px; left: 15%; max-width: 150px;">
+                        <img src="/public/images/jeans1.jpeg" 
+                             class="card-img-top" 
+                             alt="Cotton Blend Collection" 
+                             style="height: 80px; width: 100%; object-fit: cover;">
+                        <div class="card-body" style="font-family: 'Times New Roman', serif; text-align: center; padding: 5px;">
+                            <h6 class="card-title" style="font-family: 'Times New Roman', serif; margin-bottom: 5px;">Denim</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h2 style=" font-family: 'Times New Roman', serif; font-size: 2rem; font-weight: bold; margin-bottom: 5px;">Denim</h2>
+                    <a href="https://sewport.com/learn/denim-history" style=" font-family: 'Times New Roman', serif; color: #0e3b1e; font-size: 1rem; margin-bottom: 20px;">https://sewport.com/learn/denim-history</a>
+                    <p style="font-family: 'Times New Roman', serif;">Denim's history dates back to 16th-century France, originating as "serge de Nîmes," a durable fabric later adapted by Italian textile makers into the material known as "jean." By the mid-19th century, Levi Strauss and Jacob W. Davis revolutionized denim by using it for sturdy work trousers reinforced with copper rivets, giving rise to modern jeans. Initially workwear for miners during the California Gold Rush, denim gained global recognition in the mid-20th century, becoming a symbol of rebellion and casual fashion through icons like Elvis Presley and James Dean. Today, denim is a versatile and universally loved fabric, epitomizing comfort, durability, and timeless style.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- jQuery Script -->
+    <script>
+        $(document).ready(function() {
+            // Add hover effect for grid images
+            $(".row img").hover(function() {
+                $(this).css("transform", "scale(1.05)");
+                $(this).css("border", "8px solid #fff");
+            }, function() {
+                $(this).css("transform", "scale(1)");
+                $(this).css("border", "none");
+            });
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-dark text-light">
+        <p>&copy; 2024 MATCHI - All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
