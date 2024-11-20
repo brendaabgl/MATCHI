@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MATCHI - Your destination for fashionable men's and women's clothing. Enjoy exclusive discounts and offers.">
+    <meta name="keywords" content="fashion, fabric, trends, seasons, clothing">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Us - MATCHI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #dce7ea;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header .menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header input {
+            padding: 5px 10px;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contact h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .contact-form {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .contact-form form, .newsletter {
+            width: 48%;
+        }
+
+        .contact-form form input, .contact-form form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border: 1px solid rgba(95, 255, 0, 0.808);
+            border-radius: 30px; 
+            font-size: 16px;
+    
+        }
+
+        .contact-form button {
+            background: rgba(95, 111, 82, 0.600);
+            color: white;
+            border: none;
+            padding: 15px 20px; 
+            cursor: pointer;
+            border-radius: 30px; 
+            font-size: 16px;
+        }
+
+        form#contactForm {
+            margin-left: 150px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            width: 700px;
+            background-color:rgba(95, 111, 82, 0.700);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.438);
+            color: white;
+        }
+        form#contactForm input,
+        form#contactForm textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            color: white; 
+            background-color: rgba(95, 111, 82, 0.700);
+            outline: none;
+            resize: none;
+        }
+
+        form#contactForm input::placeholder,
+        form#contactForm textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7); 
+        }
+
+        form#contactForm input[type="text"] {
+            flex: 1; 
+            color: white; 
+        }
+
+        form#contactForm input[type="text"] {
+            flex: 1; 
+            color: white;
+        }
+
+        form#contactForm input#email {
+            margin-right: 5%; 
+            color: white;
+        }
+
+        form#contactForm textarea#message {
+            height: 100px;
+            color: white;
+        }
+
+        form#contactForm button {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(91, 110, 75, 0.700);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        form#contactForm button:hover {
+            background-color: rgb(95, 111, 82);
+        }
+        .info-section {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 50px;
+    width: 100%;
+}
+
+.info-section div {
+    position: relative;
+    background: linear-gradient(145deg, rgba(91, 110, 75, 0.9), rgba(71, 89, 59, 0.7));
+    color: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-section div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+.info-section div i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.info-section div h4 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.info-section div p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+        footer {
+            background: rgba(91, 110, 75, 0.700);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .newsletter {
+        margin-right: 150px;
+        width: 400px;
+        background-color:rgba(91, 110, 75, 0.700);
+        border-radius: 15px; 
+        padding: 20px;
+        color: white;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        }
+
+        .newsletter h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.959); 
+        }
+
+        .newsletter input {
+            width: 80%; 
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 25px; 
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .newsletter button {
+            background-color: rgb(91, 110, 75); 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px; 
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter button:hover {
+            background-color: #333; 
+        }
+
+    </style>
+</head>
+<body ng-controller="FilterController" id="home">
+    <!-- Navbar -->
+    <selection id="navbar">
+        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
+            <div class="container">
+                <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family: 'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
+                    MATCHI
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10);">
+                                <i style="font-size: 1.5rem;"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10);">
+                                <i style="font-size: 1.5rem;"></i>Fabrics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10);">
+                                <i style="font-size: 1.5rem;"></i>About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../us/contact_views.html" style="color: rgba(95, 111, 82, 10);">
+                                <i style="font-size: 1.5rem;"></i>Contact
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../us/subs_views.html" style="color: rgba(95, 111, 82, 10);">
+                                <i style="font-size: 1.5rem;"></i>Subscribe
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../us/accountPage.html" 
+                            style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                             <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="toggleSearch()" style="color: rgba(95, 111, 82, 10);">
+                                <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Search Box -->
+                    <div id="search-box" class="d-none">
+                        <form class="d-flex mt-2 mt-lg-0">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </selection>
+
+    <main>
+        <section class="contact">
+            <h1>Contact Us</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="contact-form">
+                <form id="contactForm">
+                        <input type="text" id="email" placeholder="Email" style="color: white;">
+                        <input type="text" id="phone" placeholder="Phone" style="color: white;">
+                        <input type="message" id="name" placeholder="Name" style="color: white;">
+                        <textarea id="message" placeholder="Message" style="color: white;"></textarea>
+                        <button type="submit">Submit Button</button>
+                </form>
+                <div class="newsletter">
+                    <h3>Our Newsletters</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere turpis et purus accumsan condimentum. 
+                        Aenean eleifend tempor egestas. Ut libero leo, finibus at mi sed, tristique ullamcorper justo. Fusce malesuada iaculis est, porttitor aliquam tortor pulvinar a. Vivamus iaculis diam id odio faucibus hendrerit. Nullam id tristique leo.</p>
+                    <input type="email" placeholder="Email">
+                    <button>Submit Button</button>
+                </div>
+            </div>
+            <div class="info-section">
+                <div class="info-sectionCall"
+                    <p>📞 (+62) 1234 5678</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="info-sectionMail"
+                    <p>📧 MATCHI@gmail.id</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="info-sectionLoc"
+                    <p>📍 Jakarta, Indonesia</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <div id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=..."
+                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>></iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2023 MATCHI Template. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Thank you for submitting the form!");
+        });
+
+        function toggleSearch() {
+            const searchBox = document.getElementById('search-box');
+            searchBox.classList.toggle('d-none');
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
