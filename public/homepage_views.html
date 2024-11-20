@@ -40,7 +40,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="/public/views/us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>About
@@ -106,29 +106,37 @@
                     <div class="carousel-item active">
                         <a href="./seasons/springs_views.html" style="text-decoration: none;">
                             <img src="../public/images/h1.png" class="d-block w-100" alt="Spring Collection" style="object-fit: cover; height: 300px;">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Trends Season Fabrics</h5>
-                                <p>Explore light and breezy fabrics perfect for springtime.</p>
+                            <div class="carousel-caption d-none d-md-block" style="top: 0; bottom: auto;">
+                                <h1 style=" font-family:  'Times New Roman', serif;">Trends Season Fabrics</h1>
+                                <p style="font-family:  'Times New Roman', serif;">Explore light and breezy fabrics perfect for springtime.</p>
                             </div>
                         </a>
                     </div>
-                    <!-- Summer Collection -->
+                                <!-- Summer Collection -->
                     <div class="carousel-item">
                         <a href="./seasons/summer_views.html" style="text-decoration: none;">
                             <img src="../public/images/h2.png" class="d-block w-100" alt="Summer Collection" style="object-fit: cover; height: 300px;">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Summer Season</h5>
-                                <p>Discover lightweight and breathable fabrics for sunny days.</p>
+                            <div class="carousel-caption d-none d-md-block" style="top: 0; bottom: auto;">
+                                <h1 style="font-family: 'Times New Roman', serif; color: rgb(255, 252, 252); text-shadow: 2px 2px 4px rgba(0, 0, 0, 1), 4px 4px 8px rgba(0, 0, 0, 0.5), 6px 6px 12px rgba(0, 0, 0, 0.6);">
+                                    Summer Season
+                                </h1>
+                                <p style="font-family: 'Times New Roman', serif; color: rgb(255, 252, 252); text-shadow: 2px 2px 4px rgba(0, 0, 0, 1), 4px 4px 8px rgba(0, 0, 0, 0.5), 6px 6px 12px rgba(0, 0, 0, 0.6);">
+                                    Discover lightweight and breathable fabrics for sunny days.
+                                </p>
+                                
                             </div>
                         </a>
                     </div>
+
                     <!-- Winter Collection -->
                     <div class="carousel-item">
                         <a href="./seasons/winter_view.html" style="text-decoration: none;">
                             <img src="../public/images/h4.png" class="d-block w-100" alt="Winter Collection" style="object-fit: cover; height: 300px;">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Winter Season</h5>
-                                <p>Stay warm and stylish with our winter fabric recommendations.</p>
+                            <div class="carousel-caption d-none d-md-block" style="top: 0; bottom: auto;">
+                                <h1 style="font-family:  'Times New Roman', serif;  color: rgb(255, 252, 252); text-shadow: 2px 2px 4px rgba(0, 0, 0, 1), 4px 4px 8px rgba(0, 0, 0, 0.5), 6px 6px 12px rgba(0, 0, 0, 0.6);"
+                                >Winter Season</h1>
+                                <p style="font-family:  'Times New Roman', serif;  color: rgb(255, 252, 252); text-shadow: 2px 2px 4px rgba(0, 0, 0, 1), 4px 4px 8px rgba(0, 0, 0, 0.5), 6px 6px 12px rgba(0, 0, 0, 0.6);"
+                                >Stay warm and stylish with our winter fabric recommendations.</p>
                             </div>
                         </a>
                     </div>
@@ -144,133 +152,40 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-             <!-- Navigation Bar -->
-            <nav class="top-nav py-2" style="background-color: #ffffff; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
-                <ul class="nav justify-content-center mb-0" style="font-size: 0.95rem;">
-                    <li class="nav-item"><a href="#6seasons" class="nav-link text-dark">Seasons</a></li>
-                    <li class="nav-item"><a href="/public/views/fabrev/fabric_reviews.html" class="nav-link text-dark">Fabric</a></li>
-                    <li class="nav-item"><a href="#blog" class="nav-link text-dark">Blog</a></li>
-                </ul>
-            </nav>
         </header>
-        
-        <!-- tag seasons done -->
-        <!-- <section id="6seasons">
-            <section style="background-color:  rgba(95, 111, 82, 0.09); padding: 5px;">
-                <div class="filter-options" style="display: flex; justify-content: space-around; margin: 30px 400px;">
-                    <button 
-                        class="filter-btn" 
-                        style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                        onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                        onclick="selectFilter(this)"
-                    >
-                        🌸 Spring
-                    </button>
-                    <button 
-                        class="filter-btn" 
-                        style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                        onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                        onclick="selectFilter(this)"
-                    >
-                        ☀ Summer
-                  
-                    </button>
-                    <button 
-                        class="filter-btn" 
-                        style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                        onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                        onclick="selectFilter(this)"
-                    >
-                        🌿 autumn
-                    </button>
-                    <button 
-                    class="filter-btn" 
-                    style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                    onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                    onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                    onclick="selectFilter(this)"
-                >
-                    ❄ Winter
-  
-                </div>
-                <script> function selectFilter(btn) {
-                    // Reset semua tombol
-                    document.querySelectorAll('.filter-btn').forEach(button => {
-                        button.style.backgroundColor = '#ffffff';
-                        button.style.color = 'black';
-                    });
-                    // Set tombol yang dipilih
-                    btn.style.backgroundColor = '#000';
-                    btn.style.color = 'white';
-                }
-                </script>
-            </section>
-            
-        </section> -->
 
         <!-- card html -->
         <section>
                 <iframe src="/public/views/seasons/card_seasons.html" style="width: 100%; height: 500px; border: none;"></iframe>
                 </iframe>
         </section>
-            
-        <!-- feature -->
-        <section class="features container py-4">
-            <div class="row text-center gy-4 justify-content-center">
-                <div class="col-6 col-md-3">
-                    <div style="background-color: rgba(0, 0, 0, 0.05); border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;" 
-                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.15)';" 
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-                        <i class="bi bi-people-fill" style="font-size: 2rem; color: #000000;"></i>
-                        <p class="mt-2 mb-0">Collaboration<br><span style="color: #6c757d;">Engage with fashion enthusiasts.</span></p>
+
+        <footer class="footer text-center py-3 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-2 mb-2">
+                        <i class="bi bi-people-fill fs-5 text-dark"></i>
+                        <h6 style="font-size: 12px;">Collaboration</h6>
+                        <p style="font-size: 11px;">Engage with fashion enthusiasts.</p>
+                    </div>
+                    <div class="col-md-2 mb-2">
+                        <i class="bi bi-box2 fs-5 text-success"></i>
+                        <h6 style="font-size: 12px;">Fabric Knowledge</h6>
+                        <p style="font-size: 11px;">Learn about fabrics and sustainability.</p>
+                    </div>
+                    <div class="col-md-2 mb-2">
+                        <i class="bi-lightbulb fs-5 text-warning"></i>
+                        <h6 style="font-size: 12px;">Style Tips</h6>
+                        <p style="font-size: 11px;">Elevate your personal style.</p>
+                    </div>
+                    <div class="col-md-2 mb-2">
+                        <i  class="bi-check-circle fs-5 text-success"></i>
+                        <h6 style="font-size: 12px;">Brand Transparency</h6>
+                        <p style="font-size: 11px;">Evaluate authentic and ethical brands.</p>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div style="background-color: rgba(0, 0, 0, 0.05); border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;" 
-                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.15)';" 
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-                        <i class="bi bi-box2" style="font-size: 2rem; color: #165f33;"></i>
-                        <p class="mt-2 mb-0">Fabric Knowledge<br><span style="color: #6c757d;">Learn about fabrics and sustainability.</span></p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div style="background-color: rgba(0, 0, 0, 0.05); border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;" 
-                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.15)';" 
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-                        <i class="bi bi-lightbulb" style="font-size: 2rem; color: #f0ad4e;"></i>
-                        <p class="mt-2 mb-0">Style Tips<br><span style="color: #6c757d;">Elevate your personal style.</span></p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div style="background-color: rgba(0, 0, 0, 0.05); border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease;" 
-                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.15)';" 
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
-                        <i class="bi bi-check-circle" style="font-size: 2rem; color: #28a745;"></i>
-                        <p class="mt-2 mb-0">Brand Transparency<br><span style="color: #6c757d;">Evaluate authentic and ethical brands.</span></p>
-                    </div>
-                </div>
+                <p class="text-muted small mt-3">&copy; MATCHI. All rights reserved.</p>
             </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer text-center mt-4" 
-            style="background-color: rgba(0, 0, 0, 0.05); 
-                padding: 20px; 
-                position: relative; 
-                overflow: hidden;">
-            <!-- Wave Background -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; 
-                        mask: radial-gradient(34.99px at 50% calc(100% - 48px), #000 99%, #0000 101%) calc(50% - 60px) 0/120px 100%, 
-                            radial-gradient(34.99px at 50% calc(100% + 18px), #0000 99%, #000 101%) 50% calc(100% - 30px)/120px 100% repeat-x; 
-                        -webkit-mask: radial-gradient(34.99px at 50% calc(100% - 48px), #000 99%, #0000 101%) calc(50% - 60px) 0/120px 100%, 
-                                    radial-gradient(34.99px at 50% calc(100% + 18px), #0000 99%, #000 101%) 50% calc(100% - 30px)/120px 100% repeat-x; 
-                        background-color: rgba(0, 0, 0, 0.05);"></div>
-
-            <!-- Footer Text -->
-            <p style="position: relative; z-index: 1; margin: 0; color: #000;">&copy; MATCHI. All rights reserved.</p>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     </body>
