@@ -18,7 +18,7 @@
       }
     </style>
 </head>
-<body ng-app="myApp" ng-controller="browserController">
+<body ng-app="myApp" ng-controller="TextileController">
   <selection id="navbar">
     <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
         <div class="container">
@@ -104,73 +104,45 @@
 
     </nav>
 </selection>
-
-<form ng-submit="submitFilter()">
-  <div class="container mt-4">
+<h5 class="text-center" style="padding-top: 50px;">Let's take care of</h5>
+<h2 class="text-center" style="padding-top: 5px; padding-bottom: 20px;">{{textile.Name}}</h2>
+<img src="images/{{textile.Image}}" style="width: 90vw; height: 300px; object-fit: cover;" class="d-block mx-auto">
+<div class="container" style="padding-top: 50px; padding-bottom: 10px;">
     <div class="row">
-      <div class="col-12">
-        <button type="button" ng-click="filterShow()" class="btn btn-outline-dark">
-          <i class="bi bi-funnel"></i>
-        </button>
-        <div ng-show="isVisible">
-          <div class="container mt-4">
-            <div class="row">
-              <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                <h5>Season</h5>
-                <label><input type="radio" name="season" value="summer" ng-model="season"><i class="bi bi-sun" style="font-size: 25px; color: #FBD248; padding-left: 3px;" onclick="toggleRadio(this)"></i></label><br>
-                <label><input type="radio" name="season" value="autumn" ng-model="season"><i class="bi bi-tree" style="font-size: 25px; color: #D42900; padding-left: 3px;" onclick="toggleRadio(this)"></i></label><br>
-                <label><input type="radio" name="season" value="winter" ng-model="season"><i class="bi bi-snow" style="font-size: 25px; color: #89CFF0; padding-left: 3px;" onclick="toggleRadio(this)"></i></label><br>
-                <label><input type="radio" name="season" value="spring" ng-model="season"><i class="bi bi-flower2" style="font-size: 25px; color: #FF69B4; padding-left: 3px;" onclick="toggleRadio(this)"></i></label><br>
-                <label><input type="radio" name="season" value="none" ng-model="season"><i class="bi bi-ban" style="font-size: 23px; color: #000000; padding-left: 3px;" onclick="toggleRadio(this)"></i></label><br>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                <h5>Color</h5>
-                <div class="row">
-                  <div class="col-6">
-                    <label><input type="radio" name="color" value="blue" ng-model="color"><i class="bi bi-circle-fill" style="font-size: 27px; color: blue; padding-left: 3px;" onclick="toggleRadio(this)"></i></label><br>
-                    <label><input type="radio" name="color" value="pink" ng-model="color"><i class="bi bi-circle-fill" style="font-size: 27px; color: pink; padding-left: 3px;" onclick="toggleRadio(this)"></i></label><br>
-                    <label><input type="radio" name="color" value="red" ng-model="color"><i class="bi bi-circle-fill" style="font-size: 27px; color: red; padding-left: 3px;" onclick="toggleRadio(this)"></i></label><br>
-                    <label><input type="radio" name="color" value="grey" ng-model="color"><i class="bi bi-circle-fill" style="font-size: 27px; color: grey; padding-left: 3px;" onclick="toggleRadio(this)"></i></label><br>
-                  </div>
-                  <div class="col-6">
-                    <label><input type="radio" name="color" value="black" ng-model="color"><i class="bi bi-circle-fill" style="font-size: 27px; color: black; padding-left: 3px;"></i></label><br>
-                    <label><input type="radio" name="color" value="purple" ng-model="color"><i class="bi bi-circle-fill" style="font-size: 27px; color: purple; padding-left: 3px;"></i></label><br>
-                    <label><input type="radio" name="color" value="green" ng-model="color"><i class="bi bi-circle-fill" style="font-size: 27px; color: green; padding-left: 3px;"></i></label><br>
-                    <label><input type="radio" name="color" value="brown" ng-model="color"><i class="bi bi-circle-fill" style="font-size: 27px; color: brown; padding-left: 3px;"></i></label><br>
-                    <label><input type="radio" name="color" value="none" ng-model="color"><i class="bi bi-ban" style="font-size: 23px; color: #000000; padding-left: 3px;"></i></label><br>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                <h5 style="padding-bottom: 3px;">Piece</h5>
-                <label><input type="radio" name="piece" value="top" ng-model="piece"><p style="padding: 0px 4px; display: inline-block;">Top</p></label><br>
-                <label><input type="radio" name="piece" value="bottom" ng-model="piece"><p style="padding: 0px 4px; display: inline-block;">Bottom</p></label><br>
-                <label><input type="radio" name="piece" value="footwear" ng-model="piece"><p style="padding: 0px 4px; display: inline-block;">Footwear</p></label><br>
-                <label><input type="radio" name="piece" value="one-piece" ng-model="piece"><p style="padding: 0px 0px; display: inline-block;">One-Piece</p></label><br>
-                <label><input type="radio" name="piece" value="none" ng-model="piece"><i class="bi bi-ban" style="font-size: 23px; color: #000000; padding-left: 3px;"></i></label><br>
-                <button type="submit" class="btn btn-outline-dark" style="margin-top: 10px">Filter</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="col-md-4 d-flex align-items-center justify-content-center" >Washing: </div>
+      <div class="col-md-7 d-flex align-items-center justify-content-start">{{textile.Washing}}</div>
     </div>
-  </div>
-</form>
-    <div class="container mt-4">
-      <div class="row">
-        <div ng-repeat="item in pieces" class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
-          <a href="fashion.html?name={{item.NameId}}" style="color: inherit;">
-            <div class="card">
-              <img src="images/{{item.Image}}" class="card-img-top" alt="{{item.Name}}" style="height: 345px; object-fit: contain;">
-              <div class="card-body">
-                <h5 class="card-title">{{item.Name}}</h5>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
+</div>
+<div class="container" style="padding-top: 50px; padding-bottom: 10px;">
+    <div class="row">
+      <div class="col-md-4 d-flex align-items-center justify-content-center" >Drying: </div>
+      <div class="col-md-7 d-flex align-items-center justify-content-start">{{textile.Drying}}</div>
     </div>
-    <script src="browse.js"></script> 
+</div>
+<div class="container" style="padding-top: 50px; padding-bottom: 10px;">
+    <div class="row">
+      <div class="col-md-4 d-flex align-items-center justify-content-center" >Storing: </div>
+      <div class="col-md-7 d-flex align-items-center justify-content-start">{{textile.Storing}}</div>
+    </div>
+</div>
+<div class="container" style="padding-top: 50px; padding-bottom: 10px;">
+    <div class="row">
+      <div class="col-md-4 d-flex align-items-center justify-content-center" >Stain Removing: </div>
+      <div class="col-md-7 d-flex align-items-center justify-content-start">{{textile.StainRemoval}}</div>
+    </div>
+</div>
+<div class="container" style="padding-top: 50px; padding-bottom: 10px;">
+    <div class="row">
+      <div class="col-md-4 d-flex align-items-center justify-content-center" >Ironing: </div>
+      <div class="col-md-7 d-flex align-items-center justify-content-start">{{textile.Ironing}}</div>
+    </div>
+</div>
+<div class="container" style="padding-top: 50px; padding-bottom: 80px;">
+    <div class="row">
+      <div class="col-md-4 d-flex align-items-center justify-content-center" >Detergent and Fabric Softener: </div>
+      <div class="col-md-7 d-flex align-items-center justify-content-start">{{textile.Detergent}}</div>
+    </div>
+</div>
+    <script src="textile.js"></script> 
   </body>
 </html>

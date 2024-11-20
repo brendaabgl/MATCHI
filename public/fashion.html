@@ -19,32 +19,91 @@
     </style>
 </head>
 <body ng-app="myApp" ng-controller="PiecesController">
-  <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
-    <div class="container"><a class="navbar-brand" href="#" style="
-        font-weight: 1000; font-size: 2rem;  font-family: 'Georgia', serif; text-transform: uppercase; letter-spacing: 15px;  color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
-        MATCHI  </a>
-    
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home" style="color:  rgba(95, 111, 82, 10); transition: color 0.3s ease;  font-family: 'Georgia', serif;" onmouseover="this.style.color='#000000'" onmouseout="this.style.color='#ffffff'">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#reviews" style="color:  rgba(95, 111, 82, 10); transition: color 0.3s ease;  font-family: 'Georgia', serif;" onmouseover="this.style.color='#000000'" onmouseout="this.style.color=' rgba(95, 111, 82, 10)'">Reviews</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about" style="color:  rgba(95, 111, 82, 10); transition: color 0.3s ease;  font-family: 'Georgia', serif;" onmouseover="this.style.color='#000000'" onmouseout="this.style.color=' rgba(95, 111, 82, 10)'">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact" style="color:  rgba(95, 111, 82, 10); transition: color 0.3s ease;  font-family: 'Georgia', serif;" onmouseover="this.style.color='#000000'" onmouseout="this.style.color=' rgba(95, 111, 82, 10)'">Contact</a>
-                </li>
-            </ul>
+  <selection id="navbar">
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
+        <div class="container">
+            <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
+                MATCHI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                        onmouseover="this.style.color='#000000'" 
+                        onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                        <i style="font-size: 1.5rem;"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                        onmouseover="this.style.color='#000000'" 
+                        onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                        <i style="font-size: 1.5rem;"></i>Fabrics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                        onmouseover="this.style.color='#000000'" 
+                        onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                        <i style="font-size: 1.5rem;"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                        onmouseover="this.style.color='#000000'" 
+                        onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                        <i style="font-size: 1.5rem;"></i>Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                        onmouseover="this.style.color='#000000'" 
+                        onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                        <i style="font-size: 1.5rem;"></i>Subscribe
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/views/us/accountPage.html" 
+                           style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
+                           onmouseover="this.style.color='#000000'" 
+                           onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
+                        </a>
+                    <!-- Search Icon -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="toggleSearch()" 
+                           style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                           onmouseover="this.style.color='#000000'" 
+                           onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
+                        </a>
+                    </li>
+                </ul>
+                <!-- Search Box -->
+                <div id="search-box" class="d-none">
+                    <form class="d-flex mt-2 mt-lg-0" onsubmit="handleSearch()">
+                        <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-dark" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+    <script>
+        function toggleSearch() {
+            const searchBox = document.getElementById('search-box');
+            searchBox.classList.toggle('d-none');
+        }
+        function handleSearch() {
+          const searchValue = document.getElementById('searchInput').value;
+          window.location.href = "browse.html?name="+searchValue;
+      }
+    </script>
+
+    </nav>
+</selection>
   <div class="container">
     <div class="row">
       <div class="col-md-5 d-flex align-items-center justify-content-center" style="height: 90vh;">
@@ -63,7 +122,7 @@
         <p>
           {{outfit.Description}}
         </p>
-        <a href="#" class="btn btn-outline-dark">Take Care of this Material</a>
+        <a href="textile.html?name={{outfit.Material}}" class="btn btn-outline-dark">Take Care of this Material</a>
       </div>
     </div>
   </div>  

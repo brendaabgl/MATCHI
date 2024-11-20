@@ -1,13 +1,13 @@
-function toggleRadio(radio) {
-  if (radio.checked) {
-    radio.previousValue = radio.checked; 
-    setTimeout(() => {
-      if (radio.previousValue) {
-        radio.checked = false;
-      }
-    }, 0); 
-  }
-}
+// function toggleRadio(radio) {
+//   if (radio.checked) {
+//     radio.previousValue = radio.checked; 
+//     setTimeout(() => {
+//       if (radio.previousValue) {
+//         radio.checked = false;
+//       }
+//     }, 0); 
+//   }
+// }
 
 angular.module('myApp', [])
 .controller('browserController', function($scope, $http) { 
@@ -23,20 +23,28 @@ angular.module('myApp', [])
         const color = params.get('color');
         const season = params.get('season');
         const piece = params.get('piece');
+        const productname = params.get('name');
 
         console.log(piece);
 
         $scope.pieces = response.data;
         console.log($scope.pieces)
         if (color && color !== '' && color !== 'none') {
+          console.log(color);
           $scope.pieces = $scope.pieces.filter(item => item.Color.some(c => c.includes(color)));
         }
         if (season && season !== '' && season !== 'none') {
+          console.log(season);
           $scope.pieces = $scope.pieces.filter(item => item.Tags.some(tag => tag.includes(season)));
         }
-        if (piece && piece !== '' && season !== 'none') {
+        if (piece && piece !== '' && piece !== 'none') {
+          console.log(piece);
           $scope.pieces = $scope.pieces.filter(item => item.Tags.some(tag => tag.includes(piece)));
         }        
+        if (productname){
+          console.log("hi" + productname);
+          $scope.pieces = $scope.pieces.filter(item => item.Name.toLowerCase().includes(productname.toLowerCase()));
+        }     
         console.log($scope.pieces)
       })
       .catch(function(error) {
