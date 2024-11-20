@@ -11,6 +11,19 @@ angular.module('myApp', [])
         if (name) {
           $scope.outfit = $scope.pieces.find(piece => piece.NameId === name);
           console.log("Matching piece:", $scope.outfit);
+          if ($scope.outfit.Tags.includes("summer")) {
+            $scope.icon = "sun";
+            $scope.iconColor = "#FBD248"
+          } else if($scope.outfit.Tags.includes("winter")) {
+            $scope.icon = "snow"
+            $scope.iconColor = "#89CFF0"
+          } else if($scope.outfit.Tags.includes("autumn")) {
+            $scope.icon = "tree"
+            $scope.iconColor = "#D42900"
+          } else {
+            $scope.icon = "flower2"
+            $scope.iconColor = "#FF69B4"
+          }
         }
       })
       .catch(function(error) {
