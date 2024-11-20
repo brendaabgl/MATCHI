@@ -62,6 +62,10 @@ async function initializeDatabase() {
         {Name: "Denim", Image: "denim.jpeg", Washing: "Wash infrequently, ideally after 5-10 wears, in cold water on a gentle cycle. Turn inside out to prevent fading and friction", Drying: "Air-dry flat or hang to dry in a shaded area to avoid shrinking and maintain shape. Avoid tumble drying", Storing: "Fold denim to avoid stretching. Store in a cool, dry place away from direct sunlight to preserve color", StainRemoval: "Spot-clean stains immediately with a mild detergent or stain remover. Avoid using bleach to prevent color damage", Ironing: "Use a medium-heat setting with steam. Iron inside out to avoid shiny marks on the surface.", Detergent: "Use a mild detergent. Avoid fabric softeners to maintain the denim's natural texture"},
     ]
 
+    const collection3 = db.collection('users');
+
+    const initialData3 = {}
+
     try {
         const result = await collection.insertMany(initialData);
         console.log(`${result.insertedCount} documents inserted into 'piece' collection.`);

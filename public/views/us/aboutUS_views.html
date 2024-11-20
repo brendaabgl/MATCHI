@@ -15,7 +15,7 @@
         
         <!-- Navbar -->
         <selection id="navbar">
-            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);">
+            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
                 <div class="container">
                     <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
                         MATCHI
@@ -40,14 +40,14 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/views/us/aboutUS_views.html"style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>About
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>Contact
@@ -62,7 +62,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../public/views/us/accountPage.html" 
-                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Times New Roman', serif;" 
+                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
                                    onmouseover="this.style.color='#000000'" 
                                    onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                     <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
@@ -70,7 +70,7 @@
                             <!-- Search Icon -->
                             <li class="nav-item">
                                 <a class="nav-link" href="#" onclick="toggleSearch()" 
-                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Times New Roman', serif;"
+                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
                                    onmouseover="this.style.color='#000000'" 
                                    onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                     <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
@@ -79,26 +79,30 @@
                         </ul>
                         <!-- Search Box -->
                         <div id="search-box" class="d-none">
-                            <form class="d-flex mt-2 mt-lg-0">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <form class="d-flex mt-2 mt-lg-0" onsubmit="handleSearch(event)">
+                                <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-dark" type="submit">Search</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                    <!-- JavaScript -->
             <script>
                 function toggleSearch() {
                     const searchBox = document.getElementById('search-box');
                     searchBox.classList.toggle('d-none');
                 }
+                function handleSearch() {
+                    event.preventDefault();
+                    const searchValue = document.getElementById('searchInput').value;
+                    window.location.href = "../../browse.html?name="+searchValue;
+              }
             </script>
         
             </nav>
         </selection>
         
-        <footer class="footer text-center py-3 bg-light">
-            <div class="container">
+        <footer class="footer text-center py-3" style="background-color: #A9B388;">
+            <div class="container" style="padding: 30px 0px 10px 0px;">
                 <div class="row justify-content-center">
                     <div class="col-md-2 mb-2">
                         <i class="bi bi-people-fill fs-5 text-dark"></i>
@@ -121,7 +125,13 @@
                         <p style="font-size: 11px;">Evaluate authentic and ethical brands.</p>
                     </div>
                 </div>
-                <p class="text-muted small mt-3">&copy; MATCHI. All rights reserved.</p>
+                <div class="container" style="padding-top: 5px; padding-bottom: 2px;">
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-items-center justify-content-end"><a href="views/us/contact_views.html" style="color: inherit; text-decoration: none;">Contact Us</a></div>
+                        <div class="col-md-6 d-flex align-items-center justify-content-start"><a href="views/us/aboutUS_views.html" style="color: inherit; text-decoration: none;">About Us</a></div>
+                    </div>
+                </div>
+                <p class="text-muted small mt-3">© 2024 ruccie, sproutnforest, bhaze. All rights reserved.</p>
             </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
