@@ -15,20 +15,22 @@
         
         <!-- Navbar -->
         <selection id="navbar">
-            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);">
+            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09);
+                                  backdrop-filter: blur(10px);  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);">
                 <div class="container">
-                    <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
-                        MATCHI
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; 
+                    font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); 
+                    text-shadow: 1px 1px 5px #ffffff;"> MATCHI</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                     aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
-                                onmouseover="this.style.color='#000000'" 
-                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; 
+                                font-family:  'Times New Roman', serif;"
+                                onmouseover="this.style.color='#000000'"  onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>Home
                                 </a>
                             </li>
@@ -215,6 +217,51 @@
                     btn.style.color = 'white';
                 }
                 </script>
+                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#flowerModal">Spring</button>   
+                <div class="modal fade" id="flowerModal" tabindex="-1" aria-labelledby="flowerModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <script>
+                    // Ketika tombol ditekan, modal akan muncul
+                    $('#flowerModal').on('show.bs.modal', function (event) {
+                    const modalBody = $(this).find('.modal-body');
+                    for (let i = 0; i < 100; i++) {
+                        const flower = $('<i class="fas fa-flower"></i>');
+                        flower.addClass('flower');
+                        flower.css({
+                        left: Math.random() * 100 + '%',
+                        top: 0, // Posisi awal di atas
+                        animationDelay: Math.random() * 2 + 's' // Delay animasi acak
+                        });
+                        modalBody.append(flower);
+                    }
+                    });
+                </script>
+
+                <style>
+                    .flower {
+                    position: absolute;
+                    animation: fall 2s infinite;
+                    }
+
+                    @keyframes fall {
+                    0% {
+                        top: 0;
+                        opacity: 1;
+                    }
+                    100% {
+                        top: 100%;
+                        opacity: 0;
+                    }
+                    }
+                </style> -->
+                            
             </section>
             
         </section>
