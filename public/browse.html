@@ -19,7 +19,8 @@
     </style>
 </head>
 <body ng-app="myApp" ng-controller="browserController">
-  <selection id="navbar">
+   <!-- Navbar -->
+   <selection id="navbar">
     <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
         <div class="container">
             <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
@@ -45,28 +46,34 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                        <a class="nav-link" href="/public/views/us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                         onmouseover="this.style.color='#000000'" 
                         onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                         <i style="font-size: 1.5rem;"></i>About
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                        <a class="nav-link" href="/public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                         onmouseover="this.style.color='#000000'" 
                         onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                         <i style="font-size: 1.5rem;"></i>Contact
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
-                        onmouseover="this.style.color='#000000'" 
-                        onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
-                        <i style="font-size: 1.5rem;"></i>Subscribe
-                        </a>
+                    <li>
+                        <button id="subscribeBtnNavbar" class="btn btn-sm " onclick="toggleSubscription()"
+                                style="  font-family:  'Times New Roman', serif; transition: all 0.3s ease; border-radius: 10px; background-color: #ffffff; color: rgba(95, 111, 82, 10); 
+                                    font-size: 14px; padding: 5px 10px; width: auto; 
+                                       position: relative; top: -38px; left: 0; transform: translateY(50px);"
+                                onmouseover="this.style.backgroundColor='rgba(95, 111, 82, 10)'; this.style.color='#ffffff'; this.style.transform='scale(1.05) translateY(50px)';"
+                                onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='rgba(95, 111, 82, 10)'; this.style.transform='scale(1) translateY(50px)';"
+                                onmousedown="this.style.backgroundColor='#687c5c'; this.style.color='#ffffff';"
+                                onmouseup="this.style.backgroundColor='rgba(95, 111, 82, 10)'; this.style.color='#ffffff';">
+                            Subscribe
+                        </button>
                     </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="../public/views/us/accountPage.html" 
+                        <a class="nav-link" href="/public/views/us/accountPage.html" 
                            style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
                            onmouseover="this.style.color='#000000'" 
                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
@@ -91,17 +98,6 @@
                 </div>
             </div>
         </div>
-    <script>
-        function toggleSearch() {
-            const searchBox = document.getElementById('search-box');
-            searchBox.classList.toggle('d-none');
-        }
-        function handleSearch() {
-            event.preventDefault();
-            const searchValue = document.getElementById('searchInput').value;
-            window.location.href = "browse.html?name="+searchValue;
-      }
-    </script>
 
     </nav>
 </selection>
