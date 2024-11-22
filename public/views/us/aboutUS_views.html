@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="fashionApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
     <body ng-controller="FilterController" id="home">
-        
+
         <!-- Navbar -->
         <selection id="navbar">
             <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
@@ -40,39 +40,39 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="/public/views/us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>About
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="/public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>Contact
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="/public/views/us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>Subscribe
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../public/views/us/accountPage.html" 
-                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
-                                   onmouseover="this.style.color='#000000'" 
-                                   onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <a class="nav-link" href="/public/views/us/accountPage.html" 
+                                style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                     <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
                                 </a>
                             <!-- Search Icon -->
                             <li class="nav-item">
                                 <a class="nav-link" href="#" onclick="toggleSearch()" 
-                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
-                                   onmouseover="this.style.color='#000000'" 
-                                   onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                     <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
                                 </a>
                             </li>
@@ -94,15 +94,168 @@
                 function handleSearch() {
                     event.preventDefault();
                     const searchValue = document.getElementById('searchInput').value;
-                    window.location.href = "../../browse.html?name="+searchValue;
-              }
+                    window.location.href = "browse.html?name="+searchValue;
+            }
             </script>
         
             </nav>
         </selection>
+
+        <!-- Header Section -->
+         
+        <header style="
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)), url('/public/images/header1.png');
+            background-size: cover; background-size: 130% auto;
+            background-position: 45% 49.5%;
+            padding: 250px 0px; /* Increase the vertical padding to make it taller */
+            font-family: 'Times New Roman', serif; 
+            text-align: center; 
+            color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Added shadow */
+        ">
+        <nav class="top-nav py-4" style="background-color: #ffffff; box-shadow: 0px 10px 15px -10px rgba(0, 0, 0, 1), 0px -8px 10px -10px rgba(0, 0, 0, 1);">
+            <ul class="nav justify-content-center mb-0 fs-1" style="font-size: 0.95rem;">
+                <li class="nav-item"><a href="#6seasons" class="nav-link text-dark">ABOUT US</a></li>
+            </ul>
+        </nav>
         
+        </header>
+    
+        <!-- Inspirasi Section -->
+        <section style="font-family: 'Times New Roman', serif; padding: 80px 0px 80px 160px; background: rgba(255, 255, 255, 0.1);">
+            <div class="container">
+                <div class="row">
+                    <!-- Column for Text (6/12 of the row) -->
+                    <div class="col-md-6" style="background: rgba(242, 242, 242, 0.5); padding: 50px; border-radius: 50px;">
+                        <h2 style="font-family: 'Times New Roman', serif; text-align: left; margin-bottom: 30px; font-weight: bold;">Inspiration Behind Our Website</h2>
+                        <p style="font-family: 'Times New Roman', serif; text-align: left;">
+                            "Fashion is a universal language that continues to evolve—behind every fabric and stitch, there are stories, history, and techniques worth appreciating. <b>MATCHI</b> offers more than trends: we connect style, history, and sustainable innovation."
+                        </p>
+                    </div>
+                    <!-- Column for Image inside a Card (6/12 of the row) -->
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <div style="border: none; max-width: 100%; margin-top: -40px;">
+                            <img src="/public/images/mc1.png" class="card-img-top" alt="Fashion Inspiration" style="width: 100%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- team -->
+        <section style="font-family: 'Times New Roman', serif; padding: 40px 0; background: #f8f9fa;">
+            <div class="container">
+                <h2 style="text-align: center; font-weight: bold; margin-bottom: 30px;">Our Team</h2>
+                <div class="row justify-content-center">
+                    <!-- Team Member 1 -->
+                    <div class="col-md-4 col-lg-3 mb-4">
+                        <div class="card shadow-lg h-100" style="border-radius: 10px; overflow: hidden; ">
+                            <img src="/public/images/profilGeorgia.jpg" class="card-img-top" alt="Team Member 1" 
+                                 style="height: 200px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Georgia Sugisandhea</h5>
+                                <p class="card-text">535230080</p>
+                                    </div>
+                        </div>
+                    </div>
+        
+                    <!-- Team Member 2 -->
+                    <div class="col-md-4 col-lg-3 mb-4">
+                        <div class="card shadow-lg h-100" style="border-radius: 10px; overflow: hidden;">
+                            <img src="/public/images/profilBrenda.jpg" class="card-img-top" alt="Team Member 2" 
+                                 style="height: 200px; object-fit: cover; object-position: 80% 30%;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Brenda Abigail Han’s Hartama</h5>
+                                <p class="card-text">535230194</p>
+                                  </div>
+                        </div>
+                    </div>
+        
+                    <!-- Team Member 3 -->
+                    <div class="col-md-4 col-lg-3 mb-4">
+                        <div class="card shadow-lg h-100" style="border-radius: 10px; overflow: hidden;">
+                            <img src="/public/images/pp.jpg"
+                            class="card-img-top" alt="Team Member 3" 
+                                 style="height: 200px; object-fit: cover; object-position: 80% 0%;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Eryca Dhamma Shanty</h5>
+                                <p class="card-text">535230071</p>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>   
+        
+        <!-- Misi dan Visi Section -->
+        <section style=" font-family: 'Times New Roman', serif; padding: 40px 0; background: #f8f9fa;">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="float: left;">
+                    <h3 style="margin-bottom: 20px; font-weight: bold;">Our Mission</h3>
+                    <ul style="list-style: none; padding-left: 10;">
+                        <li style="margin-bottom: 10px;"><span style="color: #007bff;">✓</span> To increase knowledge about fabrics and fashion history.</li>
+                        <li style="margin-bottom: 10px;"><span style="color: #007bff;">✓</span> To provide inspiration for various lifestyle needs.</li>
+                        <li style="margin-bottom: 10px;"><span style="color: #007bff;">✓</span> Building Connections within the fashion community.</li>
+                        <li><span style="color: #007bff;">✓</span> Promoting Sustainability in fashion practices.</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6">
+                <h3 style="margin-bottom: 20px; font-weight: bold;">Our Vission</h3>
+                <p>We aspire to be a leading platform that unites:</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;"><span style="color: #007bff;">✓</span> In-depth knowledge of fashion history and values.</li>
+                    <li style="margin-bottom: 10px;"><span style="color: #007bff;">✓</span> Meaningful fashion choices.</li>
+                    <li><span style="color: #007bff;">✓</span> Inspiring the younger generation to appreciate fashion heritage.</li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- why we different -->
+        <section style=" font-family: 'Times New Roman', serif; padding: 40px 0; background: #fff;">
+            <div class="container">
+            <h2 style=" font-family: 'Times New Roman', serif; text-align: center; margin-bottom: 30px; font-weight: bold;">Why Are We Different?</h2>
+            <div class="row text-center">
+                <div class="col-md-4">
+                <h5 style="font-family: 'Times New Roman', serif; font-weight: bold;">In-Depth Knowledge</h5>
+                <p>
+                    Providing Detailed Information on Fabrics, Dyeing Techniques, and Production Processes refers to offering in-depth insights into the various aspects of fabric production, including the types of materials used, the methods for dyeing fabrics, and the steps involved in manufacturing. </p>
+                </div>
+                <div class="col-md-4">
+                <h5 style="font-family: 'Times New Roman', serif; font-weight: bold;">Focus on Sustainability</h5>
+                <p>Our content serves as a platform to educate and raise awareness about the crucial role sustainability plays in the fashion world. By sharing valuable insights, facts, and solutions, we aim to empower individuals, brands, and communities to make informed decisions that contribute to a more sustainable future.</p>
+                </div>
+                <div class="col-md-4">
+                <h5 style="font-family: 'Times New Roman', serif; font-weight: bold;">Building a Strong Community</h5>
+                <p>We Believe Fashion is About Sharing Stories and Inspiration
+
+                    Fashion is far more than just clothing; it's a universal language that communicates individual identity, culture, and personal stories. At its core, fashion is a powerful tool for self-expression, creativity, and connection. </p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Call-to-Action Section -->
+        <section style=" font-family: 'Times New Roman', serif;  padding: 40px 0; background: #f8f9fa; text-align: center;">
+            <div class="container">
+            <h3 style="font-family: 'Times New Roman', serif; font-size: 1.75rem; font-weight: bold;">Join Our Journey</h3>
+            <p>We welcome you with open arms at <strong>MATCHI</strong>.</p>
+            <a href="/public/views/us/subs_views.html" style="text-decoration: none;">
+                <button style="font-family: 'Times New Roman', serif; background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+                    Explore Our Inspiration
+                </button>
+            </a>
+             </div>
+        </section>
+
+
         <footer class="footer text-center py-3" style="background-color: #A9B388;">
             <div class="container" style="padding: 30px 0px 10px 0px;">
+
                 <div class="row justify-content-center">
                     <div class="col-md-2 mb-2">
                         <i class="bi bi-people-fill fs-5 text-dark"></i>
@@ -134,6 +287,7 @@
                 <p class="text-muted small mt-3">© 2024 ruccie, sproutnforest, bhaze. All rights reserved.</p>
             </div>
         </footer>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

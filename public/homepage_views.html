@@ -39,28 +39,28 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="/public/views/us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>About
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="/public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>Contact
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="/public/views/us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>Subscribe
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../public/views/us/accountPage.html" 
+                                <a class="nav-link" href="/public/views/us/accountPage.html" 
                                    style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
                                    onmouseover="this.style.color='#000000'" 
                                    onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
@@ -157,11 +157,13 @@
             </div>
              <!-- Navigation Bar -->
             <!-- <nav class="top-nav py-2" style="background-color: #ffffff; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+            <!-- <nav class="top-nav py-2" style="background-color: #ffffff; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
                 <ul class="nav justify-content-center mb-0" style="font-size: 0.95rem;">
                     <li class="nav-item"><a href="#6seasons" class="nav-link text-dark">Seasons</a></li>
                     <li class="nav-item"><a href="/public/views/fabrev/fabric_reviews.html" class="nav-link text-dark">Fabric</a></li>
                     <li class="nav-item"><a href="#blog" class="nav-link text-dark">Blog</a></li>
                 </ul>
+            </nav> -->
             </nav> -->
         </header>
         
@@ -172,8 +174,21 @@
                 </h2>
                 <div class="filter-options" 
                      style="display: flex; justify-content: center; padding: 30px; max-width: 100%;">
+            <section style="background-color: rgba(95, 111, 82, 0.4); padding: 50px 5px 30px 5px;">
+                <h2 class="text-center mb-4" style="text-align: center; margin-bottom: 16px; font-family: 'Times New Roman', serif;">
+                    Find your next outfit
+                </h2>
+                <div class="filter-options" 
+                     style="display: flex; justify-content: center; padding: 30px; max-width: 100%;">
                     <button 
                         class="filter-btn" 
+                        style="font-family: 'Times New Roman', serif; padding: 15px 50px 10px 50px; border-radius: 20px; background-color: #f1f2ef; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
+                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='black';" 
+                        onmouseout="this.style.backgroundColor='#f1f2ef'; this.style.color='black';"
+                        onclick="window.location.href='browse.html';">
+                        <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
+                        <p style="font-size: 18px; padding-top: 7px;">Browse</p>
+                    </button> 
                         style="font-family: 'Times New Roman', serif; padding: 15px 50px 10px 50px; border-radius: 20px; background-color: #f1f2ef; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
                         onmouseover="this.style.backgroundColor='#ccc'; this.style.color='black';" 
                         onmouseout="this.style.backgroundColor='#f1f2ef'; this.style.color='black';"
@@ -191,10 +206,19 @@
                         btn.style.backgroundColor = '#000';
                         btn.style.color = 'white';
                     }
+                <script> 
+                    function selectFilter(btn) {
+                        document.querySelectorAll('.filter-btn').forEach(button => {
+                            button.style.backgroundColor = '#ffffff';
+                            button.style.color = 'black';
+                        });
+                        btn.style.backgroundColor = '#000';
+                        btn.style.color = 'white';
+                    }
                 </script>
             </section>
         </section>
-        
+                
 
         <!-- card html -->
         <section>
@@ -202,6 +226,23 @@
                 </iframe>
         </section>
 
+        <div style="position: relative; height: 300px; width: 1500px; text-align: center; color: white; padding: 20px; background-color: rgb(255, 255, 255); overflow: hidden;">
+            <img src="/public/images/fabric.jpeg" alt="Gambar 1" style="width: 100%; height: 100%; object-fit: cover; filter: blur(1px);">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                <h1 style="text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); font-size: 48px; font-weight: 800; font-family: 'Times New Roman', serif;">
+                    FABRIC
+                  </h1>
+              <p style="font-family: 'Times New Roman', serif; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);"> Explore More </p>
+              <a href="/public/views/fabrev/fabric_reviews.html" style="text-decoration: none;">
+                <button style="font-family: 'Times New Roman', serif; background-color: #ffff; color: rgb(0, 0, 0); border: none; padding: 10px 20px; font-size: 1rem; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" 
+                        onmouseover="this.style.backgroundColor='#0000'" 
+                        onmouseout="this.style.backgroundColor='#ffff'">
+                  View
+                </button>
+              </a>
+            </div>
+          </div>
+          
         <footer class="footer text-center py-3" style="background-color: #A9B388;">
             <div class="container" style="padding: 30px 0px 10px 0px;">
                 <div class="row justify-content-center">
