@@ -260,7 +260,7 @@
     <selection id="navbar">
         <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
             <div class="container">
-                <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family: 'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
+                <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
                     MATCHI
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -269,53 +269,78 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10);">
-                                <i style="font-size: 1.5rem;"></i>Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10);">
-                                <i style="font-size: 1.5rem;"></i>Fabrics
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10);">
-                                <i style="font-size: 1.5rem;"></i>About
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../us/contact_views.html" style="color: rgba(95, 111, 82, 10);">
-                                <i style="font-size: 1.5rem;"></i>Contact
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../us/subs_views.html" style="color: rgba(95, 111, 82, 10);">
-                                <i style="font-size: 1.5rem;"></i>Subscribe
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../us/accountPage.html" 
-                            style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Times New Roman', serif;" 
+                            <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                             onmouseover="this.style.color='#000000'" 
                             onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
-                             <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
+                            <i style="font-size: 1.5rem;"></i>Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="toggleSearch()" style="color: rgba(95, 111, 82, 10);">
-                                <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i>
+                            <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>Fabrics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>Contact
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>Subscribe
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../public/views/us/accountPage.html" 
+                               style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
+                               onmouseover="this.style.color='#000000'" 
+                               onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
+                            </a>
+                        <!-- Search Icon -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="toggleSearch()" 
+                               style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                               onmouseover="this.style.color='#000000'" 
+                               onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
                             </a>
                         </li>
                     </ul>
                     <!-- Search Box -->
                     <div id="search-box" class="d-none">
-                        <form class="d-flex mt-2 mt-lg-0">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        <form class="d-flex mt-2 mt-lg-0" onsubmit="handleSearch(event)">
+                            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark" type="submit">Search</button>
                         </form>
                     </div>
                 </div>
             </div>
+        <script>
+            function toggleSearch() {
+                const searchBox = document.getElementById('search-box');
+                searchBox.classList.toggle('d-none');
+            }
+            function handleSearch() {
+                event.preventDefault();
+                const searchValue = document.getElementById('searchInput').value;
+                window.location.href = "../../browse.html?name="+searchValue;
+          }
+        </script>
+    
         </nav>
     </selection>
 
@@ -334,7 +359,8 @@
                 <div class="newsletter">
                     <h3>Our Newsletters</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras posuere turpis et purus accumsan condimentum. 
-                        Aenean eleifend tempor egestas. Ut libero leo, finibus at mi sed, tristique ullamcorper justo. Fusce malesuada iaculis est, porttitor aliquam tortor pulvinar a. Vivamus iaculis diam id odio faucibus hendrerit. Nullam id tristique leo.</p>
+                        Aenean eleifend tempor egestas. Ut libero leo, finibus at mi sed, tristique ullamcorper justo. Fusce malesuada iaculis est, 
+                        porttitor aliquam tortor pulvinar a. Vivamus iaculis diam id odio faucibus hendrerit. Nullam id tristique leo.</p>
                     <input type="email" placeholder="Email">
                     <button>Submit Button</button>
                 </div>
@@ -360,13 +386,39 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>© 2023 MATCHI Template. All Rights Reserved</p>
+    <footer class="footer text-center py-3" style="background-color: #A9B388;">
+        <div class="container" style="padding: 30px 0px 10px 0px;">
+            <div class="row justify-content-center">
+                <div class="col-md-2 mb-2">
+                    <i class="bi bi-people-fill fs-5 text-dark"></i>
+                    <h6 style="font-size: 12px;">Collaboration</h6>
+                    <p style="font-size: 11px;">Engage with fashion enthusiasts.</p>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <i class="bi bi-box2 fs-5 text-success"></i>
+                    <h6 style="font-size: 12px;">Fabric Knowledge</h6>
+                    <p style="font-size: 11px;">Learn about fabrics and sustainability.</p>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <i class="bi-lightbulb fs-5 text-warning"></i>
+                    <h6 style="font-size: 12px;">Style Tips</h6>
+                    <p style="font-size: 11px;">Elevate your personal style.</p>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <i  class="bi-check-circle fs-5 text-success"></i>
+                    <h6 style="font-size: 12px;">Brand Transparency</h6>
+                    <p style="font-size: 11px;">Evaluate authentic and ethical brands.</p>
+                </div>
+            </div>
+            <div class="container" style="padding-top: 5px; padding-bottom: 2px;">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-center justify-content-end"><a href="views/us/contact_views.html" style="color: inherit; text-decoration: none;">Contact Us</a></div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-start"><a href="views/us/aboutUS_views.html" style="color: inherit; text-decoration: none;">About Us</a></div>
+                </div>
+            </div>
+            <p class="text-muted small mt-3">© 2024 ruccie, sproutnforest, bhaze. All rights reserved.</p>
         </div>
     </footer>
-
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();

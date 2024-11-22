@@ -32,6 +32,18 @@ app.get('/pieces', async (req, res) => {
   }
 });
 
+app.get('/textile', async (req, res) => {
+  try {
+    await client.connect();
+    const database = client.db('MATCHI');
+    const piecesCollection = database.collection('textiles');
+    const pieces = await piecesCollection.find({}).toArray();
+    res.json(pieces);
+  } catch (error) {
+    res.status(500).send('Error fetching data: ' + error);
+  }
+})
+
 app.post('/pieces', async (req, res) => {
     try {
       await client.connect(); 
