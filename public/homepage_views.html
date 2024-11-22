@@ -14,26 +14,20 @@
     <body ng-controller="FilterController" id="home">
         <!-- Navbar -->
         <selection id="navbar">
-
-            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09);
-                                  backdrop-filter: blur(10px);  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);">
-
             <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
-
                 <div class="container">
-                    <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; 
-                    font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); 
-                    text-shadow: 1px 1px 5px #ffffff;"> MATCHI</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                     aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
+                        MATCHI
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; 
-                                font-family:  'Times New Roman', serif;"
-                                onmouseover="this.style.color='#000000'"  onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>Home
                                 </a>
                             </li>
@@ -45,28 +39,28 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="/public/views/us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>About
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="/public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>Contact
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                <a class="nav-link" href="/public/views/us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                                 onmouseover="this.style.color='#000000'" 
                                 onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                                 <i style="font-size: 1.5rem;"></i>Subscribe
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../public/views/us/accountPage.html" 
+                                <a class="nav-link" href="/public/views/us/accountPage.html" 
                                    style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
                                    onmouseover="this.style.color='#000000'" 
                                    onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
@@ -162,116 +156,45 @@
                 </button>
             </div>
              <!-- Navigation Bar -->
-            <nav class="top-nav py-2" style="background-color: #ffffff; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+            <!-- <nav class="top-nav py-2" style="background-color: #ffffff; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
                 <ul class="nav justify-content-center mb-0" style="font-size: 0.95rem;">
                     <li class="nav-item"><a href="#6seasons" class="nav-link text-dark">Seasons</a></li>
                     <li class="nav-item"><a href="/public/views/fabrev/fabric_reviews.html" class="nav-link text-dark">Fabric</a></li>
                     <li class="nav-item"><a href="#blog" class="nav-link text-dark">Blog</a></li>
                 </ul>
-            </nav>
+            </nav> -->
         </header>
         
-        <!-- tag seasons done -->
         <section id="6seasons">
-            <section style="background-color:  rgba(95, 111, 82, 0.09); padding: 5px;">
-                <div class="filter-options" style="display: flex; justify-content: space-around; margin: 30px 400px;">
+            <section style="background-color: rgba(95, 111, 82, 0.4); padding: 50px 5px 30px 5px;">
+                <h2 class="text-center mb-4" style="text-align: center; margin-bottom: 16px; font-family: 'Times New Roman', serif;">
+                    Find your next outfit
+                </h2>
+                <div class="filter-options" 
+                     style="display: flex; justify-content: center; padding: 30px; max-width: 100%;">
                     <button 
                         class="filter-btn" 
-                        style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                        onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                        onclick="selectFilter(this)"
-                    >
-                        🌸 Spring
-                    </button>
-                    <button 
-                        class="filter-btn" 
-                        style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                        onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                        onclick="selectFilter(this)"
-                    >
-                        ☀ Summer
-                  
-                    </button>
-                    <button 
-                        class="filter-btn" 
-                        style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                        onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                        onclick="selectFilter(this)"
-                    >
-                        🌿 autumn
-                    </button>
-                    <button 
-                    class="filter-btn" 
-                    style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                    onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                    onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                    onclick="selectFilter(this)"
-                >
-                    ❄ Winter
-  
+                        style="font-family: 'Times New Roman', serif; padding: 15px 50px 10px 50px; border-radius: 20px; background-color: #f1f2ef; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
+                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='black';" 
+                        onmouseout="this.style.backgroundColor='#f1f2ef'; this.style.color='black';"
+                        onclick="window.location.href='browse.html';">
+                        <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
+                        <p style="font-size: 18px; padding-top: 7px;">Browse</p>
+                    </button> 
                 </div>
-                <script> function selectFilter(btn) {
-                    // Reset semua tombol
-                    document.querySelectorAll('.filter-btn').forEach(button => {
-                        button.style.backgroundColor = '#ffffff';
-                        button.style.color = 'black';
-                    });
-                    // Set tombol yang dipilih
-                    btn.style.backgroundColor = '#000';
-                    btn.style.color = 'white';
-                }
-                </script>
-                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#flowerModal">Spring</button>   
-                <div class="modal fade" id="flowerModal" tabindex="-1" aria-labelledby="flowerModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-fullscreen">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <script>
-                    // Ketika tombol ditekan, modal akan muncul
-                    $('#flowerModal').on('show.bs.modal', function (event) {
-                    const modalBody = $(this).find('.modal-body');
-                    for (let i = 0; i < 100; i++) {
-                        const flower = $('<i class="fas fa-flower"></i>');
-                        flower.addClass('flower');
-                        flower.css({
-                        left: Math.random() * 100 + '%',
-                        top: 0, // Posisi awal di atas
-                        animationDelay: Math.random() * 2 + 's' // Delay animasi acak
+                <script> 
+                    function selectFilter(btn) {
+                        document.querySelectorAll('.filter-btn').forEach(button => {
+                            button.style.backgroundColor = '#ffffff';
+                            button.style.color = 'black';
                         });
-                        modalBody.append(flower);
+                        btn.style.backgroundColor = '#000';
+                        btn.style.color = 'white';
                     }
-                    });
                 </script>
-
-                <style>
-                    .flower {
-                    position: absolute;
-                    animation: fall 2s infinite;
-                    }
-
-                    @keyframes fall {
-                    0% {
-                        top: 0;
-                        opacity: 1;
-                    }
-                    100% {
-                        top: 100%;
-                        opacity: 0;
-                    }
-                    }
-                </style> -->
-                            
             </section>
-            
         </section>
+        
 
         <!-- card html -->
         <section>
