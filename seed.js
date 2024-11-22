@@ -46,7 +46,7 @@ async function initializeDatabase() {
         {Name: "Winter Scarf", NameId: "WinterScarf", Description: "Careful! Don't want to freeze your head off!", Image: "winterscarf.jpg", Color: ["yellow", "purple", "pink", "white", "black"], Tags: ["winter", "top"], Material: "Cotton"},
         {Name: "Dark Wash Jeans", NameId: "DarkWashJeans", Description: "You don't have this yet? Shame on you, shame on you", Image: "darkwashjeans.jpg", Color: ["blue"], Tags: ["bottom", "autumn"], Material: "Denim"},
         {Name: "Woman Uggs", NameId: "WomanUggs", Description: "It said woman uggs, but gentleman, you can wear it if you will", Image: "womanuggs.png", Color: ["brown", "black"], Tags: ["footwear", "autumn"], Material: "Velvet"},
-        {Name: "Tennis Skirt", NameId: "Tennis Skirt", Description: "Let's be honest, you don't wear it to play tennis do you?", Image: "tennisskirt.jpg", Color: ["white", "pink"], Tags: ["bottom", "summer"], Material: "Cotton"},
+        {Name: "Tennis Skirt", NameId: "TennisSkirt", Description: "Let's be honest, you don't wear it to play tennis do you?", Image: "tennisskirt.jpg", Color: ["white", "pink"], Tags: ["bottom", "summer"], Material: "Cotton"},
     ];
 
     const collection2 = db.collection('textiles');
@@ -64,7 +64,11 @@ async function initializeDatabase() {
 
     const collection3 = db.collection('users');
 
-    const initialData3 = {}
+    const initialData3 = {Username: "user123", Password: "user123", Email: "user123@email.com", Collection: []};
+
+    const collection4 = db.collection('comment');
+
+    const initialData4 = {productName: "WomanUggs", userName: "user123", comment: "So Comfy!!!!"};
 
     try {
         const result = await collection.insertMany(initialData);
@@ -72,6 +76,12 @@ async function initializeDatabase() {
 
         const result2 = await collection2.insertMany(initialData2);
         console.log(`${result2.insertedCount} documents inserted into 'textiles' collection.`);
+
+        const result3 = await collection3.insertOne(initialData3);
+        console.log(`${result3.insertedCount} documents inserted into 'users' collection.`);
+
+        const result4 = await collection4.insertOne(initialData4);
+        console.log(`${result4.insertedCount} documents inserted into 'comment' collection.`);
 
         const fashionpieces = await collection.find().toArray();
         console.log('Fashion pieces:', fashionpieces);

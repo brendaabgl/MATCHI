@@ -165,62 +165,36 @@
             </nav> -->
         </header>
         
-        <!-- tag seasons done
         <section id="6seasons">
-            <section style="background-color:  rgba(95, 111, 82, 0.09); padding: 5px;">
-                <div class="filter-options" style="display: flex; justify-content: space-around; margin: 30px 400px;">
+            <section style="background-color: rgba(95, 111, 82, 0.4); padding: 50px 5px 30px 5px;">
+                <h2 class="text-center mb-4" style="text-align: center; margin-bottom: 16px; font-family: 'Times New Roman', serif;">
+                    Find your next outfit
+                </h2>
+                <div class="filter-options" 
+                     style="display: flex; justify-content: center; padding: 30px; max-width: 100%;">
                     <button 
                         class="filter-btn" 
-                        style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                        onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                        onclick="selectFilter(this)"
-                    >
-                        🌸 Spring
-                    </button>
-                    <button 
-                        class="filter-btn" 
-                        style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                        onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                        onclick="selectFilter(this)"
-                    >
-                        ☀ Summer
-                  
-                    </button>
-                    <button 
-                        class="filter-btn" 
-                        style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                        onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                        onclick="selectFilter(this)"
-                    >
-                        🌿 autumn
-                    </button>
-                    <button 
-                    class="filter-btn" 
-                    style="font-family:  'Times New Roman', serif; padding: 10px 15px; border-radius: 20px; background-color: #ffffff; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
-                    onmouseover="this.style.backgroundColor='#ccc'; this.style.color='white';" 
-                    onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='black';"
-                    onclick="selectFilter(this)"
-                >
-                    ❄ Winter
-  
+                        style="font-family: 'Times New Roman', serif; padding: 15px 50px 10px 50px; border-radius: 20px; background-color: #f1f2ef; border: 1px solid #ccc; transition: all 0.3s; display: flex; align-items: center; gap: 5px;" 
+                        onmouseover="this.style.backgroundColor='#ccc'; this.style.color='black';" 
+                        onmouseout="this.style.backgroundColor='#f1f2ef'; this.style.color='black';"
+                        onclick="window.location.href='browse.html';">
+                        <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
+                        <p style="font-size: 18px; padding-top: 7px;">Browse</p>
+                    </button> 
                 </div>
-                <script> function selectFilter(btn) {
-                    // Reset semua tombol
-                    document.querySelectorAll('.filter-btn').forEach(button => {
-                        button.style.backgroundColor = '#ffffff';
-                        button.style.color = 'black';
-                    });
-                    // Set tombol yang dipilih
-                    btn.style.backgroundColor = '#000';
-                    btn.style.color = 'white';
-                }
+                <script> 
+                    function selectFilter(btn) {
+                        document.querySelectorAll('.filter-btn').forEach(button => {
+                            button.style.backgroundColor = '#ffffff';
+                            button.style.color = 'black';
+                        });
+                        btn.style.backgroundColor = '#000';
+                        btn.style.color = 'white';
+                    }
                 </script>
             </section>
-            
-        </section> -->
+        </section>
+        
 
         <!-- card html -->
         <section>

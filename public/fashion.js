@@ -1,9 +1,10 @@
 angular.module('myApp', [])
 .controller('PiecesController', function($scope, $http) {
+  let name;
     $http.get('http://localhost:3000/pieces')
       .then(function(response) {
         const params = new URLSearchParams(window.location.search);
-        const name = params.get('name');
+        name = params.get('name');
         console.log("Name from URL:", name);
 
         $scope.pieces = response.data;
@@ -37,6 +38,11 @@ angular.module('myApp', [])
           alert('Please enter a search query.');
       }
     };
+
+    $http.get('http://localhost:3000/comment').then(function(response) {
+      $scope.comments = response.data;
+      $scope.comments = $scope.comments.filter(item => item.productName === $scope.outfit.NameId);
+    });
 
     $scope.addPiece = function() {
       const newPiece = {
