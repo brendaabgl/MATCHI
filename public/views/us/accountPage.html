@@ -315,30 +315,34 @@
                         <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number</label>
+                        <label for="phone" class="form-label">password</label>
                         <input type="text" class="form-control" id="phone" placeholder="(+62) 123-4567" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
-                    <button type="submit" class="btn btn-primary">Login</button>
                 </form>
             </section>
 
             <!-- Account Settings Section -->
             <section id="settings">
                 <h2>Account Settings</h2>
-                <form id="settings-form">
+                <form id="login-form" method="POST" action="login.php">
                     <div class="mb-3">
-                        <label for="password" class="form-label">Change Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter new password" required>
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
                     </div>
                     <div class="mb-3">
-                        <label for="confirm-password" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm new password" required>
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-warning">Change Password</button>
-                    <button type="button" class="btn" id="logout-btn" style="background-color: red; color: white; border: none;">Logout</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </form>
+                <div class="user-list">
+                    <h3>Daftar Pengguna Terdaftar</h3>
+                    <ul id="user-list">
+                        <!-- pengguna yangd dambil dari database nnti muncul dsini -->
+                    </ul>
+                </div>
             </section>
+        </div>
         </div>
     </div>
 

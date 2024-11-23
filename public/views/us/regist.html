@@ -304,7 +304,7 @@
         <div class="right-section">
             <!-- Profile Section -->
             <section id="profile">
-                <h2>My Profile</h2>
+                <h2>SIGN IN</h2>
                 <form id="profile-form">
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
@@ -315,31 +315,14 @@
                         <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number</label>
+                        <label for="phone" class="form-label">Password</label>
                         <input type="text" class="form-control" id="phone" placeholder="(+62) 123-4567" required>
                     </div>
-                </form>
-            </section>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="button" class="btn btn-primary" onclick="redirectToLogin()">Login</button>
 
-            <!-- Account Settings Section -->
-            <section id="settings">
-                <h2>Account Settings</h2>
-                <form id="settings-form">
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Change Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter new password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirm-password" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm new password" required>
-                    </div>
-                    <button type="submit" class="btn btn-warning">Change Password</button>
-                    <button type="button" class="btn" id="logout-btn" style="background-color: red; color: white; border: none;">Logout</button>
-                    <button type="button" class="btn" id="logout-btn" style="background-color: red; color: white; border: none;">Delete Account</button>
                 </form>
             </section>
-        </div>
-    </div>
 
     <footer class="footer text-center py-3" style="background-color: #A9B388;">
         <div class="container" style="padding: 30px 0px 10px 0px;">
@@ -397,6 +380,10 @@
                 alert('Logged out!');
             }
         });
+        function redirectToLogin() {
+            window.location.href = "./accountPage.html"; // Sesuaikan path ke halaman login Anda
+        }
     </script>
+</script>
 </body>
 </html>
