@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MATCHI - Your destination for fashionable men's and women's clothing. Enjoy exclusive discounts and offers.">
+    <meta name="keywords" content="fashion, fabric, trends, seasons, clothing">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ON THE BLOG</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .blog-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .blog-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #3b2f2f;
+            letter-spacing: 5px;
+        }
+        .blog-title span {
+            font-size: 1rem;
+            display: block;
+            font-weight: normal;
+            color: #7c6d6d;
+            text-transform: none;
+            margin-top: 10px;
+        }
+        .blog-image {
+            margin-top: 30px;
+            width: 800px;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        /* --------------------- */
+        .container h1 {
+        font-weight: bold;
+        color: #3b2f2f;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ----- */
+        .trendsetter-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #3b2f2f;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .trendsetter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .profile-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .customization-note {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+    <body ng-controller="FilterController" id="home">
+        
+        <!-- Navbar -->
+        <selection id="navbar">
+            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
+                <div class="container">
+                    <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
+                        MATCHI
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i style="font-size: 1.5rem;"></i>Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i style="font-size: 1.5rem;"></i>Fabrics
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/public/views/us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i style="font-size: 1.5rem;"></i>About
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i style="font-size: 1.5rem;"></i>Contact
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                                onmouseover="this.style.color='#000000'" 
+                                onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i style="font-size: 1.5rem;"></i>Subscribe
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../public/views/us/accountPage.html" 
+                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
+                                   onmouseover="this.style.color='#000000'" 
+                                   onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                    <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
+                                </a>
+                            <!-- Search Icon -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="toggleSearch()" 
+                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                                   onmouseover="this.style.color='#000000'" 
+                                   onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                    <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- Search Box -->
+                        <div id="search-box" class="d-none">
+                            <form class="d-flex mt-2 mt-lg-0">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-dark" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                    <!-- JavaScript -->
+            <script>
+                function toggleSearch() {
+                    const searchBox = document.getElementById('search-box');
+                    searchBox.classList.toggle('d-none');
+                }
+            </script>
+        
+            </nav>
+        </selection>
+
+        <div class="blog-container">
+            <h1 class="blog-title">On The Blog 
+                <span>M A T C H I | Website Exclusive | November 20, 2024</span>
+            </h1>
+            <img src="../blog/img/koketBenner.jpg" alt="Blog Banner" class="blog-image">
+        </div>
+
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-uppercase" style="font-family: 'Times New Roman', serif; letter-spacing: 3px; border-bottom: 2px solid #000;">
+                        Lifestyle | Fashion |   COQUETTE 🎀
+                    </h1>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <p style="font-family: 'Times New Roman', serif; font-size: 1.2rem; line-height: 1.8;">
+                        The coquette outfit trend is all about embracing playful, flirtatious, and charming styles with a touch of vintage-inspired femininity. Drawing inspiration from the 18th and 19th centuries, as well as modern interpretations, this trend celebrates a soft, delicate aesthetic mixed with a hint of coquettishness and confidence. It’s a blend of romantic, almost fairy-tale-like elements with a modern twist that makes it both nostalgic and fresh.
+                    </p>
+                    <p style="font-family: 'Times New Roman', serif; font-size: 1.2rem; line-height: 1.8;">
+                        Color Palette: Soft, pastel colors dominate coquette outfits, with shades like blush pink, lavender, baby blue, mint green, and creamy whites being common choices. These light, gentle hues convey a sense of innocence, sweetness, and romance.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="../blog/img/koket1.jpg" alt="wife" class="img-fluid" style="border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 400px; height: 400px;">
+                </div>
+                
+            </div>
+        </div>
+        <p>
+            .   ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________    .
+        </p>
+        <div class="trendsetter-section">
+            <h1 class="section-title">Meet Lana Del Rey</h1>
+            
+            <div class="trendsetter-grid">
+                <div class="profile-content">
+                    <img src="../blog/img/koketLana.jpg" alt="Bella" class="profile-image">
+                    <p class="profile-text">Lana Del Rey has been a highly influential figure since she burst onto the scene with her first EP Born to Die in 2012. 
+                        While the official definition of “Coquette” refers to a woman who manipulates men to do her bidding through her charms, the aesthetic itself derives most of its hallmarks from mid-century staples of girlhood; frills, lace, knee socks, soft pastel color palettes, natural and dewy makeup, and most importantly pink ribbons.
+                    </p>
+                </div>
+                
+                <div class="profile-content">
+                    <p class="profile-text">The coquette outfit trend, which has been making waves recently, draws from this nostalgic aesthetic, blending innocence with subtle allure. Inspired by icons like Lana Del Rey, who embodies the delicate yet captivating charm of the coquette, this style is characterized by a romantic, almost dreamlike quality. Soft fabrics like lace, chiffon, and cotton are commonly used to create pieces that feel both ethereal and feminine.
+                    </p>
+                    <img src="../blog/img/koket2.jpg" alt="siren1" class="profile-image">
+                </div>
+                
+                <div class="profile-content">
+                    <img src="../blog/img/koket3.jpg" alt="siren2" class="profile-image">
+                    <p class="profile-text">Flirty details such as puffed sleeves, lace trims, and bows are often incorporated into dresses, skirts, and blouses, evoking a sense of youthful playfulness. The color palette remains gentle and pastel, with shades of baby pink, lavender, and mint green dominating. Accessories such as pearl jewelry, ribbon headbands, and dainty footwear—like ballet flats—complete the look, giving it a vintage yet contemporary feel. The coquette outfit trend is not just about dressing in a cute, feminine way, but about embracing a playful confidence and an enigmatic charm that captures attention without effort.
+                    </p>
+                </div>
+            </div>
+    
+            
+        </div>
+
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
