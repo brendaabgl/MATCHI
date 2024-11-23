@@ -1,0 +1,67 @@
+<div class="product-section text-center mt-4">
+    <div class="container p-4" style="max-width: 85%;">
+      <h2 class="text-dark-green display-2 fw-bold">Daily Wellness Menu</h2>
+      <p class="text-muted fs-3 text-dark-green">"Embrace Wellness with Nourishing Choices Every Day."</p>
+  
+      <div class="row g-4 justify-content-center" id="recipe-container">
+        <!-- KONTEN UNTUK RECIPE CONTAINER -->
+      </div>
+  
+      <div class="container mt-4">
+        <div>
+          <p class="h4 fw-bold text-dark-green">Healthy Meal Ideas for Your Daily Routine</p>
+          <div class="row g-3">
+            <!-- Ilustrasi Gambar -->
+            <div id="illustration-container" class="d-flex flex-wrap justify-content-start">
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container mt-4">
+        <div>
+          <p class="h4 fw-bold text-dark-green">Menu Lainnya</p>
+          <h3 class="text-dark-green">Good Food, Good Mood</h3>
+          <div class="row g-3">
+            <!-- Gambar Menu -->
+            <div id="menu-container" class="d-flex flex-wrap justify-content-start">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const illustrationImages = [
+      "mg1.jpg", "mg2.jpg", "mg3.jpg", "mg4.jpg",
+      "mg5.jpg", "mg6.jpg", "mg7.jpg", "mg8.jpg", "mg9.jpg"
+    ];
+  
+    const menuImages = [
+      "img6.jpg", "img.jpg", "img0.jpg", "img1.jpg",
+      "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg",
+      "img6.jpg", "img7.jpg", "img8.jpg", "img9.jpg",
+      "img10.jpg", "img11.jpg", "img12.jpg", "img13.jpg"
+    ];
+  
+    const illustrationContainer = document.getElementById("illustration-container");
+    const menuContainer = document.getElementById("menu-container");
+  
+    // Menambahkan gambar ilustrasi
+    illustrationImages.forEach((imgSrc, index) => {
+      const col = document.createElement("div");
+      col.className = "col-6 col-md-4 col-lg-3 p-2";
+      col.innerHTML = `<img src="./assets/${imgSrc}" alt="Illustration ${index + 1}" class="img-fluid rounded">`;
+      illustrationContainer.appendChild(col);
+    });
+  
+    // Menambahkan gambar menu
+    menuImages.forEach((imgSrc, index) => {
+      const col = document.createElement("div");
+      col.className = "col-6 col-md-4 col-lg-2 p-2";
+      col.innerHTML = `<img src="./assets/${imgSrc}" alt="Menu ${index + 1}" class="img-fluid rounded">`;
+      menuContainer.appendChild(col);
+    });
+  </script>
+  

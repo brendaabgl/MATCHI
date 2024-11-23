@@ -13,8 +13,91 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
     <body ng-controller="FilterController" id="home">
-        <!-- Navbar -->
-        <selection id="navbar">
+      <!-- Navbar -->
+      <selection id="navbar">
+        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
+            <div class="container">
+                <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
+                    MATCHI
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>Fabrics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/views/us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>Contact
+                            </a>
+                        </li>
+                        <li>
+                            <button id="subscribeBtnNavbar" class="btn btn-sm " onclick="toggleSubscription()"
+                                    style="  font-family:  'Times New Roman', serif; transition: all 0.3s ease; border-radius: 10px; background-color: #ffffff; color: rgba(95, 111, 82, 10); 
+                                        font-size: 14px; padding: 5px 10px; width: auto; 
+                                           position: relative; top: -38px; left: 0; transform: translateY(50px);"
+                                    onmouseover="this.style.backgroundColor='rgba(95, 111, 82, 10)'; this.style.color='#ffffff'; this.style.transform='scale(1.05) translateY(50px)';"
+                                    onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='rgba(95, 111, 82, 10)'; this.style.transform='scale(1) translateY(50px)';"
+                                    onmousedown="this.style.backgroundColor='#687c5c'; this.style.color='#ffffff';"
+                                    onmouseup="this.style.backgroundColor='rgba(95, 111, 82, 10)'; this.style.color='#ffffff';">
+                                Subscribe
+                            </button>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/views/us/accountPage.html" 
+                               style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
+                               onmouseover="this.style.color='#000000'" 
+                               onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
+                            </a>
+                        <!-- Search Icon -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="toggleSearch()" 
+                               style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                               onmouseover="this.style.color='#000000'" 
+                               onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Search Box -->
+                    <div id="search-box" class="d-none">
+                        <form class="d-flex mt-2 mt-lg-0" onsubmit="handleSearch(event)">
+                            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+        </nav>
+    </selection>
+
+           <!-- Navbar -->
+           <selection id="navbar">
             <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
                 <div class="container">
                     <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
@@ -95,7 +178,6 @@
         
             </nav>
         </selection>
-
         <!-- header -->
         <header id="header">  
             <!-- Carousel (Fixed Structure) -->
@@ -182,10 +264,129 @@
         </section>
 
         <section>
-            <iframe src="../public/views/blog/blog.html" style="width: 100%; height: 500px; border: none;"></iframe>
-            </iframe>
-        </section>
 
+            <div class="container mt-4">
+                <h2 class="text-center mb-4" style="text-align: center; margin-bottom: 16px; font-family: Time New Roman, serif;">ON THE BLOG - Fashion Trends</h2>
+                <div id="cards-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                    
+                    <div class="card" 
+                    style="border-radius: 10px; overflow: hidden; height: 350px; width: 250px; margin: 15px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                    >
+                        <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px;  font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">🎀/01</p>
+                        <img src="/public/views/blog/img/blog1.png" alt="fashion-img-1" style="width: 90%; object-position: 10% 10%; height: 100%; object-fit: cover; margin-left: auto; margin-right: auto; display: block;">
+                        <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                            
+                            <a href="/public/views/blog/dark.html" 
+                            style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; transition: all 0.3s ease;" 
+                            onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                            onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                            <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                            </a>  
+                        </div>
+                    </div>
+        
+                    <div class="card" 
+                    style="border-radius: 10px; overflow: hidden; height: 350px; width: 250px; margin: 15px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                    >
+                            <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px;  font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">☀/02</p>
+                        <img src="/public/views/blog/img/blog2.png"alt="fashion-img-1"style="width: 90%; object-position: 10% 10%; height: 100%; object-fit: cover; margin-left: auto; margin-right: auto; display: block;">
+                        <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                            
+                            <a href="/public/views/blog/wife.html" 
+                            style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; transition: all 0.3s ease;" 
+                            onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                            onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                            <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                            </a>     
+                        </div>
+                    </div>
+        
+                    <div class="card" 
+                    style="border-radius: 10px; overflow: hidden; height: 350px; width: 250px; margin: 15px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                    >
+                        <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px;  font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">🧶/03</p>
+                        <img src="/public/views/blog/img/blog3.png" alt="fashion-img-1" style="width: 90%; object-position: 10% 10%; height: 100%; object-fit: cover; margin-left: auto; margin-right: auto; display: block;">
+                        <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                            <a href="/public/views/blog/ribbons.html" 
+                            style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; transition: all 0.3s ease;" 
+                            onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                            onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                            <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                            </a>   
+                        </div>
+                    </div>
+        
+                    <div class="card" 
+                    style="border-radius: 10px; overflow: hidden; height: 350px; width: 250px; margin: 15px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                    >
+                        <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px;  font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">🧶/03</p>
+                        <img src="/public/views/blog/img/blog4.png" alt="fashion-img-1" style="width: 90%; object-position: 10% 10%; height: 100%; object-fit: cover; margin-left: auto; margin-right: auto; display: block;">
+                        <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                            <a href="/public/views/blog/offSiren.html" 
+                            style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; transition: all 0.3s ease;" 
+                            onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                            onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                            <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                            </a>   
+                        </div>
+                    </div>
+        
+                    <div class="card" 
+                    style="border-radius: 10px; overflow: hidden; height: 350px; width: 250px; margin: 15px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                    >
+                        <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px;  font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Georgia', serif;">🧶/03</p>
+                        <img src="/public/views/blog/img/blog5.png"alt="fashion-img-1" style="width: 90%; object-position: 10% 10%; height: 100%; object-fit: cover; margin-left: auto; margin-right: auto; display: block;">
+                        <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                            <a href="/public/views/blog/koket.html" onclick="navigateTo('none')"
+                            style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; transition: all 0.3s ease;" 
+                            onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                            onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                            <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                            </a>   
+                        </div>
+                    </div>
+            
+                    <div class="card" 
+                    style="border-radius: 10px; overflow: hidden; height: 350px; width: 250px; margin: 15px; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                    >
+                        <p style="color: rgb(255, 255, 255); font-size: 1rem; position: absolute; top: 20px; left: 20px; margin: 0; padding: 3px 6px;  font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-family: 'Times New Roman', serif;">🏖/06</p>
+                        <img src="/public/views/blog/img/blog6.png"alt="fashion-img-1" style="width: 90%; object-position: 10% 10%; height: 100%; object-fit: cover; margin-left: auto; margin-right: auto; display: block;">
+                       
+                        <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 130%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                            <h5 style="color: white; font-weight: bold; margin: 5px 0; font-size: 1rem;text-shadow: 2px 2px 5px rgba(0, 0, 0, 10);  font-family: 'Times New Roman', serif;">Holiday</h5>
+                            <p style="color: white; margin: 3px 0; font-size: 0.8rem; text-shadow: 2px 2px 5px rgba(0, 0, 0, 10); font-family: 'Times New Roman', serif;">Celebrate in Style</p>
+                            <a href="/public/views/blog/ribbons.html" onclick="navigateTo('none')"
+                            style="width: 30px; height: 30px; border-radius: 50%; background: white; color: black; display: flex; align-items: center; justify-content: center;  margin-top: 5px; transition: all 0.3s ease;" 
+                            onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
+                            onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+                            <i class="bi bi-chevron-up" style="font-size: 0.7rem; font-weight: bold;"></i>
+                            </a>  
+                        </div>
+                    </div>     
+                </div>
+                <nav class="d-flex justify-content-between mt-6" style="top: -225px; position: relative; height: 0;">
+                    <!-- Tombol Sebelumnya -->
+                    <a class="btn btn-outline-dark rounded-circle d-flex align-items-center justify-content-center"
+                    href="#" onclick="changePage(1)" 
+                    style="width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; transition: all 0.3s ease; position: absolute; left: 130px; top: 0;"
+                    onmouseover="this.style.backgroundColor='#000';" 
+                    onmouseout="this.style.backgroundColor='white';">
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+                    
+                    <!-- Tombol Selanjutnya -->
+                    <a class="btn btn-outline-dark rounded-circle d-flex align-items-center justify-content-center"
+                    href="#" onclick="changePage(2)" 
+                    style="width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; transition: all 0.3s ease; position: absolute; right: 130px; top: 0;"
+                    onmouseover="this.style.backgroundColor='#000';" 
+                    onmouseout="this.style.backgroundColor='white';">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </nav>
+                
+                </div>
+                </div>
+  
         <!-- link fabric -->
         <div style="position: relative; height: 300px; width: 1500px; text-align: center; color: white; padding: 20px; background-color: rgb(255, 255, 255); overflow: hidden;">
             <img src="/public/images/fabric.jpeg" alt="Gambar 1" style="width: 100%; height: 100%; object-fit: cover; filter: blur(1px);">
@@ -264,8 +465,7 @@
                 <p class="text-muted small mt-3">© 2024 ruccie, sproutnforest, bhaze. All rights reserved.</p>
             </div>
           
-        </footer>
-        
+        </footer>     
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <script src="/homepage.js"></script>
