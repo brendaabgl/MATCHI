@@ -1,0 +1,222 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MATCHI - Your destination for fashionable men's and women's clothing. Enjoy exclusive discounts and offers.">
+    <meta name="keywords" content="fashion, fabric, trends, seasons, clothing">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MATCHI</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .blog-post {
+            background-color: #f9f9f9;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+        .blog-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .blog-content {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+    <body ng-controller="FilterController" id="home">
+        <!-- Navbar -->
+        <selection id="navbar">
+            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
+                <div class="container">
+                    <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
+                        MATCHI
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10);">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10);">Fabrics</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/public/views/us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10);">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10);">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/public/views/us/accountPage.html" style="color: rgba(95, 111, 82, 10);">Profile</a>
+                            </li><li class="nav-item">
+                                <a class="nav-link" href="#" onclick="toggleSearch()" 
+                                   style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                                   onmouseover="this.style.color='#000000'" 
+                                   onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                    <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- Search Box -->
+                        <div id="search-box" class="d-none">
+                            <form class="d-flex mt-2 mt-lg-0" onsubmit="handleSearch(event)">
+                                <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-dark" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </selection>
+
+        <!-- Form untuk Membuat Blog -->
+        <div class="container form-container">
+            <h2>Start Create Your Personal Blog</h2>
+            <form id="blog-form">
+                <div class="mb-3">
+                    <label for="blog-title" class="form-label">Blog Title</label>
+                    <input type="text" id="blog-title" class="form-control" placeholder="Please enter the blog title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="blog-content" class="form-label">Blog Content</label>
+                    <textarea id="blog-content" class="form-control" rows="5" placeholder="Please enter the blog content" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+
+        <!-- Tempat Menampilkan Blog -->
+        <div id="blog-list" class="container">
+            <h3 class="mt-5">blog that has been created : </h3>
+            <div id="blogs"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer text-center py-3" style="background-color: #A9B388;">
+            <div class="container" style="padding: 30px 0px 10px 0px;">
+                <div class="row justify-content-center">
+                    <div class="col-md-2 mb-2">
+                        <i class="bi bi-people-fill fs-5 text-dark"></i>
+                        <h6 style="font-size: 12px;">Collaboration</h6>
+                        <p style="font-size: 11px;">Engage with fashion enthusiasts.</p>
+                    </div>
+                    <div class="col-md-2 mb-2">
+                        <i class="bi bi-box2 fs-5 text-success"></i>
+                        <h6 style="font-size: 12px;">Fabric Knowledge</h6>
+                        <p style="font-size: 11px;">Learn about fabrics and sustainability.</p>
+                    </div>
+                    <div class="col-md-2 mb-2">
+                        <i class="bi-lightbulb fs-5 text-warning"></i>
+                        <h6 style="font-size: 12px;">Style Tips</h6>
+                        <p style="font-size: 11px;">Elevate your personal style.</p>
+                    </div>
+                    <div class="col-md-2 mb-2">
+                        <i class="bi-check-circle fs-5 text-success"></i>
+                        <h6 style="font-size: 12px;">Brand Transparency</h6>
+                        <p style="font-size: 11px;">Evaluate authentic and ethical brands.</p>
+                    </div>
+                </div>
+        
+             <!-- Subscription Form Column (Center) -->
+                <div class="row justify-content-center mt-4">
+                    <h4 class="card-title mb-4">Subscribe for Updates</h4>
+                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-between w-100">
+                            <!-- Name Input -->
+                            <div class="form-group mb-3 w-45">
+                                <input type="text" class="form-control" id="nameInput" placeholder="Name" required>
+                            </div>
+                            <!-- Email Input -->
+                            <div class="form-group mb-3 w-45">
+                                <input type="email" class="form-control" id="emailInput" placeholder="Email" required>
+                            </div>
+                            <!-- Subscribe Button -->
+                            <div class="form-group mb-3 w-25">
+                                <button id="subscribeBtn" type="submit" class="btn btn-success w-100" onclick="toggleSubscription()">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        
+                <div class="container" style="padding-top: 5px; padding-bottom: 2px;">
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-items-center justify-content-end">
+                            <a href="views/us/contact_views.html" style="color: inherit; text-decoration: none;">Contact Us</a>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center justify-content-start">
+                            <a href="views/us/aboutUS_views.html" style="color: inherit; text-decoration: none;">About Us</a>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted small mt-3">© 2024 ruccie, sproutnforest, bhaze. All rights reserved.</p>
+            </div>
+          
+        </footer>     
+
+        <!-- JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/homepage.js"></script>
+        <script src="app.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            const blogForm = document.getElementById('blog-form');
+            const blogList = document.getElementById('blogs');
+
+            function displayBlog(title, content) {
+                const blogPost = document.createElement('div');
+                blogPost.classList.add('blog-post');
+
+                const blogTitle = document.createElement('h3');
+                blogTitle.classList.add('blog-title');
+                blogTitle.textContent = title;
+
+                const blogContent = document.createElement('p');
+                blogContent.classList.add('blog-content');
+                blogContent.textContent = content;
+
+                blogPost.appendChild(blogTitle);
+                blogPost.appendChild(blogContent);
+                blogList.appendChild(blogPost);
+            }
+
+            // Event listener untuk form submit
+            blogForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const title = document.getElementById('blog-title').value;
+                const content = document.getElementById('blog-content').value;
+
+                if (title === "" || content === "") {
+                    alert("Judul dan Konten tidak boleh kosong!");
+                    return;
+                }
+
+                // Tampilkan blog
+                displayBlog(title, content);
+
+                // Reset form setelah submit
+                blogForm.reset();
+            });
+        });
+        </script>
+    </body>
+</html>
