@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to your account dashboard.">
+    <meta name="keywords" content="account, dashboard, user">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard - MATCHI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .btn {
+            padding: 12px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .btn-logout {
+            background-color: #ff4d4d;
+            color: #fff;
+        }
+
+        .btn-logout:hover {
+            background-color: #ff3333;
+        }
+
+        .navbar-brand {
+            font-weight: 1000;
+            font-size: 2.5rem;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+            letter-spacing: 15px;
+            color: rgba(95, 111, 82, 10);
+            text-shadow: 1px 1px 5px #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
+        <div class="container">
+            <a class="navbar-brand" href="/public/homepage_views.html">MATCHI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/homepage_views.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html">Fabrics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/views/us/aboutUS_views.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/views/us/contact_views.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/views/us/accountPage.html">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="container">
+        <h1>Welcome, [Username]!</h1>
+        <p>Your account has been successfully logged in.</p>
+
+        <!-- Dashboard Options -->
+        <button class="btn btn-primary" onclick="window.location.href='/public/views/us/accountPage.html'">Go to Profile</button>
+        <button class="btn btn-secondary" onclick="window.location.href='/public/views/fabrev/fabric_reviews.html'">Explore Fabrics</button>
+    </div>
+
+    <footer class="footer text-center py-3" style="background-color: #A9B388;">
+        <div class="container" style="padding: 30px 0px 10px 0px;">
+            <div class="row justify-content-center">
+                <div class="col-md-2 mb-2">
+                    <i class="bi bi-people-fill fs-5 text-dark"></i>
+                    <h6 style="font-size: 12px;">Collaboration</h6>
+                    <p style="font-size: 11px;">Engage with fashion enthusiasts.</p>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <i class="bi bi-box2 fs-5 text-success"></i>
+                    <h6 style="font-size: 12px;">Fabric Knowledge</h6>
+                    <p style="font-size: 11px;">Learn about fabrics and sustainability.</p>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <i class="bi-lightbulb fs-5 text-warning"></i>
+                    <h6 style="font-size: 12px;">Style Tips</h6>
+                    <p style="font-size: 11px;">Elevate your personal style.</p>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <i class="bi-check-circle fs-5 text-success"></i>
+                    <h6 style="font-size: 12px;">Brand Transparency</h6>
+                    <p style="font-size: 11px;">Evaluate authentic and ethical brands.</p>
+                </div>
+            </div>
+            <div class="container" style="padding-top: 5px; padding-bottom: 2px;">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-center justify-content-end"><a href="views/us/contact_views.html" style="color: inherit; text-decoration: none;">Contact Us</a></div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-start"><a href="views/us/aboutUS_views.html" style="color: inherit; text-decoration: none;">About Us</a></div>
+                </div>
+            </div>
+            <p class="text-muted small mt-3">© 2024 ruccie, sproutnforest, bhaze. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                // Logic for logging out, such as clearing session/cookies
+                alert('You have logged out!');
+                window.location.href = '/public/views/us/login.html'; // Redirect to login page
+            }
+        }
+    </script>
+
+</body>
+
+</html>
