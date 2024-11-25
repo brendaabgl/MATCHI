@@ -18,7 +18,7 @@
 
         .container {
             display: flex;
-            flex-wrap: wrap;  /* To allow sections to stack on small screens */
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
@@ -34,7 +34,7 @@
             min-height: 400px;
             height: 100%;
             max-width: 100%;
-            transition: all 0.3s ease; /* Smooth transition for resizing */
+            transition: all 0.3s ease;
         }
 
         .right-section {
@@ -49,7 +49,6 @@
             font-size: 2rem;
             margin-bottom: 20px;
             color: #333;
-            transition: font-size 0.3s ease;
         }
 
         form {
@@ -151,7 +150,6 @@
             text-align: center;
         }
 
-        /* Media Queries */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -206,98 +204,36 @@
 </head>
 <body>
     <!-- Navbar -->
-    <selection id="navbar">
-        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
-            <div class="container">
-                <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
-                    MATCHI
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
-                            onmouseover="this.style.color='#000000'" 
-                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
-                            <i style="font-size: 1.5rem;"></i>Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
-                            onmouseover="this.style.color='#000000'" 
-                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
-                            <i style="font-size: 1.5rem;"></i>Fabrics
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
-                            onmouseover="this.style.color='#000000'" 
-                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
-                            <i style="font-size: 1.5rem;"></i>About
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
-                            onmouseover="this.style.color='#000000'" 
-                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
-                            <i style="font-size: 1.5rem;"></i>Contact
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
-                            onmouseover="this.style.color='#000000'" 
-                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
-                            <i style="font-size: 1.5rem;"></i>Subscribe
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../public/views/us/accountPage.html" 
-                               style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
-                               onmouseover="this.style.color='#000000'" 
-                               onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
-                                <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
-                            </a>
-                        <!-- Search Icon -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="toggleSearch()" 
-                               style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
-                               onmouseover="this.style.color='#000000'" 
-                               onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
-                                <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- Search Box -->
-                    <div id="search-box" class="d-none">
-                        <form class="d-flex mt-2 mt-lg-0" onsubmit="handleSearch(event)">
-                            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-dark" type="submit">Search</button>
-                        </form>
-                    </div>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/public/homepage_views.html">MATCHI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/public/homepage_views.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/public/views/fabrev/fabric_reviews.html">Fabrics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./us/aboutUS_views.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../public/views/us/contact_views.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./us/subs_views.html">Subscribe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../public/views/us/accountPage.html"><i class="bi bi-person-circle"></i> Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="toggleSearch()"><i class="bi bi-search"></i></a></li>
+                </ul>
+                <div id="search-box" class="d-none">
+                    <form class="d-flex" onsubmit="handleSearch(event)">
+                        <input class="form-control me-2" type="search" id="searchInput" placeholder="Search">
+                        <button class="btn btn-outline-dark" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
-        <script>
-            function toggleSearch() {
-                const searchBox = document.getElementById('search-box');
-                searchBox.classList.toggle('d-none');
-            }
-            function handleSearch() {
-                event.preventDefault();
-                const searchValue = document.getElementById('searchInput').value;
-                window.location.href = "../../browse.html?name="+searchValue;
-          }
-        </script>
-    
-        </nav>
-    </selection>
+        </div>
+    </nav>
 
     <!-- Account Page Section -->
     <div class="container">
-        <!-- Left Section with Image -->
         <div class="left-section">
-            <img src="../../images/acc.jpg" alt="Account Page Image" class="img-fluid">
+            <img src="../../images/acc.jpg" alt="">
         </div>
 
         <!-- Right Section with Profile and Settings -->
@@ -315,7 +251,7 @@
                         <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">password</label>
+                        <label for="phone" class="form-label">Phone</label>
                         <input type="text" class="form-control" id="phone" placeholder="(+62) 123-4567" required>
                     </div>
                 </form>
@@ -324,78 +260,54 @@
             <!-- Account Settings Section -->
             <section id="settings">
                 <h2>Account Settings</h2>
-                <form id="login-form" method="POST" action="login.php">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
+                <form id="login-form">
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" placeholder="Your password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <div class="mb-3">
+                        <label for="confirm-password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password" required>
+                    </div>
+                    <button type="submit" class="btn btn-register">Save Settings</button>
                 </form>
             </section>
-        </div>
+
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-signin" onclick="toggleLogin()">Logout</button>
+                <button type="submit" class="btn btn-primary" onclick="showChangePasswordNotification()">Change Password</button>
+            </div>
         </div>
     </div>
 
-    <footer class="footer text-center py-3" style="background-color: #A9B388;">
-        <div class="container" style="padding: 30px 0px 10px 0px;">
-            <div class="row justify-content-center">
-                <div class="col-md-2 mb-2">
-                    <i class="bi bi-people-fill fs-5 text-dark"></i>
-                    <h6 style="font-size: 12px;">Collaboration</h6>
-                    <p style="font-size: 11px;">Engage with fashion enthusiasts.</p>
-                </div>
-                <div class="col-md-2 mb-2">
-                    <i class="bi bi-box2 fs-5 text-success"></i>
-                    <h6 style="font-size: 12px;">Fabric Knowledge</h6>
-                    <p style="font-size: 11px;">Learn about fabrics and sustainability.</p>
-                </div>
-                <div class="col-md-2 mb-2">
-                    <i class="bi-lightbulb fs-5 text-warning"></i>
-                    <h6 style="font-size: 12px;">Style Tips</h6>
-                    <p style="font-size: 11px;">Elevate your personal style.</p>
-                </div>
-                <div class="col-md-2 mb-2">
-                    <i  class="bi-check-circle fs-5 text-success"></i>
-                    <h6 style="font-size: 12px;">Brand Transparency</h6>
-                    <p style="font-size: 11px;">Evaluate authentic and ethical brands.</p>
-                </div>
-            </div>
-            <div class="container" style="padding-top: 5px; padding-bottom: 2px;">
-                <div class="row">
-                    <div class="col-md-6 d-flex align-items-center justify-content-end"><a href="views/us/contact_views.html" style="color: inherit; text-decoration: none;">Contact Us</a></div>
-                    <div class="col-md-6 d-flex align-items-center justify-content-start"><a href="views/us/aboutUS_views.html" style="color: inherit; text-decoration: none;">About Us</a></div>
-                </div>
-            </div>
-            <p class="text-muted small mt-3">© 2024 ruccie, sproutnforest, bhaze. All rights reserved.</p>
-        </div>
+    <footer>
+        <p>&copy; 2024 MATCHI. All Rights Reserved.</p>
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Form validation
-        document.getElementById('profile-form').addEventListener('submit', function(event) {
+        function toggleSearch() {
+            document.getElementById("search-box").classList.toggle("d-none");
+        }
+
+        document.getElementById("profile-form").addEventListener("submit", function(event) {
             event.preventDefault();
-            alert('Profile updated successfully!');
+            alert("Profile updated!");
         });
 
-        document.getElementById('settings-form').addEventListener('submit', function(event) {
+        document.getElementById("login-form").addEventListener("submit", function(event) {
             event.preventDefault();
-            alert('Password changed successfully!');
+            alert("Password settings saved!");
         });
 
-        // Logout confirmation
-        document.getElementById('logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                // Logic for logout can be added here
-                alert('Logged out!');
-            }
-        });
+        function toggleLogin() {
+            alert("You have logged out!");
+        }
+
+        function showChangePasswordNotification() {
+        alert("Change Password");
+        }
     </script>
 </body>
 </html>
