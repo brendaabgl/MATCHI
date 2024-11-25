@@ -56,6 +56,22 @@ app.get('/comment', async (req, res) => {
   }
 })
 
+app.post('/comment', async (req, res) => {
+  try {
+    await client.connect(); 
+    const database = client.db('MATCHI');
+    const piecesCollection = database.collection('comment');
+
+    const newPiece = req.body;
+    console.log("Received new piece:", newPiece);
+    const result = await piecesCollection.insertOne(newPiece);
+    res.status(201).json({ insertedId: result.insertedId });
+  } catch (error) {
+    console.error("Error inserting data:", error);
+    res.status(500).send('Error inserting data into MongoDB');
+  }
+})
+
 app.post('/pieces', async (req, res) => {
     try {
       await client.connect(); 

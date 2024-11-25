@@ -152,14 +152,15 @@
   </div>  
   <div class="comment-section" style="background-color: rgba(163, 189, 142, 0.756); margin: 18px 35px; padding: 25px; border-radius: 15px;">
     <h5 style="padding-bottom: 10px;"><b>Comments</b></h5>
-    <form class="d-flex mt-2 mt-lg-0" onsubmit="postComment(event)" style="margin-bottom: 25px;">
-        <input class="form-control me-2" type="search" id="searchInput" placeholder="What do you think?" aria-label="Search">
+    <form class="d-flex mt-2 mt-lg-0" ng-submit="postComment()" style="margin-bottom: 25px;">
+        <input class="form-control me-2" type="text" ng-model="newComment" placeholder="What do you think?" aria-label="Comment">
         <button class="btn btn-outline-dark" type="submit">Post</button>
     </form>
     <div ng-repeat="item in comments">
-        <b>{{item.userName}}</b> {{item.comment}} 
+        <b>{{item.userName}}</b>: {{item.comment}}
     </div>
 </div>
+
   
   <footer class="footer text-center py-3" style="background-color: #A9B388;">
     <div class="container" style="padding: 30px 0px 10px 0px;">

@@ -25,6 +25,16 @@ angular.module('myApp', [])
             $scope.icon = "flower2"
             $scope.iconColor = "#FF69B4"
           }
+
+          $http.get('http://localhost:3000/comment')
+          .then(function(response) {
+            $scope.comments = response.data.filter(item => item.productName === $scope.outfit.NameId);
+          })
+          .catch(function(error) {
+            console.error('Error fetching comments:', error);
+          });
+
+
         }
       })
       .catch(function(error) {
@@ -39,10 +49,28 @@ angular.module('myApp', [])
       }
     };
 
-    $http.get('http://localhost:3000/comment').then(function(response) {
-      $scope.comments = response.data;
-      $scope.comments = $scope.comments.filter(item => item.productName === $scope.outfit.NameId);
-    });
+    $scope.postComment = function() {
+      if ($scope.newComment && $scope.outfit) {
+          const newComment = {
+              userName: "user123", 
+              comment: $scope.newComment, 
+              productName: $scope.outfit.NameId
+          };
+
+          $http.post('http://localhost:3000/comment', newComment)
+              .then(function(response) {
+                  console.log('Comment added:', response.data);
+                  $scope.comments.push(newComment);
+                  $scope.newComment = '';
+              })
+              .catch(function(error) {
+                  console.error('Error adding comment:', error);
+              });
+      } else {
+          alert('Please enter a comment.');
+      }
+  };
+  
 
     $scope.addPiece = function() {
       const newPiece = {
