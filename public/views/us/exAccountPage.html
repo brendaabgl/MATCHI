@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your MATCHI account. Update your details and preferences.">
+    <meta name="keywords" content="account, settings, profile, user">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Account - MATCHI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .left-section {
+            flex: 1;
+            background: url('public/images/accountPage.jpg') no-repeat center center;
+            background-size: cover;
+            min-height: 400px;
+            height: 100%;
+            max-width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            padding: 12px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .btn-register {
+            background-color: #6c5ce7;
+            color: #fff;
+        }
+
+        .btn-register:hover {
+            background-color: #5a4ac7;
+        }
+
+        .btn-signin {
+            background-color: #fff;
+            border: 1px solid #6c5ce7;
+            color: #6c5ce7;
+        }
+
+        .btn-signin:hover {
+            background-color: #f4f4f4;
+        }
+
+        .terms {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            font-size: 1rem;
+            text-decoration: none;
+            color: #6c5ce7;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            background-color: rgba(95, 111, 82, 0.09);
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 1000;
+            font-size: 2.5rem;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+            letter-spacing: 15px;
+            color: rgba(95, 111, 82, 10);
+            text-shadow: 1px 1px 5px #ffffff;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(95, 111, 82, 10);
+            font-family: 'Times New Roman', serif;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #000000;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px;
+            }
+
+            .left-section {
+                width: 100%;
+                height: 300px;
+                margin-bottom: 20px;
+            }
+
+            .right-section {
+                width: 100%;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 8px;
+            }
+
+            .navbar-brand {
+                font-size: 2rem;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+                padding: 7px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/public/homepage_views.html">MATCHI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/public/homepage_views.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/public/views/fabrev/fabric_reviews.html">Fabrics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./us/aboutUS_views.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../public/views/us/contact_views.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./us/subs_views.html">Subscribe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../public/views/us/accountPage.html"><i class="bi bi-person-circle"></i> Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="toggleSearch()"><i class="bi bi-search"></i></a></li>
+                </ul>
+                <div id="search-box" class="d-none">
+                    <form class="d-flex" onsubmit="handleSearch(event)">
+                        <input class="form-control me-2" type="search" id="searchInput" placeholder="Search">
+                        <button class="btn btn-outline-dark" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Account Page Section -->
+    <div class="container">
+        <div class="left-section">
+            <img src="../../images/acc.jpg" alt="">
+        </div>
+
+        <!-- Right Section with Profile and Settings -->
+        <div class="right-section">
+            <!-- Profile Section -->
+            <section id="profile">
+                <h2>My Profile</h2>
+                <form id="profile-form">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Example" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">password</label>
+                        <input type="password" class="form-control" id="phone" required>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Account Settings Section -->
+            <section id="settings">
+                <h2>Account Settings</h2>
+                <form id="login-form">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Your password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirm-password" class="form-label">Change Password</label>
+                        <input type="password" class="form-control" id="confirm-password" placeholder="New Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-register">Save Settings</button>
+                </form>
+            </section>
+
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-signin" onclick="toggleLogin()">Logout</button>
+                <button type="submit" class="btn btn-primary" onclick="showChangePasswordNotification()">Change Password</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 MATCHI. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function toggleSearch() {
+            document.getElementById("search-box").classList.toggle("d-none");
+        }
+
+        document.getElementById("profile-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Profile updated!");
+        });
+
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Password settings saved!");
+        });
+
+        function toggleLogin() {
+            alert("You have logged out!");
+        }
+
+        function showChangePasswordNotification() {
+        alert("Change Password");
+        }
+    </script>
+</body>
+</html>

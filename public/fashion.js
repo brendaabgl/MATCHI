@@ -50,24 +50,38 @@ angular.module('myApp', [])
     };
 
     $scope.postComment = function() {
-      if ($scope.newComment && $scope.outfit) {
-          const newComment = {
-              userName: "user123", 
-              comment: $scope.newComment, 
-              productName: $scope.outfit.NameId
-          };
-
-          $http.post('http://localhost:3000/comment', newComment)
-              .then(function(response) {
-                  console.log('Comment added:', response.data);
-                  $scope.comments.push(newComment);
-                  $scope.newComment = '';
-              })
-              .catch(function(error) {
-                  console.error('Error adding comment:', error);
-              });
-      } else {
-          alert('Please enter a comment.');
+      try {
+          const userName = localStorage.getItem('user'); 
+  
+          if (!userName || userName === null) {
+              throw new Error("No username found in localStorage.");
+          }
+  
+          if ($scope.newComment && $scope.outfit) {
+              const newComment = {
+                  userName: userName, 
+                  comment: $scope.newComment, 
+                  productName: $scope.outfit.NameId
+              };
+  
+              $http.post('http://localhost:3000/comment', newComment)
+                  .then(function(response) {
+                      console.log('Comment added:', response.data);
+                      $scope.comments.push(newComment);
+                      $scope.newComment = '';
+                  })
+                  .catch(function(error) {
+                      console.error('Error adding comment:', error);
+                  });
+          } else {
+              alert('Please enter a comment.');
+          }
+      } catch (error) {
+          // Handle errors gracefully
+          console.error('Error:', error.message);
+          alert('You must be logged in to post a comment.');
+          // Optionally redirect to the registration page
+          window.location.href = "views/us/regist.html";
       }
   };
   

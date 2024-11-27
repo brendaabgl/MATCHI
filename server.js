@@ -3,14 +3,17 @@ const { MongoClient } = require('mongodb');
 const cors = require('cors');
 const app = express();
 const port = 3000;
+const { ObjectId } = require('mongodb');
+app.use(express.json());
 
-// CORS configuration
 const corsOptions = {
-  origin: '*', // Adjust the origin if needed
-  methods: ['GET', 'POST'],
+  origin: '*',
+  methods: ['GET', 'POST', 'DELETE', 'PUT', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
 };
+
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 const uri = 'mongodb://localhost:27017';
 const client = new MongoClient(uri);
@@ -72,6 +75,67 @@ app.post('/comment', async (req, res) => {
   }
 })
 
+app.delete('/comment', async (req, res) => {
+  try {
+    await client.connect();
+    const database = client.db('MATCHI');
+    const piecesCollection = database.collection('comment');
+
+    const { id } = req.body;
+    console.log(id);
+
+    if (!id) {
+      return res.status(400).send('No ID provided');
+    }
+
+    const result = await piecesCollection.deleteOne({ _id: new ObjectId(id) });
+
+    if (result.deletedCount === 1) {
+      console.log('Deleted comment with ID:', id);
+      res.status(200).send('Comment deleted successfully.');
+    } else {
+      console.log('No comment found with ID:', id);
+      res.status(404).send('Comment not found.');
+    }
+  } catch (error) {
+    console.error('Error deleting comment:', error);
+    res.status(500).send('Error deleting comment from MongoDB');
+  }
+});
+
+app.put('/comment/:id', async (req, res) => {
+  try {
+    await client.connect();
+    const database = client.db('MATCHI');
+    const commentCollection = database.collection('comment');
+
+    const { id } = req.params; 
+    const { comment } = req.body; 
+
+    if (!comment || comment.trim() === '') {
+      return res.status(400).json({ message: 'Comment cannot be empty.' });
+    }
+
+    const result = await commentCollection.findOneAndUpdate(
+      { _id: new ObjectId(id) }, 
+      { $set: { comment } },
+      { returnDocument: 'after' } 
+    );
+
+    if (!result.value) {
+      return res.status(404).json({ message: 'Comment not found.' });
+    }
+
+    res.json({
+      message: 'Comment updated successfully!',
+      data: result.value,
+    });
+  } catch (error) {
+    console.error('Error updating comment:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
 app.post('/pieces', async (req, res) => {
     try {
       await client.connect(); 
@@ -93,6 +157,96 @@ app.post('/pieces', async (req, res) => {
     }
   });
 
+  app.post('/users', async (req, res) => {
+    try {
+      await client.connect(); 
+      const database = client.db('MATCHI');
+      const piecesCollection = database.collection('users');
+  
+      const newPiece = req.body;
+      console.log("Received new piece:", newPiece);
+      const result = await piecesCollection.insertOne(newPiece);
+      res.status(201).json({ insertedId: result.insertedId });
+    } catch (error) {
+      console.error("Error inserting data:", error);
+      res.status(500).send('Error inserting data into MongoDB');
+    }
+  })
+
+  app.get('/users', async (req, res) => {
+    try {
+      await client.connect();
+      const database = client.db('MATCHI');
+      const piecesCollection = database.collection('users');
+      const pieces = await piecesCollection.find({}).toArray();
+      res.json(pieces);
+    } catch (error) {
+      res.status(500).send('Error fetching data: ' + error);
+    }
+  })
+
+  app.put('/users/:id', async (req, res) => {
+    try {
+      await client.connect();
+      const database = client.db('MATCHI');
+      const usersCollection = database.collection('users');
+  
+      const { id } = req.params; 
+      const { password } = req.body; 
+
+      console.log(password);
+  
+      if (!password || password.trim() === '') {
+        return res.status(400).json({ message: 'Comment cannot be empty.' });
+      }
+  
+      const result = await usersCollection.findOneAndUpdate(
+        { _id: new ObjectId(id) }, 
+        { $set: { password } },
+        { returnDocument: 'after' } 
+      );
+  
+      if (!result.value) {
+        return res.status(404).json({ message: 'password not found.' });
+      }
+  
+      res.json({
+        message: 'password updated successfully!',
+        data: result.value,
+      });
+    } catch (error) {
+      console.error('Error updating comment:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+
+  app.delete('/users', async (req, res) => {
+    try {
+      console.log("hi");
+        await client.connect();
+        const database = client.db('MATCHI');
+        const usersCollection = database.collection('users');
+        const { id } = req.body;
+        if (!id) {
+            return res.status(400).send('No ID provided');
+        }
+        console.log(id);
+    
+        const result = await usersCollection.deleteOne({ _id: new ObjectId(id) });
+    
+        if (result.deletedCount === 1) {
+            console.log('Deleted user with ID:', id);
+            res.status(200).send('User deleted successfully.');
+        } else {
+            console.log('No user found with ID:', id);
+            res.status(404).send('User not found.');
+        }
+    } catch (error) {
+        console.error('Error deleting user:', error);
+        res.status(500).send('Error deleting user from MongoDB');
+    }
+});
+
   app.get('/filter', async (req, res) => {
     try {
       await client.connect();
@@ -100,8 +254,7 @@ app.post('/pieces', async (req, res) => {
       const piecesCollection = database.collection('pieces');
   
       const tag = req.query.tag;
-  
-      // Build the filter query
+      
       const filter = tag ? { Tags: tag } : {};
   
       const pieces = await piecesCollection.find(filter).toArray();
@@ -110,6 +263,33 @@ app.post('/pieces', async (req, res) => {
       res.status(500).send('Error fetching data: ' + error);
     }
   });
+
+  app.put('/remove-array', async (req, res) => {
+    console.log('Request body:', req.body);
+    const { username, arrayToRemove } = req.body;
+    console.log('Username:', username, 'Array to remove:', arrayToRemove);
+
+    try {
+        await client.connect();
+        const database = client.db('MATCHI');
+        const usersCollection = database.collection('users');
+
+        const result = await usersCollection.updateOne(
+            { username: username },
+            { $pull: { collection: arrayToRemove } }
+        );
+
+        if (result.modifiedCount > 0) {
+            res.status(200).send('Array removed successfully.');
+        } else {
+            res.status(404).send('User not found or array not present.');
+        }
+    } catch (error) {
+        console.error('Error removing array:', error);
+        res.status(500).send('Error removing array.');
+    }
+});
+
   
   
 

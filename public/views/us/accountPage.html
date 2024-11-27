@@ -3,316 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manage your MATCHI account. Update your details and preferences.">
-    <meta name="keywords" content="account, settings, profile, user">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Account - MATCHI</title>
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
+            font-family:  'Times New Roman', serif;
         }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 20px;
-            overflow: hidden;
-        }
-
-        .left-section {
-            flex: 1;
-            background: url('public/images/accountPage.jpg') no-repeat center center;
-            background-size: cover;
-            min-height: 400px;
-            height: 100%;
-            max-width: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .right-section {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            font-size: 1rem;
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        input {
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .btn {
-            padding: 12px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-
-        .btn-register {
-            background-color: #6c5ce7;
-            color: #fff;
-        }
-
-        .btn-register:hover {
-            background-color: #5a4ac7;
-        }
-
-        .btn-signin {
-            background-color: #fff;
-            border: 1px solid #6c5ce7;
-            color: #6c5ce7;
-        }
-
-        .btn-signin:hover {
-            background-color: #f4f4f4;
-        }
-
-        .terms {
-            font-size: 0.9em;
-            color: #777;
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 10px;
-        }
-
-        .social-links a {
-            font-size: 1rem;
-            text-decoration: none;
-            color: #6c5ce7;
-        }
-
-        .social-links a:hover {
-            text-decoration: underline;
-        }
-
-        nav {
-            background-color: rgba(95, 111, 82, 0.09);
-            backdrop-filter: blur(10px);
-            padding: 10px 0;
-        }
-
-        .navbar-brand {
-            font-weight: 1000;
-            font-size: 2.5rem;
-            font-family: 'Times New Roman', serif;
-            text-transform: uppercase;
-            letter-spacing: 15px;
-            color: rgba(95, 111, 82, 10);
-            text-shadow: 1px 1px 5px #ffffff;
-        }
-
-        .navbar-nav .nav-link {
-            color: rgba(95, 111, 82, 10);
-            font-family: 'Times New Roman', serif;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #000000;
-        }
-
-        footer {
-            background-color: rgba(0, 0, 0, 0.05);
-            padding: 20px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-                padding: 15px;
-            }
-
-            .left-section {
-                width: 100%;
-                height: 300px;
-                margin-bottom: 20px;
-            }
-
-            .right-section {
-                width: 100%;
-                padding: 20px;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .btn {
-                font-size: 1rem;
-                padding: 8px;
-            }
-
-            .navbar-brand {
-                font-size: 2rem;
-            }
-
-            .navbar-nav .nav-link {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .navbar-brand {
-                font-size: 1.5rem;
-            }
-
-            .btn {
-                font-size: 0.9rem;
-                padding: 7px;
-            }
-
-            h2 {
-                font-size: 1.3rem;
-            }
+        .modal-header .close {
+            display: none;
         }
     </style>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="/public/homepage_views.html">MATCHI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/public/homepage_views.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/public/views/fabrev/fabric_reviews.html">Fabrics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./us/aboutUS_views.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../public/views/us/contact_views.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./us/subs_views.html">Subscribe</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../public/views/us/accountPage.html"><i class="bi bi-person-circle"></i> Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="toggleSearch()"><i class="bi bi-search"></i></a></li>
-                </ul>
-                <div id="search-box" class="d-none">
-                    <form class="d-flex" onsubmit="handleSearch(event)">
-                        <input class="form-control me-2" type="search" id="searchInput" placeholder="Search">
-                        <button class="btn btn-outline-dark" type="submit">Search</button>
-                    </form>
+<body ng-app="myApp" ng-controller="AccountPageController">
+    <selection id="navbar">
+        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
+            <div class="container">
+                <a class="navbar-brand" href="/public/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
+                    MATCHI
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/views/fabrev/fabric_reviews.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>Fabrics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>Contact
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <i style="font-size: 1.5rem;"></i>Subscribe
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../public/views/us/accountPage.html" 
+                               style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
+                               onmouseover="this.style.color='#000000'" 
+                               onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
+                            </a>
+                        <!-- Search Icon -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="toggleSearch()" 
+                               style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;"
+                               onmouseover="this.style.color='#000000'" 
+                               onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                                <i class="bi bi-search" style="font-size: 2rem; margin-right: 0.5rem;"></i> 
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Search Box -->
+                    <div id="search-box" class="d-none">
+                        <form class="d-flex mt-2 mt-lg-0" onsubmit="handleSearch(event)">
+                            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark" type="submit">Search</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-
-    <!-- Account Page Section -->
-    <div class="container">
-        <div class="left-section">
-            <img src="../../images/acc.jpg" alt="">
-        </div>
-
-        <!-- Right Section with Profile and Settings -->
-        <div class="right-section">
-            <!-- Profile Section -->
-            <section id="profile">
-                <h2>My Profile</h2>
-                <form id="profile-form">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Example" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">password</label>
-                        <input type="password" class="form-control" id="phone" required>
-                    </div>
-                </form>
-            </section>
-
-            <!-- Account Settings Section -->
-            <section id="settings">
-                <h2>Account Settings</h2>
-                <form id="login-form">
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Your password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirm-password" class="form-label">Change Password</label>
-                        <input type="password" class="form-control" id="confirm-password" placeholder="New Password" required>
-                    </div>
-                    <button type="submit" class="btn btn-register">Save Settings</button>
-                </form>
-                <div class="user-list">
-                    <h3>Daftar Pengguna Terdaftar</h3>
-                    <ul id="user-list">
-                    </ul>
+        <script>
+            function toggleSearch() {
+                const searchBox = document.getElementById('search-box');
+                searchBox.classList.toggle('d-none');
+            }
+            function handleSearch() {
+                event.preventDefault();
+                const searchValue = document.getElementById('searchInput').value;
+                window.location.href = "../../browse.html?name="+searchValue;
+          }
+        </script>
+    
+        </nav>
+    </selection>
+    <h1 style="padding: 50px 50px 20px 50px"><b>Hi {{username}}!</b></h1>
+    <h4 style="padding: 20px 50px 10px 50px"><b>My Collections: </b></h4>
+    <div class="row" style="margin: 0px 50px;">
+        <div ng-repeat="item in firstElements" class="col-md-6 col-lg-4 col-xl-3" style="padding: 5px 10px 15px 10px;">
+            <a href="" ng-click="openModal(item)" style="text-decoration: none; color: inherit">
+                <div style="background-color: rgba(163, 189, 142, 0.756); padding: 30px 10px; border-radius: 10px; text-align: center;" onmouseover="this.style.backgroundColor='rgba(163, 189, 142, 0.9)'" 
+                onmouseout="this.style.backgroundColor='rgba(163, 189, 142, 0.756)'">
+                    <b>{{item}}</b>
                 </div>
-            </section>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3" style="padding: 5px 10px 15px 10px;">
+            <a href="" ng-click="newCollection()" style="text-decoration: none; color: inherit">
+                <div style="background-color: rgba(163, 189, 142, 0.5); padding: 30px 10px; border-radius: 10px; text-align: center; border-style: dashed;" onmouseover="this.style.backgroundColor='rgba(163, 189, 142, 0.8)'" 
+                onmouseout="this.style.backgroundColor='rgba(163, 189, 142, 0.5)'">
+                    <b><i class="bi bi-plus"></i> New Collection</b>
+                </div>
+            </a>
+        </div>
+    </div>    
 
-            <div class="d-flex justify-content-between">
-                <button class="btn btn-signin" onclick="toggleLogin()">Logout</button>
-                <button type="submit" class="btn btn-primary" onclick="showChangePasswordNotification()">Change Password</button>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{collectionName}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container mt-1">
+                        <div class="row">
+                          <div ng-repeat="item in modalItems" class="col-xxl-3 col-xl-4 col-lg-6 col-md-8 mb-4">
+                            <a href="../../fashion.html?name={{item}}" style="color: inherit; text-decoration: none;">
+                              <div class="card">
+                                <img src="../../images/{{getImage(item)}}" class="card-img-top" alt="{{item.Name}}" style="width: 100%; object-fit: contain;">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{getName(item)}}</h5>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash3"></i></button>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark">Edit Name</button>
+                    <button type="button" class="btn btn-danger" ng-click="removeArray(collectionName)">Delete this Collection</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 MATCHI. All Rights Reserved.</p>
-    </footer>
+    <div class="modal fade" id="newCollectionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Input your new collection's name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container mt-1">
+                        <div class="row">
+                          <div ng-repeat="item in modalItems" class="col-xxl-3 col-xl-4 col-lg-6 col-md-8 mb-4">
+                            <a href="../../fashion.html?name={{item}}" style="color: inherit; text-decoration: none;">
+                              <div class="card">
+                                <img src="../../images/{{getImage(item)}}" class="card-img-top" alt="{{item.Name}}" style="width: 100%; object-fit: contain;">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{getName(item)}}</h5>
+                                </div>
+                                <div class="card-footer">
+                                    hi
+                                    <button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark">Edit Name</button>
+                    <button type="button" class="btn btn-danger">Delete this Collection</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        function toggleSearch() {
-            document.getElementById("search-box").classList.toggle("d-none");
-        }
-
-        document.getElementById("profile-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            alert("Profile updated!");
-        });
-
-        document.getElementById("login-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            alert("Password settings saved!");
-        });
-
-        function toggleLogin() {
-            alert("You have logged out!");
-        }
-
-        function showChangePasswordNotification() {
-        alert("Change Password");
-        }
-    </script>
+    <button class="btn btn-outline-dark" style="margin: 10px 50px;" ng-click="filterShow()"><i class="bi bi-pencil-square"></i> Edit My Comments</button><br>
+    <div ng-show="isVisible" style="margin: 15px 60px;">
+        <div ng-repeat="item in comments" style="background-color: rgba(163, 189, 142, 0.756); padding: 10px; margin: 10px 0px; border-radius: 10px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 d-flex flex-column align-items-center justify-content-center" style="background-color: rgba(163, 189, 142, 0.9); padding: 15px 15px 0px 15px;">
+                        <img src="../../images/{{getImage(item.productName)}}" width="100px">
+                        <p class="mt-2">{{getName(item.productName)}}</p>
+                    </div>                    
+                    <div class="col-md-8 d-flex flex-column justify-content-center">
+                        <p ng-if="!isEditing" style="font-size: large;" id="commentEditing">{{item.comment}}</p>
+                        <div class="d-flex" ng-if="isEditing">
+                            <form class="d-flex mt-lg-10 w-100" ng-submit="editComment(item._id, insertedComment)">
+                                <input class="form-control w-100" type="text" ng-model="insertedComment" placeholder="Type in your comment" aria-label="Comment">
+                                <button class="btn btn-outline-dark ms-2" type="submit">Edit</button>
+                            </form>
+                        </div>
+                    </div>                    
+                    <div class="col-md-2 d-flex align-items-center justify-content-center">
+                        <button class="btn btn-outline-success" style="margin: 0px 5px;" ng-click="showEditComment()"><i class="bi bi-pencil"></i></button>
+                        <button class="btn btn-outline-danger"  style="margin: 0px 5px;" ng-click="deleteComment(item._id)"><i class="bi bi-trash3"></i></button>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-outline-dark" style="margin: 10px 50px;" ng-click="showEditPassword()"><i class="bi bi-lock-fill"></i> Change Password</button><br>
+    <div ng-show="passwordShow" style="margin: 10px 50px;">
+        <form class="d-flex flex-column mt-lg-10 w-100" ng-submit="editPassword(insertedPassword, insertedConfirmPassword)">
+            <input class="form-control w-100" style="margin: 7px 0px" type="password" ng-model="insertedPassword" placeholder="Insert your new password" aria-label="Comment">
+            <input class="form-control w-100" style="margin: 7px 0px" type="password" ng-model="insertedConfirmPassword" placeholder="Confirm your new password" aria-label="Comment">
+            <button class="btn btn-dark ms-2" style="margin: 7px 0px" type="submit">Change</button>
+        </form>
+    </div>
+    <button class="btn btn-outline-danger" style="margin: 10px 50px;" ng-click="deleteAccount()"><i class="bi bi-trash3-fill"></i> Delete This Account</button><br>
+    <button class="btn btn-outline-danger"  style="margin: 10px 50px;" ng-click="logOut()"><i class="bi bi-box-arrow-left"></i> Log Out</button>
+    <script src="accountPage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
