@@ -264,34 +264,162 @@ app.post('/pieces', async (req, res) => {
     }
   });
 
-  app.put('/remove-array', async (req, res) => {
-    console.log('Request body:', req.body);
-    const { username, arrayToRemove } = req.body;
-    console.log('Username:', username, 'Array to remove:', arrayToRemove);
-
+  app.get('/collections', async (req, res) => {
     try {
+      console.log("inside");
+      await client.connect();
+      const database = client.db('MATCHI');
+      const piecesCollection = database.collection('collections');
+      const data = await piecesCollection.find({}).toArray();
+      res.json(data);
+    } catch (error) {
+      res.status(500).send('Error fetching data: ' + error);
+    }
+  });
+
+  app.delete('/collections', async (req, res) => {
+    try {
+      console.log("hi");
         await client.connect();
         const database = client.db('MATCHI');
-        const usersCollection = database.collection('users');
-
-        const result = await usersCollection.updateOne(
-            { username: username },
-            { $pull: { collection: arrayToRemove } }
-        );
-
-        if (result.modifiedCount > 0) {
-            res.status(200).send('Array removed successfully.');
+        const usersCollection = database.collection('collections');
+        const { id } = req.body;
+        if (!id) {
+            return res.status(400).send('No ID provided');
+        }
+        console.log(id);
+    
+        const result = await usersCollection.deleteOne({ _id: new ObjectId(id) });
+    
+        if (result.deletedCount === 1) {
+            console.log('Deleted collection with ID:', id);
+            res.status(200).send('Collection deleted successfully.');
         } else {
-            res.status(404).send('User not found or array not present.');
+            console.log('No collection found with ID:', id);
+            res.status(404).send('Collection not found.');
         }
     } catch (error) {
-        console.error('Error removing array:', error);
-        res.status(500).send('Error removing array.');
+        console.error('Error deleting collection:', error);
+        res.status(500).send('Error deleting collection from MongoDB');
     }
 });
 
-  
-  
+app.post('/collections', async (req, res) => {
+  try {
+    await client.connect(); 
+    const database = client.db('MATCHI');
+    const piecesCollection = database.collection('collections');
+
+    const newPiece = req.body;
+    console.log("Received new collections:", newPiece);
+    const result = await piecesCollection.insertOne(newPiece);
+    res.status(201).json({ insertedId: result.insertedId });
+  } catch (error) {
+    console.error("Error inserting collections:", error);
+    res.status(500).send('Error inserting collections into MongoDB');
+  }
+})
+
+app.put('/collections/:id', async (req, res) => {
+  try {
+    await client.connect();
+    const database = client.db('MATCHI');
+    const usersCollection = database.collection('collections');
+
+    const { id } = req.params; 
+    const { Name } = req.body; 
+
+    console.log(Name);
+
+    if (!Name || Name.trim() === '') {
+      return res.status(400).json({ message: 'Name cannot be empty.' });
+    }
+
+    const result = await usersCollection.findOneAndUpdate(
+      { _id: new ObjectId(id) }, 
+      { $set: { Name } },
+      { returnDocument: 'after' } 
+    );
+
+    if (!result.value) {
+      return res.status(404).json({ message: 'collection not found.' });
+    }
+
+    res.json({
+      message: 'collection updated successfully!',
+      data: result.value,
+    });
+  } catch (error) {
+    console.error('Error updating collection:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+app.put('/addToCollections/:id', async (req, res) => {
+  try {
+    await client.connect();
+    const database = client.db('MATCHI');
+    const usersCollection = database.collection('collections');
+
+    const { id } = req.params; 
+    const { addtosetitem } = req.body; 
+
+    console.log(addtosetitem);
+
+    if (!addtosetitem || addtosetitem.trim() === '') {
+      return res.status(400).json({ message: 'Name cannot be empty.' });
+    }
+
+    const result = await usersCollection.findOneAndUpdate(
+      { _id: new ObjectId(id) }, 
+      { $addToSet: { Items: addtosetitem } }
+    );
+
+    if (!result.value) {
+      return res.status(404).json({ message: 'collection not found.' });
+    }
+
+    res.json({
+      message: 'collection updated successfully!',
+      data: result.value,
+    });
+  } catch (error) {
+    console.error('Error updating collection:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+app.put('/removeFromCollections/:id', async (req, res) => {
+  try {
+    console.log("removing");
+    await client.connect();
+    const database = client.db('MATCHI');
+    const usersCollection = database.collection('collections');
+
+    const { id } = req.params; 
+    const { removeitemfromset } = req.body; 
+
+    console.log(removeitemfromset);
+
+    const result = await usersCollection.findOneAndUpdate(
+      { _id: new ObjectId(id) }, 
+      { $pull: { Items: removeitemfromset } }
+    );
+
+    if (!result.value) {
+      return res.status(404).json({ message: 'collection not found.' });
+    }
+
+    res.json({
+      message: 'collection updated successfully!',
+      data: result.value,
+    });
+  } catch (error) {
+    console.error('Error updating collection:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

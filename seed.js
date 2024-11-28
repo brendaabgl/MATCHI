@@ -64,11 +64,15 @@ async function initializeDatabase() {
 
     const collection3 = db.collection('users');
 
-    const initialData3 = {Username: "user123", Password: "user123", Email: "user123@email.com", Collection: []};
+    const initialData3 = {username: "user123", password: "user123", email: "user123@email.com"};
 
     const collection4 = db.collection('comment');
 
     const initialData4 = {productName: "WomanUggs", userName: "user123", comment: "So Comfy!!!!"};
+
+    const collection5 = db.collection('collections');
+
+    const initialData5 = {User: "user123", Name: "Spring Boujee", Items: ["EmilyTop", "RacerBabyTee"]};
 
     try {
         const result = await collection.insertMany(initialData);
@@ -82,6 +86,9 @@ async function initializeDatabase() {
 
         const result4 = await collection4.insertOne(initialData4);
         console.log(`${result4.insertedCount} documents inserted into 'comment' collection.`);
+
+        const result5 = await collection5.insertOne(initialData5);
+        console.log(`${result5.insertedCount} documents inserted into 'collections' collection.`);
 
         const fashionpieces = await collection.find().toArray();
         console.log('Fashion pieces:', fashionpieces);

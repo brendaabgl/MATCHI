@@ -107,15 +107,15 @@
     <h4 style="padding: 20px 50px 10px 50px"><b>My Collections: </b></h4>
     <div class="row" style="margin: 0px 50px;">
         <div ng-repeat="item in firstElements" class="col-md-6 col-lg-4 col-xl-3" style="padding: 5px 10px 15px 10px;">
-            <a href="" ng-click="openModal(item)" style="text-decoration: none; color: inherit">
+            <a href="" ng-click="openModal(item.Name)" style="text-decoration: none; color: inherit">
                 <div style="background-color: rgba(163, 189, 142, 0.756); padding: 30px 10px; border-radius: 10px; text-align: center;" onmouseover="this.style.backgroundColor='rgba(163, 189, 142, 0.9)'" 
                 onmouseout="this.style.backgroundColor='rgba(163, 189, 142, 0.756)'">
-                    <b>{{item}}</b>
+                    <b>{{item.Name}}</b>
                 </div>
             </a>
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3" style="padding: 5px 10px 15px 10px;">
-            <a href="" ng-click="newCollection()" style="text-decoration: none; color: inherit">
+            <a href="" ng-click="openNewCollection()" style="text-decoration: none; color: inherit">
                 <div style="background-color: rgba(163, 189, 142, 0.5); padding: 30px 10px; border-radius: 10px; text-align: center; border-style: dashed;" onmouseover="this.style.backgroundColor='rgba(163, 189, 142, 0.8)'" 
                 onmouseout="this.style.backgroundColor='rgba(163, 189, 142, 0.5)'">
                     <b><i class="bi bi-plus"></i> New Collection</b>
@@ -137,24 +137,24 @@
                     <div class="container mt-1">
                         <div class="row">
                           <div ng-repeat="item in modalItems" class="col-xxl-3 col-xl-4 col-lg-6 col-md-8 mb-4">
-                            <a href="../../fashion.html?name={{item}}" style="color: inherit; text-decoration: none;">
                               <div class="card">
-                                <img src="../../images/{{getImage(item)}}" class="card-img-top" alt="{{item.Name}}" style="width: 100%; object-fit: contain;">
-                                <div class="card-body">
-                                  <h5 class="card-title">{{getName(item)}}</h5>
-                                </div>
+                                <a href="../../fashion.html?name={{item}}" style="color: inherit; text-decoration: none;">
+                                    <img src="../../images/{{getImage(item)}}" class="card-img-top" alt="{{item.Name}}" style="width: 100%; object-fit: contain;">
+                                    <div class="card-body"> 
+                                        <h5 class="card-title">{{getName(item)}}</h5></a>
+                                    </div>
+                                </a>
                                 <div class="card-footer">
-                                    <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash3"></i></button>
+                                    <button type="button" class="btn btn-outline-danger" ng-click="removeFromCollection(item, collectionName)"><i class="bi bi-trash3"></i></button>
                                 </div>
                               </div>
-                            </a>
                           </div>
                         </div>
                       </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark">Edit Name</button>
-                    <button type="button" class="btn btn-danger" ng-click="removeArray(collectionName)">Delete this Collection</button>
+                    <button type="button" class="btn btn-dark" ng-click="editCollection(collectionName)">Edit Name</button>
+                    <button type="button" class="btn btn-danger" ng-click="removeCollection(collectionName)">Delete this Collection</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -171,28 +171,34 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="container mt-1">
-                        <div class="row">
-                          <div ng-repeat="item in modalItems" class="col-xxl-3 col-xl-4 col-lg-6 col-md-8 mb-4">
-                            <a href="../../fashion.html?name={{item}}" style="color: inherit; text-decoration: none;">
-                              <div class="card">
-                                <img src="../../images/{{getImage(item)}}" class="card-img-top" alt="{{item.Name}}" style="width: 100%; object-fit: contain;">
-                                <div class="card-body">
-                                  <h5 class="card-title">{{getName(item)}}</h5>
-                                </div>
-                                <div class="card-footer">
-                                    hi
-                                    <button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="" ng-model="newCollectionName" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <button class="btn btn-outline-dark" type="button" id="button-addon1" ng-click="creatingCollection()">Create</button>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark">Edit Name</button>
-                    <button type="button" class="btn btn-danger">Delete this Collection</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editCollectionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Input your new collection's name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="" ng-model="editCollectionName" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <button class="btn btn-outline-dark" type="button" id="button-addon1" ng-click="editingCollection()">Edit</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>

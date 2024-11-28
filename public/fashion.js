@@ -4,6 +4,7 @@ angular.module('myApp', [])
     $http.get('http://localhost:3000/pieces')
       .then(function(response) {
         const params = new URLSearchParams(window.location.search);
+        $scope.username = localStorage.getItem('user');
         name = params.get('name');
         console.log("Name from URL:", name);
 
@@ -107,4 +108,35 @@ angular.module('myApp', [])
           console.error('Error adding piece:', error);
         });
     };
+    $http.get('http://localhost:3000/collections')
+    .then(function(response) {
+        const alluser = response.data;
+        $scope.firstElements = alluser.filter(user => user.User === $scope.username);
+        console.log("check");
+        console.log($scope.firstElements);
+        
+        $scope.openModal = function() {
+          console.log("hi");
+          $('#collectionModal').modal('show');
+        };
+    });
+
+    $scope.addToCollection = function(item) {
+      $http.get('http://localhost:3000/collections')
+        .then(function(response) {
+            const alluser = response.data;
+            const theuser = alluser.filter(user => user.User === $scope.username);
+            console.log(theuser);
+            const collectionID = theuser.find(piece => piece.Name === item)._id;
+            console.log(collectionID);
+            $http.put('http://localhost:3000/addToCollections/' + collectionID, { addtosetitem: $scope.outfit.NameId})
+                .then(function(response) {
+                    console.log('Collection updated successfully:');
+                })
+                .catch(function(error) {
+                    console.error('Error updating collection:', error);
+                });
+        });
+    }
+
   });

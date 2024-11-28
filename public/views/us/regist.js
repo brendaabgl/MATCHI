@@ -4,7 +4,6 @@ angular.module('myApp', [])
         username: '',
         email: '',
         password: '',
-        collection: [],
     };
 
     $scope.signIn = function ($event) {

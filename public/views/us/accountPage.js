@@ -4,79 +4,127 @@ angular.module('myApp', [])
     $scope.username = localStorage.getItem('user');
     console.log($scope.username);
 
-    $http.get('http://localhost:3000/users')
+    $http.get('http://localhost:3000/collections')
     .then(function(response) {
         const alluser = response.data;
-        const theuser = alluser.find(user => user.username === $scope.username);
-        if (theuser && theuser.collection) {
-            $scope.firstElements = theuser.collection.map(array => {
-                if (Array.isArray(array) && array.length > 0) {
-                    return array[0]; 
-                }
-                return null;
-            }).filter(element => element !== null);
-        } else {
-            console.warn('No matching user or no collection found.');
-            $scope.firstElements = [];
-        }
-
+        $scope.firstElements = alluser.filter(user => user.User === $scope.username);
         console.log($scope.firstElements);
     });
 
     $scope.openModal = function(item) {
-        $http.get('http://localhost:3000/users')
+        $http.get('http://localhost:3000/collections')
         .then(function(response) {
             const alluser = response.data;
-            const theuser = alluser.find(user => user.username === $scope.username);
-            if (theuser && theuser.collection) {
-                const matchingArray = theuser.collection.find(array => {
-                    return Array.isArray(array) && array[0] === item;
-                });
-            
-                if (matchingArray) {
-                    console.log('Found matching array:', matchingArray);
-                    $scope.collectionName = matchingArray[0];
-                    matchingArray.shift();
-                    $scope.modalItems = matchingArray; 
-                } else {
-                    console.warn('No matching array found with first element:', itemToMatch);
-                    $scope.modalItems = [];  
-                }
-            } else {
-                console.warn('No matching user or no collection found.');
-                $scope.modalItems = [];
-            }
-
-            console.log($scope.modalItems);
+            const theuser = alluser.filter(user => user.User === $scope.username);
+            $scope.modalItems = theuser.find(piece => piece.Name === item).Items;
+            console.log("modalitems" + $scope.modalItems);
         });
         console.log("yes");
+        $scope.collectionName = item;
         $('#myModal').modal('show');
     };
 
-    $scope.removeArray = function(arrayNameToRemove) {
-        console.log(arrayNameToRemove);
-        $http.get('http://localhost:3000/users')
+    $scope.openNewCollection = function(item) {
+        console.log($scope.username);
+        console.log($scope.newCollectionName);
+        $('#newCollectionModal').modal('show');
+    };
+
+    $scope.editCollection = function(item) {
+        $('#editCollectionModal').modal('show');
+        $scope.iteminediting = item;
+    };
+
+    $scope.creatingCollection = function() {
+        console.log("Hi");
+        console.log($scope.username);
+        console.log($scope.newCollectionName);
+        const newcollection = {
+            User: $scope.username,
+            Name: $scope.newCollectionName,
+            Items: [],
+        }
+
+        $http.post('http://localhost:3000/collections', newcollection)
+        .then(function(response) {
+            alert('Creating collection successful');
+        })
+        .catch(function(error) {
+            alert('Error while creating collection.');
+            console.error(error);
+        });
+    }
+
+    $scope.editingCollection = function() {
+        console.log("hi")
+        $http.get('http://localhost:3000/collections')
         .then(function(response) {
             const alluser = response.data;
-            const theuser = alluser.find(user => user.username === $scope.username);
-            const matchingArray = theuser.collection.find(array => {
-                return Array.isArray(array) && array[0] === arrayNameToRemove;
-            });
-            console.log(matchingArray);
-            $http.put('http://localhost:3000/remove-array', {
-                username: $scope.username,
-                arrayToRemove: matchingArray
-            }).then(function(response) {
-                console.log('Array removed:', response.data);
-                const index = $scope.user.collection.indexOf(matchingArray);
-                if (index > -1) {
-                    $scope.user.collection.splice(index, 1);
-                }
-            }).catch(function(error) {
-                console.error('Error removing array:', error);
-            });
+            const theuser = alluser.filter(user => user.User === $scope.username);
+            console.log(theuser);
+            const collectionID = theuser.find(piece => piece.Name === $scope.iteminediting)._id;
+            console.log(collectionID);
+            $http.put('http://localhost:3000/collections/' + collectionID, { Name: $scope.editCollectionName })
+                .then(function(response) {
+                    console.log('Collection updated successfully:');
+                })
+                .catch(function(error) {
+                    console.error('Error updating collection:', error);
+                });
         });
-    };
+    }
+
+    $scope.removeCollection = function(item) {
+        $http.get('http://localhost:3000/collections')
+        .then(function(response) {
+            const alluser = response.data;
+            const theuser = alluser.filter(user => user.User === $scope.username);
+            const collectionID = theuser.find(piece => piece.Name === item)._id;
+            if (confirm('Are you sure you want to delete this collection?')) {
+                fetch('http://localhost:3000/collections', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id: collectionID,
+                    }),
+                })
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    if (!response.ok) {
+                        throw new Error('Failed to delete collection');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Collection deleted successfully:', data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        });
+    }
+
+    $scope.removeFromCollection = function(itemname, collectionname) {
+        $http.get('http://localhost:3000/collections')
+        .then(function(response) {
+            const alluser = response.data;
+            const theuser = alluser.filter(user => user.User === $scope.username);
+            console.log(theuser);
+            const collectionID = theuser.find(piece => piece.Name === collectionname)._id;
+            console.log(collectionID);
+            console.log(itemname);
+            $http.put('http://localhost:3000/removeFromCollections/' + collectionID, { removeitemfromset: itemname})
+                .then(function(response) {
+                    console.log('Collection updated successfully:');
+                })
+                .catch(function(error) {
+                    console.error('Error updating collection:', error);
+                });
+        });
+    }
 
     $http.get('http://localhost:3000/comment')
     .then(function(response) {
@@ -165,11 +213,24 @@ angular.module('myApp', [])
             });
         }
         else {
-            alert("The password and the confirm password is not the same!")
+            alert("The password and the confirm password is not the same!");
         }
     }
 
+    $scope.createCollection = function() {
+        const userName = $scope.username;
 
+        $http.put('http://localhost:3000/append-new-collection', { username: userName, arrayname:  $scope.newCollectionName})
+        .then(function(response) {
+            console.log('Empty array appended:', response.data);
+            if ($scope.user.collection) {
+                $scope.user.collection.push([$scope.newCollectionName]);
+            }
+        })
+        .catch(function(error) {
+            console.error('Error appending empty array:', error);
+        });
+    }
     
     $scope.deleteAccount = function() {
         $http.get('http://localhost:3000/users')
@@ -193,6 +254,7 @@ angular.module('myApp', [])
                 if (!response.ok) {
                     throw new Error('Failed to delete user');
                 }
+                localStorage.removeItem('user');
                 return response.json();
             })
             .then(data => {
