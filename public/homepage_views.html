@@ -106,7 +106,7 @@
                 <div class="carousel-inner">
                     <!-- Spring Collection -->
                     <div class="carousel-item active">
-                        <a href="./seasons/springs_views.html" style="text-decoration: none;">
+                        <a  style="text-decoration: none;">
                             <img src="../public/images/h1.png" class="d-block w-100" alt="Spring Collection" style="object-fit: cover; height: 300px;">
                             <div class="carousel-caption d-none d-md-block" style="top: 0; bottom: auto;">
                                 <h1 style=" font-family:  'Times New Roman', serif;">Trends Season Fabrics</h1>
@@ -116,7 +116,7 @@
                     </div>
                                 <!-- Summer Collection -->
                     <div class="carousel-item">
-                        <a href="./seasons/summer_views.html" style="text-decoration: none;">
+                        <a  style="text-decoration: none;">
                             <img src="../public/images/h2.png" class="d-block w-100" alt="Summer Collection" style="object-fit: cover; height: 300px;">
                             <div class="carousel-caption d-none d-md-block" style="top: 0; bottom: auto;">
                                 <h1 style="font-family: 'Times New Roman', serif; color: rgb(255, 252, 252); text-shadow: 2px 2px 4px rgba(0, 0, 0, 1), 4px 4px 8px rgba(0, 0, 0, 0.5), 6px 6px 12px rgba(0, 0, 0, 0.6);">
@@ -132,7 +132,7 @@
 
                     <!-- Winter Collection -->
                     <div class="carousel-item">
-                        <a href="./seasons/winter_view.html" style="text-decoration: none;">
+                        <a style="text-decoration: none;">
                             <img src="../public/images/h4.png" class="d-block w-100" alt="Winter Collection" style="object-fit: cover; height: 300px;">
                             <div class="carousel-caption d-none d-md-block" style="top: 0; bottom: auto;">
                                 <h1 style="font-family:  'Times New Roman', serif;  color: rgb(255, 252, 252); text-shadow: 2px 2px 4px rgba(0, 0, 0, 1), 4px 4px 8px rgba(0, 0, 0, 0.5), 6px 6px 12px rgba(0, 0, 0, 0.6);"
@@ -158,7 +158,7 @@
         </header>
         
         <section id="6seasons">
-            <section style="background-color: rgba(95, 111, 82, 0.4); padding: 50px 5px 30px 5px;">
+            <section style="background-color:#A9B388; padding: 50px 5px 30px 5px;">
                 <h2 class="text-center mb-4" style="text-align: center; margin-bottom: 16px; font-family: 'Times New Roman', serif;">
                     Find your next outfit
                 </h2>
@@ -186,8 +186,7 @@
                 </script>
             </section>
         </section>
-                
-
+          
         <!-- card html -->
         <section>
                 <iframe src="/public/views/seasons/card_seasons.html" style="width: 100%; height: 500px; border: none;"></iframe>
@@ -195,7 +194,6 @@
         </section>
 
         <section>
-
             <div class="container mt-4">
                 <h2 class="text-center mb-4" style="text-align: center; margin-bottom: 16px; font-family: Time New Roman, serif;">ON THE BLOG - Fashion Trends</h2>
                 <div id="cards-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
@@ -317,7 +315,89 @@
                 
                 </div>
                 </div>
+        </section>
   
+        <section class="fashionWeek">
+            <!-- Link FashionWeek dengan Grid Layout -->
+            <div class="container-fluid p-0">
+              <!-- Row dengan dua kolom: Gambar di kiri, Teks di kanan -->
+              <div class="row">
+                <!-- Kolom Kiri (Gambar) -->
+                <div class="col-md-6 p-0">
+                  <img src="/public/images/FashionWeek.jpeg" alt="Fashion Week Image" class="img-fluid w-100" 
+                       style="filter: blur(1px); object-fit: cover; height: 50vh; border-radius: 15px; transition: transform 0.3s ease;">
+                </div>
+            
+                <!-- Kolom Kanan (Konten) -->
+                <div class="col-md-6 d-flex flex-column justify-content-center text-center text-white" 
+                     style="background-color: #A9B388; box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3); padding: 40px; height: 50vh; border-radius: 10px;">
+                  <h1 class="display-4 fw-bold" style="text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); animation: fadeIn 1s ease-in-out; font-family: 'Times New Roman', serif; ">
+                    Fashion Week
+                  </h1>
+                  <p class="lead" style="font-family: 'Times New Roman', serif;" text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); animation: fadeIn 1.5s ease-in-out;">
+                    Explore More
+                  </p>
+          
+                  <!-- Tombol yang memunculkan Modal dengan efek hover -->
+                  <button class="btn" 
+                  style="font-family: 'Times New Roman', serif; background-color: rgba(0, 0, 0, 0.5); border-radius: 5px; padding: 10px 20px; font-size: 1rem; transition: background-color 0.1s ease; color: white;" 
+                  data-bs-toggle="modal" data-bs-target="#fashionWeekModal" 
+                  onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.8)'; this.style.color='black'" 
+                  onmouseout="this.style.backgroundColor='rgba(0, 0, 0, 0.5)'; this.style.color='white'">
+                    View
+                </button>
+                
+                
+                </div>
+              </div>
+            </div>
+            
+            <!-- Modal untuk Detail -->
+            <div class="modal fade" id="fashionWeekModal" tabindex="-1" aria-labelledby="fashionWeekModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="fashionWeekModalLabel" style="font-family: 'Times New Roman', serif;" >Fashion Week Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p style="font-family: 'Times New Roman', serif;" >Discover the latest trends and highlights from the upcoming Fashion Week. Join us to explore the fashion world like never before!</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="/public/views/fabrev/FashionWeek_review.html" class="btn btn-primary">Go to Review</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- CSS Animasi -->
+          <style>
+            @keyframes fadeIn {
+              0% { opacity: 0; transform: translateY(20px); }
+              100% { opacity: 1; transform: translateY(0); }
+            }
+          
+            .fashionWeek img:hover {
+              transform: scale(1.1); /* Menambah efek zoom pada gambar saat hover */
+            }
+          </style>
+          
+          
+          <!-- CSS Animasi -->
+          <style>
+            @keyframes fadeIn {
+              0% { opacity: 0; transform: translateY(20px); }
+              100% { opacity: 1; transform: translateY(0); }
+            }
+          
+            .fashionWeek img:hover {
+              transform: scale(1.1); /* Menambah efek zoom pada gambar saat hover */
+            }
+          </style>
+          
+
         <!-- link fabric -->
         <div style="position: relative; height: 300px; width: 100vw; text-align: center; color: white; padding: 20px; background-color: rgb(255, 255, 255); overflow: hidden;">
             <img src="/public/images/fabric.jpeg" alt="Gambar 1" style="width: 100%; height: 100%; object-fit: cover; filter: blur(1px);">
