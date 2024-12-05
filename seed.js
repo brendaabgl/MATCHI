@@ -74,6 +74,10 @@ async function initializeDatabase() {
 
     const initialData5 = {User: "user123", Name: "Spring Boujee", Items: ["EmilyTop", "RacerBabyTee"]};
 
+    const collection6 = db.collection('blogs');
+
+    const initialData6 = {username: "user123", title: "my favourite style", content: "So, my favourite style is acubi and streetwear, but i also like old money cuz it's so elegant. So every single piece of my style outfit really very much dependes on what occassion I'm attending to. Like if it's old money but something more casusal, I use a polo shirt, which is super elegant but casual at the same time. I recommend H&M for many types of outfit really. What about you? Do tell, my instagram handle is @bon.voyagea"};
+
     try {
         const result = await collection.insertMany(initialData);
         console.log(`${result.insertedCount} documents inserted into 'piece' collection.`);
@@ -89,6 +93,9 @@ async function initializeDatabase() {
 
         const result5 = await collection5.insertOne(initialData5);
         console.log(`${result5.insertedCount} documents inserted into 'collections' collection.`);
+
+        const result6 = await collection6.insertOne(initialData6);
+        console.log(`${result6.insertedCount} documents inserted into 'blogs' collection.`);
 
         const fashionpieces = await collection.find().toArray();
         console.log('Fashion pieces:', fashionpieces);

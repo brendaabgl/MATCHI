@@ -9,10 +9,14 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "concurrently \"node server.js\" \"live-server --open=public/views/homepage_views.html\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "live-server": "^1.2.1"
+  }
 }

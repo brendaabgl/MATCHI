@@ -219,7 +219,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/public/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            <a class="nav-link" href="/public/views/homepage_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                             onmouseover="this.style.color='#000000'" 
                             onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                             <i style="font-size: 1.5rem;"></i>Home
@@ -233,33 +233,42 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            <a class="nav-link" href="/public/views/us/aboutUS_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                             onmouseover="this.style.color='#000000'" 
                             onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                             <i style="font-size: 1.5rem;"></i>About
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
+                            <a class="nav-link" href="/public/views/us/contact_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
                             onmouseover="this.style.color='#000000'" 
                             onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
                             <i style="font-size: 1.5rem;"></i>Contact
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./us/subs_views.html" style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family:  'Times New Roman', serif;"
-                            onmouseover="this.style.color='#000000'" 
-                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
-                            <i style="font-size: 1.5rem;"></i>Subscribe
-                            </a>
+                        <li>
+                            <button id="subscribeBtnNavbar" class="btn btn-sm " onclick="toggleSubscription()"
+                                    style="  font-family:  'Times New Roman', serif; transition: all 0.3s ease; border-radius: 10px; background-color: #ffffff; color: rgba(95, 111, 82, 10); 
+                                        font-size: 14px; padding: 5px 10px; width: auto; 
+                                           position: relative; top: -38px; left: 0; transform: translateY(50px);"
+                                    onmouseover="this.style.backgroundColor='rgba(95, 111, 82, 10)'; this.style.color='#ffffff'; this.style.transform='scale(1.05) translateY(50px)';"
+                                    onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='rgba(95, 111, 82, 10)'; this.style.transform='scale(1) translateY(50px)';"
+                                    onmousedown="this.style.backgroundColor='#687c5c'; this.style.color='#ffffff';"
+                                    onmouseup="this.style.backgroundColor='rgba(95, 111, 82, 10)'; this.style.color='#ffffff';">
+                                Subscribe
+                            </button>
                         </li>
+                        
                         <li class="nav-item">
-                            <a class="nav-link" href="../public/views/us/accountPage.html" 
-                               style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
-                               onmouseover="this.style.color='#000000'" 
-                               onmouseout="this.style.color='rgba(95, 111, 82, 10)'">
+                            <a class="nav-link" href='#'
+                            style="color: rgba(95, 111, 82, 10); transition: color 0.3s ease; font-family: 'Georgia', serif;" 
+                            onmouseover="this.style.color='#000000'" 
+                            onmouseout="this.style.color='rgba(95, 111, 82, 10)'"
+                            onclick="goToProfile()">
                                 <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i> Profile
                             </a>
+                        </li>
+                        
                         <!-- Search Icon -->
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="toggleSearch()" 
@@ -279,17 +288,6 @@
                     </div>
                 </div>
             </div>
-        <script>
-            function toggleSearch() {
-                const searchBox = document.getElementById('search-box');
-                searchBox.classList.toggle('d-none');
-            }
-            function handleSearch() {
-                event.preventDefault();
-                const searchValue = document.getElementById('searchInput').value;
-                window.location.href = "../../browse.html?name="+searchValue;
-          }
-        </script>
     
         </nav>
     </selection>
@@ -330,7 +328,8 @@
                     <button type="button" class="btn btn-primary" ng-click="logIn()">Login</button>
                 </form>
             </section>
-
+        </div>
+    </div>
     <footer class="footer text-center py-3" style="background-color: #A9B388;">
         <div class="container" style="padding: 30px 0px 10px 0px;">
             <div class="row justify-content-center">
@@ -350,46 +349,52 @@
                     <p style="font-size: 11px;">Elevate your personal style.</p>
                 </div>
                 <div class="col-md-2 mb-2">
-                    <i  class="bi-check-circle fs-5 text-success"></i>
+                    <i class="bi-check-circle fs-5 text-success"></i>
                     <h6 style="font-size: 12px;">Brand Transparency</h6>
                     <p style="font-size: 11px;">Evaluate authentic and ethical brands.</p>
                 </div>
             </div>
+    
+         <!-- Subscription Form Column (Center) -->
+            <div class="row justify-content-center mt-4">
+                <h4 class="card-title mb-4">Subscribe for Updates</h4>
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <div class="d-flex justify-content-between w-100">
+                        <!-- Name Input -->
+                        <div class="form-group mb-3 w-45">
+                            <input type="text" class="form-control" id="nameInput" placeholder="Name" required>
+                        </div>
+                        <!-- Email Input -->
+                        <div class="form-group mb-3 w-45">
+                            <input type="email" class="form-control" id="emailInput" placeholder="Email" required>
+                        </div>
+                        <!-- Subscribe Button -->
+                        <div class="form-group mb-3 w-25">
+                            <button id="subscribeBtn" type="submit" class="btn btn-success w-100" onclick="toggleSubscription()">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    
             <div class="container" style="padding-top: 5px; padding-bottom: 2px;">
                 <div class="row">
-                    <div class="col-md-6 d-flex align-items-center justify-content-end"><a href="views/us/contact_views.html" style="color: inherit; text-decoration: none;">Contact Us</a></div>
-                    <div class="col-md-6 d-flex align-items-center justify-content-start"><a href="views/us/aboutUS_views.html" style="color: inherit; text-decoration: none;">About Us</a></div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-end">
+                        <a href="views/us/contact_views.html" style="color: inherit; text-decoration: none;">Contact Us</a>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-start">
+                        <a href="views/us/aboutUS_views.html" style="color: inherit; text-decoration: none;">About Us</a>
+                    </div>
                 </div>
             </div>
             <p class="text-muted small mt-3">© 2024 ruccie, sproutnforest, bhaze. All rights reserved.</p>
         </div>
+      
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="regist.js">
-        // // Form validation
-        // document.getElementById('profile-form').addEventListener('submit', function(event) {
-        //     event.preventDefault();
-        //     alert('Profile updated successfully!');
-        // });
-
-        // document.getElementById('settings-form').addEventListener('submit', function(event) {
-        //     event.preventDefault();
-        //     alert('Password changed successfully!');
-        // });
-
-        // // Logout confirmation
-        // document.getElementById('logout-btn').addEventListener('click', function() {
-        //     if (confirm('Are you sure you want to logout?')) {
-        //         alert('Logged out!');
-        //     }
-        // });
-        // function redirectToLogin() {
-        //     window.location.href = "./afterLogin.html";
-        // }
-    </script>
+    <script src="../../controller/controller.js"></script>
 </script>
 </body>
 </html>

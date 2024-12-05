@@ -116,20 +116,21 @@ app.put('/comment/:id', async (req, res) => {
       return res.status(400).json({ message: 'Comment cannot be empty.' });
     }
 
-    const result = await commentCollection.findOneAndUpdate(
-      { _id: new ObjectId(id) }, 
-      { $set: { comment } },
-      { returnDocument: 'after' } 
-    );
+    try {
+      const result = await commentCollection.findOneAndUpdate(
+        { _id: new ObjectId(id) }, 
+        { $set: { comment } },
+        { returnDocument: 'after' } 
+      );
 
-    if (!result.value) {
-      return res.status(404).json({ message: 'Comment not found.' });
+        res.status(200).json({
+            message: 'Comment updated successfully.',
+            blog: result.value,
+        });
+    } catch (error) {
+        console.error('Error updating blog:', error);
+        res.status(500).json({ message: 'Error updating blog.', error: error.message });
     }
-
-    res.json({
-      message: 'Comment updated successfully!',
-      data: result.value,
-    });
   } catch (error) {
     console.error('Error updating comment:', error);
     res.status(500).json({ message: 'Internal Server Error' });
@@ -199,23 +200,24 @@ app.post('/pieces', async (req, res) => {
       if (!password || password.trim() === '') {
         return res.status(400).json({ message: 'Comment cannot be empty.' });
       }
-  
-      const result = await usersCollection.findOneAndUpdate(
-        { _id: new ObjectId(id) }, 
-        { $set: { password } },
-        { returnDocument: 'after' } 
-      );
-  
-      if (!result.value) {
-        return res.status(404).json({ message: 'password not found.' });
+
+      try {
+          const result = await usersCollection.findOneAndUpdate(
+            { _id: new ObjectId(id) }, 
+            { $set: { password } },
+            { returnDocument: 'after' } 
+          );
+
+          res.status(200).json({
+              message: 'password updated successfully.',
+              blog: result.value,
+          });
+      } catch (error) {
+          console.error('Error updating password:', error);
+          res.status(500).json({ message: 'Error updating password.', error: error.message });
       }
-  
-      res.json({
-        message: 'password updated successfully!',
-        data: result.value,
-      });
     } catch (error) {
-      console.error('Error updating comment:', error);
+      console.error('Error updating password:', error);
       res.status(500).json({ message: 'Internal Server Error' });
     }
   });
@@ -266,7 +268,6 @@ app.post('/pieces', async (req, res) => {
 
   app.get('/collections', async (req, res) => {
     try {
-      console.log("inside");
       await client.connect();
       const database = client.db('MATCHI');
       const piecesCollection = database.collection('collections');
@@ -335,20 +336,22 @@ app.put('/collections/:id', async (req, res) => {
       return res.status(400).json({ message: 'Name cannot be empty.' });
     }
 
-    const result = await usersCollection.findOneAndUpdate(
-      { _id: new ObjectId(id) }, 
-      { $set: { Name } },
-      { returnDocument: 'after' } 
-    );
+    try {
+      
+      const result = await usersCollection.findOneAndUpdate(
+        { _id: new ObjectId(id) }, 
+        { $set: { Name } },
+        { returnDocument: 'after' } 
+      );
 
-    if (!result.value) {
-      return res.status(404).json({ message: 'collection not found.' });
-    }
-
-    res.json({
-      message: 'collection updated successfully!',
-      data: result.value,
-    });
+      res.status(200).json({
+          message: 'Collection updated successfully.',
+          blog: result.value,
+      });
+  } catch (error) {
+      console.error('Error updating blog:', error);
+      res.status(500).json({ message: 'Error updating blog.', error: error.message });
+  }
   } catch (error) {
     console.error('Error updating collection:', error);
     res.status(500).json({ message: 'Internal Server Error' });
@@ -370,19 +373,19 @@ app.put('/addToCollections/:id', async (req, res) => {
       return res.status(400).json({ message: 'Name cannot be empty.' });
     }
 
-    const result = await usersCollection.findOneAndUpdate(
-      { _id: new ObjectId(id) }, 
-      { $addToSet: { Items: addtosetitem } }
-    );
-
-    if (!result.value) {
-      return res.status(404).json({ message: 'collection not found.' });
-    }
-
-    res.json({
-      message: 'collection updated successfully!',
-      data: result.value,
-    });
+    try {
+      const result = await usersCollection.findOneAndUpdate(
+        { _id: new ObjectId(id) }, 
+        { $addToSet: { Items: addtosetitem } }
+      );
+      res.status(200).json({
+          message: 'collection updated successfully.',
+          blog: result.value,
+      });
+  } catch (error) {
+      console.error('Error updating collection:', error);
+      res.status(500).json({ message: 'Error updating collection.', error: error.message });
+  }
   } catch (error) {
     console.error('Error updating collection:', error);
     res.status(500).json({ message: 'Internal Server Error' });
@@ -401,25 +404,115 @@ app.put('/removeFromCollections/:id', async (req, res) => {
 
     console.log(removeitemfromset);
 
-    const result = await usersCollection.findOneAndUpdate(
-      { _id: new ObjectId(id) }, 
-      { $pull: { Items: removeitemfromset } }
-    );
+    try {
+        const result = await usersCollection.findOneAndUpdate(
+          { _id: new ObjectId(id) }, 
+          { $pull: { Items: removeitemfromset } }
+        );
 
-    if (!result.value) {
-      return res.status(404).json({ message: 'collection not found.' });
+        res.status(200).json({
+            message: 'collection updated successfully.',
+            blog: result.value,
+        });
+    } catch (error) {
+        console.error('Error updating collection:', error);
+        res.status(500).json({ message: 'Error updating collection.', error: error.message });
     }
-
-    res.json({
-      message: 'collection updated successfully!',
-      data: result.value,
-    });
   } catch (error) {
     console.error('Error updating collection:', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
 
+app.get('/blogs', async (req, res) => {
+  try {
+    await client.connect();
+    const database = client.db('MATCHI');
+    const piecesCollection = database.collection('blogs');
+    const data = await piecesCollection.find({}).toArray();
+    res.json(data);
+  } catch (error) {
+    res.status(500).send('Error fetching data: ' + error);
+  }
+});
+
+app.delete('/blogs', async (req, res) => {
+  try {
+    console.log("hi");
+      await client.connect();
+      const database = client.db('MATCHI');
+      const usersCollection = database.collection('blogs');
+      const { id } = req.body;
+      if (!id) {
+          return res.status(400).send('No ID provided');
+      }
+      console.log(id);
+  
+      const result = await usersCollection.deleteOne({ _id: new ObjectId(id) });
+  
+      if (result.deletedCount === 1) {
+          console.log('Deleted collection with ID:', id);
+          res.status(200).send('Collection deleted successfully.');
+      } else {
+          console.log('No collection found with ID:', id);
+          res.status(404).send('Collection not found.');
+      }
+  } catch (error) {
+      console.error('Error deleting collection:', error);
+      res.status(500).send('Error deleting collection from MongoDB');
+  }
+});
+
+app.post('/blogs', async (req, res) => {
+try {
+  console.log("im in");
+  await client.connect(); 
+  const database = client.db('MATCHI');
+  const piecesCollection = database.collection('blogs');
+
+  const newPiece = req.body;
+  console.log("Received new collections:", newPiece);
+  const result = await piecesCollection.insertOne(newPiece);
+  res.status(201).json({ insertedId: result.insertedId });
+} catch (error) {
+  console.error("Error inserting collections:", error);
+  res.status(500).send('Error inserting collections into MongoDB');
+}
+})
+
+app.put('/blogs/:id', async (req, res) => {
+  try {
+      await client.connect();
+      const database = client.db('MATCHI');
+      const usersCollection = database.collection('blogs');
+
+      const { id } = req.params;
+      const { title, content } = req.body;
+
+      if (!title || !content) {
+          return res.status(400).json({ message: 'Title and content are required.' });
+      }
+
+      try {
+          const result = await usersCollection.findOneAndUpdate(
+              { _id: new ObjectId(id) },
+              { $set: { title, content } },
+              { returnDocument: 'after' }
+          );
+
+          res.status(200).json({
+              message: 'Blog updated successfully.',
+              blog: result.value,
+          });
+      } catch (error) {
+          console.error('Error updating blog:', error);
+          res.status(500).json({ message: 'Error updating blog.', error: error.message });
+      }
+  } catch (error) {
+      console.error('Database connection error:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
