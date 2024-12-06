@@ -14,8 +14,8 @@
 </head>
 <body id="fabric">
     
-   <!-- Navbar -->
-   <selection id="navbar">
+     <!-- Navbar -->
+    <selection id="navbar">
     <nav class="navbar navbar-expand-lg sticky-top" style="background-color: rgba(95, 111, 82, 0.09); backdrop-filter: blur(10px);">
         <div class="container">
             <a class="navbar-brand" href="/public/views/homepage_views.html" style="font-weight: 1000; font-size: 2rem; font-family:  'Times New Roman', serif; text-transform: uppercase; letter-spacing: 15px; color: rgba(95, 111, 82, 10); text-shadow: 1px 1px 5px #ffffff;">
@@ -98,7 +98,7 @@
         </div>
 
     </nav>
-</selection>
+    </selection>
 
     <!-- Header -->
     <header class="text-center py-2 bg-light ">
@@ -224,61 +224,9 @@
                     <h5 style="font-family: 'Times New Roman', serif; font-size: 1.5rem; margin-bottom: 10px;">5000 BC</h5>
                     <p style="font-family: 'Times New Roman', serif; color: #000000; font-size: 1rem;">The first use of cotton in the Indus Valley and Peru.</p>
                 </div>
-
-                <script>
-                    // JavaScript for Timeline Interaction
-                    const timelineItems = document.querySelectorAll('.timeline-item .circle');
-                    const prevBtn = document.getElementById('prev-btn');
-                    const nextBtn = document.getElementById('next-btn');
-                    const contentTitle = document.querySelector('.timeline-content h5');
-                    const contentDesc = document.querySelector('.timeline-content p');
-
-                    const data = [
-                        { year: '5000 BC', desc: 'The first use of cotton in the Indus Valley and Peru.' },
-                        { year: '2600 BC', desc: 'Silk weaving starts in ancient China.' },
-                        { year: '3000 BC', desc: 'Wool production begins in Mesopotamia.' },
-                        { year: '1800 AD', desc: 'The Industrial Revolution transforms textile technology.' },
-                        { year: '1930 AD', desc: 'Synthetic fibers like nylon and polyester are introduced.' },
-                    ];
-
-                    let activeIndex = 0;
-
-                    function updateTimeline() {
-                        timelineItems.forEach((circle, index) => {
-                            if (index === activeIndex) {
-                                circle.style.backgroundColor = '#0d6efd';
-                                circle.style.color = '#fff';
-                            } else {
-                                circle.style.backgroundColor = '#fff';
-                                circle.style.color = '#b9b9b9';
-                            }
-                        });
-
-                        contentTitle.textContent = data[activeIndex].year;
-                        contentDesc.textContent = data[activeIndex].desc;
-
-                        prevBtn.disabled = activeIndex === 0;
-                        nextBtn.disabled = activeIndex === data.length - 1;
-                    }
-
-                    prevBtn.addEventListener('click', () => {
-                        if (activeIndex > 0) {
-                            activeIndex--;
-                            updateTimeline();
-                        }
-                    });
-
-                    nextBtn.addEventListener('click', () => {
-                        if (activeIndex < data.length - 1) {
-                            activeIndex++;
-                            updateTimeline();
-                        }
-                    });
-
-                    updateTimeline();
-                </script>
             </div>
         </section>
+
         <!-- Section: Cotton Blend Description -->
         <section style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);margin-bottom:50px; margin-top: 50px; background-color: #f5f5f5; padding: 50px;">
             <div class="row align-items-center">
@@ -306,6 +254,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Section: wool Blend Description -->
         <section style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); margin-bottom:50px; margin-top: 50px; background-color: #f5f5f5; padding: 50px;">
             <div class="row align-items-center">
@@ -333,6 +282,7 @@
                 </div>
             </div>
         </section>
+
          <!-- Section: silk satin  Blend Description -->
          <section style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); margin-bottom:50px; margin-top: 50px; background-color: #f5f5f5; padding: 50px;">
             <div class="row align-items-center">
@@ -354,6 +304,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-9">
                     <h2 style=" font-family: 'Times New Roman', serif; font-size: 2rem; font-weight: bold; margin-bottom: 5px;">Silk Satin</h2>
                     <a href="https://knowingfabric.com/what-is-silk-satin-fabric/" style=" font-family: 'Times New Roman', serif; color: #0e3b1e; font-size: 1rem; margin-bottom: 20px;"
@@ -366,6 +317,7 @@
                 </div>
             </div>
         </section>
+
          <!-- Section: denim Blend Description -->
          <section style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); margin-bottom:50px; margin-top: 50px; background-color: #f5f5f5; padding: 50px;">
             <div class="row align-items-center">
@@ -395,53 +347,41 @@
         </section>
     </main>
 
-    <!-- jQuery Script -->
-    <script>
-        $(document).ready(function() {
-            // Add hover effect for grid images
-            $(".row img").hover(function() {
-                $(this).css("transform", "scale(1.05)");
-                $(this).css("border", "8px solid #fff");
-            }, function() {
-                $(this).css("transform", "scale(1)");
-                $(this).css("border", "none");
-            });
-        });
-    </script>
+    <footer class="footer text-center py-3" style="background-color: #A9B388;">
+        <div class="container" style="padding: 30px 0px 10px 0px;">
+            <div class="row justify-content-center">
+                <div class="col-md-2 mb-2">
+                    <i class="bi bi-people-fill fs-5 text-dark"></i>
+                    <h6 style="font-size: 12px;">Collaboration</h6>
+                    <p style="font-size: 11px;">Engage with fashion enthusiasts.</p>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <i class="bi bi-box2 fs-5 text-success"></i>
+                    <h6 style="font-size: 12px;">Fabric Knowledge</h6>
+                    <p style="font-size: 11px;">Learn about fabrics and sustainability.</p>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <i class="bi-lightbulb fs-5 text-warning"></i>
+                    <h6 style="font-size: 12px;">Style Tips</h6>
+                    <p style="font-size: 11px;">Elevate your personal style.</p>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <i  class="bi-check-circle fs-5 text-success"></i>
+                    <h6 style="font-size: 12px;">Brand Transparency</h6>
+                    <p style="font-size: 11px;">Evaluate authentic and ethical brands.</p>
+                </div>
+            </div>
+            <div class="container" style="padding-top: 5px; padding-bottom: 2px;">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-center justify-content-end"><a href="/public/views/us/contact_views.html" style="color: inherit; text-decoration: none;">Contact Us</a></div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-start"><a href="/public/views/us/aboutUS_views.html" style="color: inherit; text-decoration: none;">About Us</a></div>
+                </div>
+            </div>
+            <p class="text-muted small mt-3">© 2024 ruccie, sproutnforest, bhaze. All rights reserved.</p>
+        </div>
+    </footer>
 
-<footer class="footer text-center py-3" style="background-color: #A9B388;">
-    <div class="container" style="padding: 30px 0px 10px 0px;">
-        <div class="row justify-content-center">
-            <div class="col-md-2 mb-2">
-                <i class="bi bi-people-fill fs-5 text-dark"></i>
-                <h6 style="font-size: 12px;">Collaboration</h6>
-                <p style="font-size: 11px;">Engage with fashion enthusiasts.</p>
-            </div>
-            <div class="col-md-2 mb-2">
-                <i class="bi bi-box2 fs-5 text-success"></i>
-                <h6 style="font-size: 12px;">Fabric Knowledge</h6>
-                <p style="font-size: 11px;">Learn about fabrics and sustainability.</p>
-            </div>
-            <div class="col-md-2 mb-2">
-                <i class="bi-lightbulb fs-5 text-warning"></i>
-                <h6 style="font-size: 12px;">Style Tips</h6>
-                <p style="font-size: 11px;">Elevate your personal style.</p>
-            </div>
-            <div class="col-md-2 mb-2">
-                <i  class="bi-check-circle fs-5 text-success"></i>
-                <h6 style="font-size: 12px;">Brand Transparency</h6>
-                <p style="font-size: 11px;">Evaluate authentic and ethical brands.</p>
-            </div>
-        </div>
-        <div class="container" style="padding-top: 5px; padding-bottom: 2px;">
-            <div class="row">
-                <div class="col-md-6 d-flex align-items-center justify-content-end"><a href="/public/views/us/contact_views.html" style="color: inherit; text-decoration: none;">Contact Us</a></div>
-                <div class="col-md-6 d-flex align-items-center justify-content-start"><a href="/public/views/us/aboutUS_views.html" style="color: inherit; text-decoration: none;">About Us</a></div>
-            </div>
-        </div>
-        <p class="text-muted small mt-3">© 2024 ruccie, sproutnforest, bhaze. All rights reserved.</p>
-    </div>
-</footer>
+    <script src="fabric.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../controller/controller.js"></script>
 </body>
