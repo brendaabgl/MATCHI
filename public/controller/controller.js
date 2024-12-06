@@ -5,7 +5,7 @@ function toggleSearch() {
 function handleSearch(event) {
     event.preventDefault();
     const searchValue = document.getElementById('searchInput').value;
-    window.location.href = "browse.html?name="+searchValue;
+    window.location.href = "/public/views/browse.html?name="+searchValue;
 }
 
 function selectFilter(btn) {
