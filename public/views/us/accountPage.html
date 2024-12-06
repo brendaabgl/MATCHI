@@ -247,8 +247,13 @@
                         <div class="col-md-8 d-flex flex-column justify-content-center">
                             <p ng-if="!isEditing" style="font-size: large;" id="commentEditing">{{item.comment}}</p>
                             <div class="d-flex" ng-if="isEditing">
-                                <form class="d-flex mt-lg-10 w-100" ng-submit="editComment(item._id, insertedComment)">
-                                    <input class="form-control w-100" type="text" ng-model="insertedComment" placeholder="Type in your comment" aria-label="Comment">
+                                <form class="d-flex mt-lg-10 w-100" ng-submit="editComment(item._id, item.comment)">
+                                    <input 
+                                        class="form-control w-100" 
+                                        type="text" 
+                                        ng-model="item.comment" 
+                                        placeholder="Type in your comment" 
+                                        aria-label="Comment">
                                     <button class="btn btn-outline-dark ms-2" type="submit">Edit</button>
                                 </form>
                             </div>
